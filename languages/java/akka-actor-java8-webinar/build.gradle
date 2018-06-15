@@ -1,0 +1,47 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'application'
+
+group = 'com.lightbend'
+version = '1.0-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+task(sample1, dependsOn: 'classes', type: JavaExec) {
+   main =  'com.lightbend.akkasample.sample1.App'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task(sample2, dependsOn: 'classes', type: JavaExec) {
+   main =  'com.lightbend.akkasample.sample2.App'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task(sample3, dependsOn: 'classes', type: JavaExec) {
+   main =  'com.lightbend.akkasample.sample3.App'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task(sample4, dependsOn: 'classes', type: JavaExec) {
+   main =  'com.lightbend.akkasample.sample4.App'
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'com.typesafe.akka', name: 'akka-actor_2.11', version:'2.4.9'
+    compile group: 'com.typesafe.akka', name: 'akka-http-core_2.11', version:'2.4.9'
+    compile group: 'com.typesafe.akka', name: 'akka-http-experimental_2.11', version:'2.4.9'
+    compile group: 'com.typesafe.akka', name: 'akka-http-jackson-experimental_2.11', version:'2.4.9'
+    testCompile group: 'com.typesafe.akka', name: 'akka-testkit_2.11', version:'2.4.9'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+}
