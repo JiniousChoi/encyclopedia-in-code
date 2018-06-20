@@ -23,10 +23,10 @@ object runnable {
     println("fact(10) with currying = " + exer4.fact(10))
 
     horizontal_line
-    val aOne = new Rational(1)
-    val aThird = new Rational(1, 3)
-    val aHalf = new Rational(1, 2)
-    val aSixth = new Rational(1, 6)
+    val aOne = new exer5.Rational(1)
+    val aThird = new exer5.Rational(1, 3)
+    val aHalf = new exer5.Rational(1, 2)
+    val aSixth = new exer5.Rational(1, 6)
     println("new Rational(1) = " + aOne)
     println("aHalf + aHalf = " + (aHalf + aHalf))
     println("aHalf - aHalf = " + (aHalf - aHalf))
@@ -40,6 +40,33 @@ object runnable {
     println("aSixth max aHalf = " + (aSixth max aHalf))
     println("aHalf max aSixth = " + (aHalf max aSixth))
     println("-aHalf = " + -aHalf)
+
+    horizontal_line
+    println("todo week2/find_fixed_points")
+
+    horizontal_line
+    val nil = new exer7.JNil[Int]
+    val ls = new exer7.JCons(1, new exer7.JCons(2, nil))
+    println("val ls = new JCons(1, new JCons(2, new JNil[Int]))")
+    println("ls.head = " + ls.head)
+    println("ls.tail.head = " + ls.tail.head)
+    println("nth(0, ls) = " + exer7.nth(0, ls))
+    println("nth(1, ls) = " + exer7.nth(1, ls))
+    try {
+      exer7.nth(11, ls)
+    } catch {
+      case e : Exception => println("nth(11, ls) => " + e)
+    }
+
+    horizontal_line
+    println("IntSet is binary search tree for int")
+    val tree1 = new exer8.NonEmpty(3, new exer8.NonEmpty(2), new exer8.NonEmpty(5))
+    val tree2 = new exer8.NonEmpty(4, new exer8.NonEmpty(1), new exer8.NonEmpty(8))
+    println("val tree1 = new NonEmpty(3, new NonEmpty(2), new NonEmpty(5))")
+    println("val tree2 = new NonEmpty(4, new NonEmpty(1), new NonEmpty(8))")
+    println("tree1 => " + tree1)
+    println("tree1 => " + tree2)
+    println("tree1 union tree2 => " + (tree1 union tree2))
   }
 
   def horizontal_line = println("-" * 30)
@@ -98,36 +125,94 @@ object exer4 {
   def fact(n: Int): Int = product(id, 1, n)
 }
 
-class Rational(x: Int, y: Int) {
-  require(y != 0, "denominator should be non-zero!")
-  val g = gcd(x, y).abs
-  val numer = x / g
-  val denom = y / g
+object exer5 {
+  class Rational(x: Int, y: Int) {
+    require(y != 0, "denominator should be non-zero!")
+    val g = gcd(x, y).abs
+    val numer = x / g
+    val denom = y / g
 
-  def this(a: Int) = this(a, 1)
-  def + (other: Rational): Rational =
-    new Rational(
-      numer * other.denom + denom * other.numer,
-      denom * other.denom)
-  def - (other: Rational): Rational =
-    new Rational(
-      numer * other.denom - denom * other.numer,
-      denom * other.denom)
-  def * (other: Rational): Rational =
-    new Rational(numer * other.numer, denom * other.denom)
-  def / (other: Rational): Rational =
-    new Rational(numer * other.denom, denom * other.numer)
-  def unary_- = new Rational(-numer, denom)
-  def < (other:Rational) =
-    numer * other.denom < other.numer * denom
-  def max (other: Rational) =
-    if (this < other) other else this
-  override def toString(): String =
-    if (denom == 1) numer + "" else numer + "/" + denom
-  def gcd(a: Int, b: Int): Int = if (b==0) a else gcd(b, a%b)
+    def this(a: Int) = this(a, 1)
+    def + (other: Rational): Rational =
+      new Rational(
+        numer * other.denom + denom * other.numer,
+        denom * other.denom)
+    def - (other: Rational): Rational =
+      new Rational(
+        numer * other.denom - denom * other.numer,
+        denom * other.denom)
+    def * (other: Rational): Rational =
+      new Rational(numer * other.numer, denom * other.denom)
+    def / (other: Rational): Rational =
+      new Rational(numer * other.denom, denom * other.numer)
+    def unary_- = new Rational(-numer, denom)
+    def < (other:Rational) =
+      numer * other.denom < other.numer * denom
+    def max (other: Rational) =
+      if (this < other) other else this
+    override def toString(): String =
+      if (denom == 1) numer + "" else numer + "/" + denom
+    def gcd(a: Int, b: Int): Int = if (b==0) a else gcd(b, a%b)
+  }
 }
 
 object exer6 {
   //todo week2/find_fixed_points
 }
 
+object exer7 {
+  trait JList[T] {
+    def head: T
+    def tail: JList[T]
+    def isEmpty: Boolean
+  }
+
+  class JNil[T] extends JList[T] {
+    def head: Nothing = throw new NoSuchElementException("JNil.head")
+    def tail: Nothing = throw new NoSuchElementException("JNil.tail")
+    def isEmpty: Boolean = true
+  }
+
+  class JCons[T](val head: T, val tail: JList[T]) extends JList[T] {
+    def isEmpty: Boolean = false
+  }
+
+  def nth[T](n: Int, xs: JList[T]): T = {
+    if (xs.isEmpty) throw new IndexOutOfBoundsException
+    if (n==0) xs.head
+    else nth(n-1, xs.tail)
+  }
+}
+
+object exer8 {
+  // binary search tree for int
+  abstract class IntSet {
+    def contains(x: Int): Boolean
+    def incl(x: Int): IntSet
+    def union(other: IntSet): IntSet
+  }
+
+  object Empty extends IntSet {
+    override def contains(x: Int): Boolean = false
+    override def incl(x: Int): IntSet =
+      new NonEmpty(x, Empty, Empty)
+    override def union(other: IntSet): IntSet = other
+    override def toString(): String = ""
+  }
+
+  class NonEmpty(elem: Int, left: IntSet = Empty, right: IntSet = Empty) extends IntSet {
+    override def contains(x: Int): Boolean =
+      if (elem == x) true
+      else if (x < elem) left contains x
+      else right contains x
+    override def incl(x: Int): IntSet =
+      if (elem == x) this
+      else if (x < elem) new NonEmpty(elem, left incl x, right)
+      else new NonEmpty(elem, left, right incl x)
+    override def union(other: IntSet): IntSet =
+      //elegant yet inefficient implementation
+      ((left union right) union other) incl elem
+    override def toString(): String =
+      "{" + left + " , " + elem + " , " + right + "}"
+  }
+}
