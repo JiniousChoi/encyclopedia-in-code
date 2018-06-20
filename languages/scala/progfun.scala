@@ -126,6 +126,7 @@ object exer4 {
 }
 
 object exer5 {
+  // todo implicit for (1 : Int + 1/2 : Rational)
   class Rational(x: Int, y: Int) {
     require(y != 0, "denominator should be non-zero!")
     val g = gcd(x, y).abs
