@@ -1,12 +1,17 @@
 // Created by Derek Banas
-// Install Scala on Mac : Install Java VM, Install Homebrew,
-// In terminal type: brew install scala
+// Modified by Jin Choi
 
 // Scala is the perfect choice if you want to explore functional
 // programming without disregarding OOP
 // Scala runs on the JVM which provides a ton of libraries
 
 // File ends with the scala extension
+// conventionally .sc for script
+// scala script cannot be compiled; it can only be interpreted by issuing `scala <filename>`
+// conventionally .scala for compilable scala program
+// scala code can be compiled by issuing `scalac <filename>`
+// also, it can be interpreted dynamically as if scala script
+// This ScalaTutorial.scala is not a script file.
 
 // How to import library functions
 import scala.io.StdIn.{readLine,readInt}
@@ -134,12 +139,13 @@ true || false
 */
 
 object ScalaTut {
+
   def main(args: Array[String]) {
 
-// ---------- LOOPING ----------
-// To compile and run in the terminal
-// 1. scalac ScalaTut.scala
-// 2. scala ScalaTut
+  // ---------- LOOPING ----------
+  // To compile and run in the terminal
+  // 1. scalac ScalaTut.scala
+  // 2. scala ScalaTut
 
     var i = 0
 
@@ -212,18 +218,18 @@ object ScalaTut {
     printPrimes
 
 
-// ---------- INPUT / OUTPUT ----------
+  // ---------- INPUT / OUTPUT ----------
 
-var numberGuess = 0
+  var numberGuess = 0
 
-do{
-  print("Guess a number : ")
+  do{
+    print("Guess a number : ")
 
-  // You can also use readInt, readDouble, readByte, readShort, readLong,
-  //
-  numberGuess = readLine.toInt
+    // You can also use readInt, readDouble, readByte, readShort, readLong,
+    //
+    numberGuess = readLine.toInt
 
-  } while(numberGuess != 15)
+    } while(numberGuess != 15)
 
   printf("You guessed the secret number %d\n", 15)
 
@@ -252,290 +258,291 @@ do{
 
   // Special Characters : \n, \b, \\, \a
 
-// ---------- STRINGS ----------
-var randSent = "I saw a dragon fly by"
 
-// Get the 3rd index value
-println("3rd Index : " + randSent(3))
+  // ---------- STRINGS ----------
+  var randSent = "I saw a dragon fly by"
 
-// Get String length
-println("String length " + randSent.length())
+  // Get the 3rd index value
+  println("3rd Index : " + randSent(3))
 
-// Concatenate strings
-println(randSent.concat(" and explode"))
+  // Get String length
+  println("String length " + randSent.length())
 
-// Compare strings for equality
-println("Are strings equal " + "I saw a dragon".equals(randSent))
+  // Concatenate strings
+  println(randSent.concat(" and explode"))
 
-// Get index of a match
-println("dragon starts at index ", randSent.indexOf("dragon"))
+  // Compare strings for equality
+  println("Are strings equal " + "I saw a dragon".equals(randSent))
 
-// Convert a string into an array
-val randSentArray = randSent.toArray
+  // Get index of a match
+  println("dragon starts at index ", randSent.indexOf("dragon"))
 
-for (v <- randSentArray)
-  println(v)
+  // Convert a string into an array
+  val randSentArray = randSent.toArray
 
-// ---------- FUNCTIONS ----------
-// def funcName (param1:dataType, param2:dataType) : returnType = {
-//    function body
-//    return valueToReturn
-// }
+  for (v <- randSentArray)
+    println(v)
 
-// You can give parameters default values
-def getSum( num1:Int = 1, num2:Int = 1) : Int = {
-  return num1 + num2
-}
+  // ---------- FUNCTIONS ----------
+  // def funcName (param1:dataType, param2:dataType) : returnType = {
+  //    function body
+  //    return valueToReturn
+  // }
 
-println("5 + 4 = " + getSum(5,4))
-
-// you can use named arguments
-println("5 + 4 = " + getSum(num2=5, num1=4))
-
-// A function that returns nothing (Procedure)
-def sayHi() : Unit = {
-  println("Hi how are you doing")
-}
-
-sayHi
-
-// Receive variable number of arguments
-def getSum2(args: Int*) : Int = {
-  var sum : Int = 0
-  for(num <- args){
-    sum += num
+  // You can give parameters default values
+  def getSum( num1:Int = 1, num2:Int = 1) : Int = {
+    return num1 + num2
   }
-  sum
-}
 
-println("getSum2: " + getSum2(1,2,3,4,5))
+  println("5 + 4 = " + getSum(5,4))
 
-// Recursion example calculating factorials
-def factorial(num : BigInt) : BigInt = {
-  if (num <= 1)
-    1
-  else
-    num * factorial(num - 1)
-}
+  // you can use named arguments
+  println("5 + 4 = " + getSum(num2=5, num1=4))
 
-// 1st: num = 4 * factorial(3) = 4 * 6 = 24
-// 2nd: num = 3 * factorial(2) = 3 * 2 = 6
-// 3rd: num = 2 * factorial(1) = 2 * 1 = 2
-
-println("Factorial of 4 = " + factorial(4))
-
-// ---------- ARRAYS ----------
-// You'll use arrays when the size is fixed, or an ArrayBuffer for a
-// variable size
-
-// Create an array of Ints with a max size of 20
-val favNums = new Array[Int](20)
-
-// Create and initialize array in 1 line
-val friends = Array("Bob", "Tom")
-
-// Change the value in an array
-friends(0) = "Sue"
-
-println("Best Friend " + friends(0))
-
-// Create an ArrayBuffer
-val friends2 = ArrayBuffer[String]()
-
-// Add an item to the 1st index
-friends2.insert(0, "Phil")
-
-// Add item to the next available slot
-friends2 += "Mark"
-
-// Add multiple values to the next available slot
-friends2 ++= Array("Susy", "Paul")
-
-// Add items starting at 2nd slot
-friends2.insert(1, "Mike", "Sally", "Sam", "Mary", "Sue")
-
-// Remove the 2nd element
-friends2.remove(1)
-
-// Remove 2 elements starting at the 2nd index
-friends2.remove(1, 2)
-
-// Cycle through and print ArrayList or Array
-var friend : String = " "
-for(friend <- friends2)
-      println(friend)
-
-// Add values to an array with a loop
-for (j <- 0 to (favNums.length - 1)){
-  favNums(j) = j
-  println(favNums(j))
-}
-
-// Use yield to multiply all values times 2 and store in a new array
-val favNumsTimes2 = for(num <- favNums) yield 2 * num
-
-// Another way to print out values in array
-favNumsTimes2.foreach(println)
-
-// You can also store values that match a condition
-var favNumsDiv4 = for(num <- favNums if num % 4 == 0) yield num
-
-favNumsDiv4.foreach(println)
-
-// Create a multidimensional array with Array.ofDim
-var multTable = Array.ofDim[Int](10,10)
-
-for(i <- 0 to 9){
-  for(j <- 0 to 9){
-    multTable(i)(j) = i * j
+  // A function that returns nothing (Procedure)
+  def sayHi() : Unit = {
+    println("Hi how are you doing")
   }
-}
 
-for(i <- 0 to 9){
-  for(j <- 0 to 9){
-    printf("%d : %d = %d\n", i, j, multTable(i)(j))
+  sayHi
+
+  // Receive variable number of arguments
+  def getSum2(args: Int*) : Int = {
+    var sum : Int = 0
+    for(num <- args){
+      sum += num
+    }
+    sum
   }
-}
 
-println("Sum : " + favNums.sum)
+  println("getSum2: " + getSum2(1,2,3,4,5))
 
-println("Min : " + favNums.min)
+  // Recursion example calculating factorials
+  def factorial(num : BigInt) : BigInt = {
+    if (num <= 1)
+      1
+    else
+      num * factorial(num - 1)
+  }
 
-println("Max : " + favNums.max)
+  // 1st: num = 4 * factorial(3) = 4 * 6 = 24
+  // 2nd: num = 3 * factorial(2) = 3 * 2 = 6
+  // 3rd: num = 2 * factorial(1) = 2 * 1 = 2
 
-// Sort in desending order (Use < for assending)
-val sortedNums = favNums.sortWith(_ > _)
+  println("Factorial of 4 = " + factorial(4))
 
-// Return an indexed sequence and convert it into a string with commas
-println(sortedNums.deep.mkString(", "))
+  // ---------- ARRAYS ----------
+  // You'll use arrays when the size is fixed, or an ArrayBuffer for a
+  // variable size
 
-// ---------- MAPS ----------
-// Maps are collections of key value pairs
+  // Create an array of Ints with a max size of 20
+  val favNums = new Array[Int](20)
 
-// Create a Map that can't be changed (Immutable)
-val employees = Map("Manager" -> "Bob Smith", "Secretary" -> "Sue Brown")
+  // Create and initialize array in 1 line
+  val friends = Array("Bob", "Tom")
 
-// Get value using the key after checking that it exists
-if(employees.contains("Manager"))
-  printf("Manager : %s\n", employees("Manager"))
+  // Change the value in an array
+  friends(0) = "Sue"
 
-// Create a Mutable map
-val customers = collection.mutable.Map(100 -> "Paul Smith",
-  101 -> "Sally Smith")
+  println("Best Friend " + friends(0))
 
-printf("Cust 1 : %s\n", customers(100))
+  // Create an ArrayBuffer
+  val friends2 = ArrayBuffer[String]()
 
-// Change a value using the key
-customers(100) = "Tom Marks"
+  // Add an item to the 1st index
+  friends2.insert(0, "Phil")
 
-// Add an item
-customers(102) = "Megan Swift"
+  // Add item to the next available slot
+  friends2 += "Mark"
 
-// Output a Map
-for((k,v) <- customers)
-  printf("%d : %s\n", k, v)
+  // Add multiple values to the next available slot
+  friends2 ++= Array("Susy", "Paul")
 
-// ---------- TUPLES ----------
-// Tuples can hold values of many types, but they are immutable
+  // Add items starting at 2nd slot
+  friends2.insert(1, "Mike", "Sally", "Sam", "Mary", "Sue")
 
-var tupleMarge = (103, "Marge Simpson", 10.25)
+  // Remove the 2nd element
+  friends2.remove(1)
 
-printf("%s owes us $%.2f\n", tupleMarge._2, tupleMarge._3)
+  // Remove 2 elements starting at the 2nd index
+  friends2.remove(1, 2)
 
-// Iterate through a tuple
-tupleMarge.productIterator.foreach{ i => println(i)}
+  // Cycle through and print ArrayList or Array
+  var friend : String = " "
+  for(friend <- friends2)
+        println(friend)
 
-// Convert Tuple to String
-println(tupleMarge.toString())
+  // Add values to an array with a loop
+  for (j <- 0 to (favNums.length - 1)){
+    favNums(j) = j
+    println(favNums(j))
+  }
 
-// ---------- CLASSES ----------
-val rover = new Animal
-rover.setName("Rover")
-rover.setSound("Woof")
-printf("%s says %s\n", rover.getName, rover.getSound)
+  // Use yield to multiply all values times 2 and store in a new array
+  val favNumsTimes2 = for(num <- favNums) yield 2 * num
 
-val whiskers = new Animal("Whiskers", "Meow")
-println(s"${whiskers.getName} with id ${whiskers.id} says ${whiskers.getSound}")
+  // Another way to print out values in array
+  favNumsTimes2.foreach(println)
 
-println(whiskers.toString)
+  // You can also store values that match a condition
+  var favNumsDiv4 = for(num <- favNums if num % 4 == 0) yield num
 
-val spike = new Dog("Spike", "Woof", "Grrrr")
+  favNumsDiv4.foreach(println)
 
-spike.setName("Spike")
-println(spike.toString)
+  // Create a multidimensional array with Array.ofDim
+  var multTable = Array.ofDim[Int](10,10)
 
-val fang = new Wolf("Fang")
-fang.moveSpeed = 36.0
-println(fang.move)
+  for(i <- 0 to 9){
+    for(j <- 0 to 9){
+      multTable(i)(j) = i * j
+    }
+  }
 
-// ---------- TRAITS ----------
-val superman = new Superhero("Superman")
-println(superman.fly)
-println(superman.hitByBullet)
-println(superman.ricochet(2500))
+  for(i <- 0 to 9){
+    for(j <- 0 to 9){
+      printf("%d : %d = %d\n", i, j, multTable(i)(j))
+    }
+  }
 
-// ---------- HIGHER ORDER FUNCTIONS ----------
-// Functions can be passed like any other variable
-// You need the _ after the function to state you meant the function
-val log10Func = log10 _
+  println("Sum : " + favNums.sum)
 
-println(log10Func(1000))
+  println("Min : " + favNums.min)
 
-// You can apply a function to all items of a list with map
-List(1000.0,10000.0).map(log10Func).foreach(println)
+  println("Max : " + favNums.max)
 
-// You can use an anonymous function with map as well
-// Receives an Int x and multiplies every x by 50
-List(1,2,3,4,5).map((x : Int) => x * 50).foreach(println)
+  // Sort in desending order (Use < for assending)
+  val sortedNums = favNums.sortWith(_ > _)
 
-// Filter will pass only those values that meet a condition
-List(1,2,3,4,5,6).filter(_ % 2 == 0).foreach(println)
+  // Return an indexed sequence and convert it into a string with commas
+  println(sortedNums.deep.mkString(", "))
 
-// Pass different functions to a function
-def times3(num : Int) = num * 3
-def times4(num : Int) = num * 4
+  // ---------- MAPS ----------
+  // Maps are collections of key value pairs
 
-// Define the function parameter type and return type
-def multIt(func : (Int) => Double, num : Int ) = {
-  func(num)
-}
+  // Create a Map that can't be changed (Immutable)
+  val employees = Map("Manager" -> "Bob Smith", "Secretary" -> "Sue Brown")
 
-printf("3 * 100 = %.1f)\n", multIt(times3, 100))
+  // Get value using the key after checking that it exists
+  if(employees.contains("Manager"))
+    printf("Manager : %s\n", employees("Manager"))
 
-// A closure is a function that depends on a variable declared outside
-// of the function
-val divisorVal = 5
-val divisor5 = (num : Double) => num / divisorVal
-println("5 / 5 = " + divisor5(5.0))
+  // Create a Mutable map
+  val customers = collection.mutable.Map(100 -> "Paul Smith",
+    101 -> "Sally Smith")
 
-// ---------- FILE I/O ----------
-// Use import java.io.PrintWriter to write to a file
-val writer = new PrintWriter("test.txt")
-writer.write("Just some random text\nSome more random text")
-writer.close()
+  printf("Cust 1 : %s\n", customers(100))
 
-// Use import scala.io.Source to read from files
-val textFromFile = Source.fromFile("test.txt", "UTF-8")
+  // Change a value using the key
+  customers(100) = "Tom Marks"
 
-// Iterate through each line in the file and print
-val lineIterator = textFromFile.getLines
-for(line <- lineIterator){
-  println(line)
-}
-textFromFile.close()
+  // Add an item
+  customers(102) = "Megan Swift"
 
-// ---------- EXCEPTION HANDLING ----------
+  // Output a Map
+  for((k,v) <- customers)
+    printf("%d : %s\n", k, v)
 
-def divideNums(num1 : Int, num2 : Int) = try
-{
-  (num1 / num2)
-} catch {
-    case ex: java.lang.ArithmeticException => "Can't divide by zero"
-} finally {
-  // Clean up after exception here
-}
+  // ---------- TUPLES ----------
+  // Tuples can hold values of many types, but they are immutable
 
-println("3 / 0 = " + divideNums(3,0))
+  var tupleMarge = (103, "Marge Simpson", 10.25)
+
+  printf("%s owes us $%.2f\n", tupleMarge._2, tupleMarge._3)
+
+  // Iterate through a tuple
+  tupleMarge.productIterator.foreach{ i => println(i)}
+
+  // Convert Tuple to String
+  println(tupleMarge.toString())
+
+  // ---------- CLASSES ----------
+  val rover = new Animal
+  rover.setName("Rover")
+  rover.setSound("Woof")
+  printf("%s says %s\n", rover.getName, rover.getSound)
+
+  val whiskers = new Animal("Whiskers", "Meow")
+  println(s"${whiskers.getName} with id ${whiskers.id} says ${whiskers.getSound}")
+
+  println(whiskers.toString)
+
+  val spike = new Dog("Spike", "Woof", "Grrrr")
+
+  spike.setName("Spike")
+  println(spike.toString)
+
+  val fang = new Wolf("Fang")
+  fang.moveSpeed = 36.0
+  println(fang.move)
+
+  // ---------- TRAITS ----------
+  val superman = new Superhero("Superman")
+  println(superman.fly)
+  println(superman.hitByBullet)
+  println(superman.ricochet(2500))
+
+  // ---------- HIGHER ORDER FUNCTIONS ----------
+  // Functions can be passed like any other variable
+  // You need the _ after the function to state you meant the function
+  val log10Func = log10 _
+
+  println(log10Func(1000))
+
+  // You can apply a function to all items of a list with map
+  List(1000.0,10000.0).map(log10Func).foreach(println)
+
+  // You can use an anonymous function with map as well
+  // Receives an Int x and multiplies every x by 50
+  List(1,2,3,4,5).map((x : Int) => x * 50).foreach(println)
+
+  // Filter will pass only those values that meet a condition
+  List(1,2,3,4,5,6).filter(_ % 2 == 0).foreach(println)
+
+  // Pass different functions to a function
+  def times3(num : Int) = num * 3
+  def times4(num : Int) = num * 4
+
+  // Define the function parameter type and return type
+  def multIt(func : (Int) => Double, num : Int ) = {
+    func(num)
+  }
+
+  printf("3 * 100 = %.1f)\n", multIt(times3, 100))
+
+  // A closure is a function that depends on a variable declared outside
+  // of the function
+  val divisorVal = 5
+  val divisor5 = (num : Double) => num / divisorVal
+  println("5 / 5 = " + divisor5(5.0))
+
+  // ---------- FILE I/O ----------
+  // Use import java.io.PrintWriter to write to a file
+  val writer = new PrintWriter("test.txt")
+  writer.write("Just some random text\nSome more random text")
+  writer.close()
+
+  // Use import scala.io.Source to read from files
+  val textFromFile = Source.fromFile("test.txt", "UTF-8")
+
+  // Iterate through each line in the file and print
+  val lineIterator = textFromFile.getLines
+  for(line <- lineIterator){
+    println(line)
+  }
+  textFromFile.close()
+
+  // ---------- EXCEPTION HANDLING ----------
+
+  def divideNums(num1 : Int, num2 : Int) = try
+  {
+    (num1 / num2)
+  } catch {
+      case ex: java.lang.ArithmeticException => "Can't divide by zero"
+  } finally {
+    // Clean up after exception here
+  }
+
+  println("3 / 0 = " + divideNums(3,0))
 
 } // ---------- END OF MAIN ----------
 
