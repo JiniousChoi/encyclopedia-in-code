@@ -10,9 +10,9 @@ object Exercise {
         println("usage: ./script_04.sh <Int> <Int>")
         return
     }
-    val ls: Array[Int] = for(a <- args) yield a.toInt
-    val a = ls.head
-    val b = ls.tail.head
+    val ns: Array[Int] = for(a <- args) yield a.toInt
+    val a = ns(0)
+    val b = ns(1)
     println("args[0] + args[1] = " + JMath.add(a, b))
 
     println("new Library().someLibraryMethod = " + new Library().someLibraryMethod)
