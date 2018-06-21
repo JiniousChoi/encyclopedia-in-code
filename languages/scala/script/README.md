@@ -180,3 +180,10 @@ $ tree
 
 29 directories, 27 files
 ```
+
+## run script_04.sh
+```console
+$ ./script_04.sh 4 6
+args[0] + args[1] = 10
+new Library().someLibraryMethod = true
+```
