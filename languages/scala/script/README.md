@@ -1,6 +1,6 @@
 # [How to use Scala as a scripting language](https://alvinalexander.com/scala/how-to-write-scala-shell-scripts-scripting-language-examples)
 
-### Every scripts here uses built-in-shell command, `exec`, to execute scala interpreter for the code
+### Every script here uses built-in-shell command, `exec`, to execute scala interpreter for the code
 ```bash
 #!/bin/sh
 exec scala [-classpath "path/to/lib1[:path/to/libx]"] "$0" "$@"
