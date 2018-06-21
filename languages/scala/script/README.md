@@ -40,17 +40,20 @@ META-INF/MANIFEST.MF
 Library.class
 ```
 
-## Details on `jutil`
+## Details on `jutil` by sbt
 ```console
-$ tree src
-src/
-├── main
-│   └── scala
-│       └── jinchoi
-│           └── util
-│               └── JMath.scala
-└── test
-    └── scala
+$ tree
+.
+└── src
+    ├── main
+    │   └── scala
+    │       └── jinchoi
+    │           └── util
+    │               └── JMath.scala
+    └── test
+        └── scala
+
+7 directories, 1 file
 
 $ cat src/main/scala/jinchoi/util/JMath.scala
 package jinchoi.util
@@ -58,9 +61,46 @@ package jinchoi.util
 object JMath {
   def add(a: Int, b: Int): Int = a + b
 }
+
+$ sbt package
+[warn] No sbt.version set in project/build.properties, base directory: /Users/jinchoi/github/encyclopedia-in-code/languages/scala/script/test/jutil
+[info] Loading settings from idea.sbt ...
+[info] Loading global plugins from /Users/jinchoi/.sbt/1.0/plugins
+[info] Set current project to jutil (in build file:/Users/jinchoi/github/encyclopedia-in-code/languages/scala/script/test/jutil/)
+[info] Updating ...
+[info] Done updating.
+[info] Compiling 1 Scala source to /Users/jinchoi/github/encyclopedia-in-code/languages/scala/script/test/jutil/target/scala-2.12/classes ...
+[info] Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.4. Compiling...
+[info]   Compilation completed in 9.192s.
+[info] Done compiling.
+[info] Packaging /Users/jinchoi/github/encyclopedia-in-code/languages/scala/script/test/jutil/target/scala-2.12/jutil_2.12-0.1.0-SNAPSHOT.jar ...
+[info] Done packaging.
+[success] Total time: 11 s, completed Jun 21, 2018 11:44:00 AM
+
+$ tree
+.
+├── src
+│   ├── main
+│   │   └── scala
+│   │       └── jinchoi
+│   │           └── util
+│   │               └── JMath.scala
+│   └── test
+│       └── scala
+└── target
+    ├── scala-2.12
+    │   ├── classes
+    │   │   └── jinchoi
+    │   │       └── util
+    │   │           ├── JMath$.class
+    │   │           └── JMath.class
+    │   ├── jutil_2.12-0.1.0-SNAPSHOT.jar
+... omit ...
+
+82 directories, 52 files
 ```
 
-## Details on `building-scala-libraries`
+## Details on `building-scala-libraries` by gradle
 ```console
 $ gradle init --type scala-library
 > Task :wrapper
