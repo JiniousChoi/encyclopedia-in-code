@@ -42,6 +42,9 @@ object runnable {
     println("-aHalf = " + -aHalf)
 
     horizontal_line
+    println("1 + aHalf = " + (1 + aHalf) + " (implicit conversion)")
+
+    horizontal_line
     println("todo week2/find_fixed_points")
 
     horizontal_line
@@ -126,7 +129,7 @@ object exer4 {
 }
 
 object exer5 {
-  // todo implicit for (1 : Int + 1/2 : Rational)
+  implicit def int2rational(i:Int) = new Rational(i)
   class Rational(x: Int, y: Int) {
     require(y != 0, "denominator should be non-zero!")
     val g = gcd(x, y).abs
