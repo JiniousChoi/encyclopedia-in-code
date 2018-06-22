@@ -75,35 +75,55 @@ object runnable {
     println("""assert (MTrue === MTrue)
               ^assert (MFalse === MFalse)
               ^assert (MTrue !== MFalse)
-
               ^assert (!MTrue === MFalse)
               ^assert (!MFalse === MTrue)
-
               ^assert ((MTrue == MTrue) === MTrue)
               ^assert ((MTrue == MFalse) === MFalse)
               ^assert ((MFalse == MTrue) === MFalse)
               ^assert ((MFalse == MFalse) === MTrue)
-
               ^assert ((MTrue != MTrue) === MFalse)
               ^assert ((MTrue != MFalse) === MTrue)
               ^assert ((MFalse != MTrue) === MTrue)
               ^assert ((MFalse != MFalse) === MFalse)
-
               ^assert ((MTrue && MTrue) === MTrue)
               ^assert ((MTrue && MFalse) === MFalse)
               ^assert ((MFalse && MTrue) === MFalse)
               ^assert ((MFalse && MFalse) === MFalse)
-
               ^assert ((MTrue || MTrue) === MTrue)
               ^assert ((MTrue || MFalse) === MTrue)
               ^assert ((MFalse || MTrue) === MTrue)
               ^assert ((MFalse || MFalse) === MFalse)
-
               ^assert ((MTrue < MTrue) === MFalse)
               ^assert ((MTrue < MFalse) === MFalse)
               ^assert ((MFalse < MTrue) === MTrue)
               ^assert ((MFalse < MFalse) === MFalse)""".stripMargin('^'))
-    
+
+    horizontal_line
+    println("""assert (JTrue === JTrue)
+              ^assert (JFalse === JFalse)
+              ^assert (JTrue !== JFalse)
+              ^assert (!JTrue === JFalse)
+              ^assert (!JFalse === JTrue)
+              ^assert ((JTrue == JTrue) === JTrue)
+              ^assert ((JTrue == JFalse) === JFalse)
+              ^assert ((JFalse == JTrue) === JFalse)
+              ^assert ((JFalse == JFalse) === JTrue)
+              ^assert ((JTrue != JTrue) === JFalse)
+              ^assert ((JTrue != JFalse) === JTrue)
+              ^assert ((JFalse != JTrue) === JTrue)
+              ^assert ((JFalse != JFalse) === JFalse)
+              ^assert ((JTrue && JTrue) === JTrue)
+              ^assert ((JTrue && JFalse) === JFalse)
+              ^assert ((JFalse && JTrue) === JFalse)
+              ^assert ((JFalse && JFalse) === JFalse)
+              ^assert ((JTrue || JTrue) === JTrue)
+              ^assert ((JTrue || JFalse) === JTrue)
+              ^assert ((JFalse || JTrue) === JTrue)
+              ^assert ((JFalse || JFalse) === JFalse)
+              ^assert ((JTrue < JTrue) === JFalse)
+              ^assert ((JTrue < JFalse) === JFalse)
+              ^assert ((JFalse < JTrue) === JTrue)
+              ^assert ((JFalse < JFalse) === JFalse)""".stripMargin('^'))
 
     println("")
   }
@@ -279,5 +299,27 @@ object exer9 {
   object MFalse extends MBoolean {
     override def ifThenElse(t: => MBoolean, e: => MBoolean): MBoolean = e
     //override def ifThenElse[T](t: => T, e: => T): T = e
+  }
+
+  // My version of Boolean Implementation
+  trait JBoolean {
+    def && (that: JBoolean): JBoolean
+    def || (that: JBoolean): JBoolean
+    def unary_! : JBoolean
+    // def == (x: MBoolean): MBoolean = ifThenElse(MTrue, !x) // Impossible to implement without ifThenElse method
+    // def != (x: MBoolean): MBoolean = !(this == x) // However, JTrue and JFalse are singleton object, hence ==, != works anyways
+    def < (that: JBoolean): JBoolean
+  }
+  object JTrue extends JBoolean {
+    override def unary_! : JBoolean = JFalse
+    override def &&(that: JBoolean): JBoolean = that
+    override def ||(that: JBoolean): JBoolean = this
+    override def <(that: JBoolean): JBoolean = JFalse
+  }
+  object JFalse extends JBoolean {
+    override def unary_! : JBoolean = JTrue
+    override def &&(that: JBoolean): JBoolean = this
+    override def ||(that: JBoolean): JBoolean = that
+    override def <(that: JBoolean): JBoolean = that
   }
 }
