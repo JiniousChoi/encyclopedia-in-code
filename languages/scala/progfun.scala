@@ -70,6 +70,42 @@ object runnable {
     println("tree1 => " + tree1)
     println("tree1 => " + tree2)
     println("tree1 union tree2 => " + (tree1 union tree2))
+
+    horizontal_line
+    println("""assert (MTrue === MTrue)
+              ^assert (MFalse === MFalse)
+              ^assert (MTrue !== MFalse)
+
+              ^assert (!MTrue === MFalse)
+              ^assert (!MFalse === MTrue)
+
+              ^assert ((MTrue == MTrue) === MTrue)
+              ^assert ((MTrue == MFalse) === MFalse)
+              ^assert ((MFalse == MTrue) === MFalse)
+              ^assert ((MFalse == MFalse) === MTrue)
+
+              ^assert ((MTrue != MTrue) === MFalse)
+              ^assert ((MTrue != MFalse) === MTrue)
+              ^assert ((MFalse != MTrue) === MTrue)
+              ^assert ((MFalse != MFalse) === MFalse)
+
+              ^assert ((MTrue && MTrue) === MTrue)
+              ^assert ((MTrue && MFalse) === MFalse)
+              ^assert ((MFalse && MTrue) === MFalse)
+              ^assert ((MFalse && MFalse) === MFalse)
+
+              ^assert ((MTrue || MTrue) === MTrue)
+              ^assert ((MTrue || MFalse) === MTrue)
+              ^assert ((MFalse || MTrue) === MTrue)
+              ^assert ((MFalse || MFalse) === MFalse)
+
+              ^assert ((MTrue < MTrue) === MFalse)
+              ^assert ((MTrue < MFalse) === MFalse)
+              ^assert ((MFalse < MTrue) === MTrue)
+              ^assert ((MFalse < MFalse) === MFalse)""".stripMargin('^'))
+    
+
+    println("")
   }
 
   def horizontal_line = println("-" * 30)
@@ -218,5 +254,30 @@ object exer8 {
       ((left union right) union other) incl elem
     override def toString(): String =
       "{" + left + " , " + elem + " , " + right + "}"
+  }
+}
+
+// week4
+object exer9 {
+  // This is how an OOP(Polymorphism, to be specific) would eliminate if-else parts
+  abstract class MBoolean {
+    // Below is the original one by Martin Odersky.
+    // Why does he use generic type here? non-generic seems alright.
+    // def ifThenElse[T] (t: => T, e: => T): T
+    def ifThenElse(t: => MBoolean, e: => MBoolean): MBoolean
+    def && (x: MBoolean): MBoolean = ifThenElse(x, MFalse)
+    def || (x: MBoolean): MBoolean = ifThenElse(MTrue, x)
+    def unary_! : MBoolean = ifThenElse(MFalse, MTrue)
+    def == (x: MBoolean): MBoolean = ifThenElse(x, !x)
+    def != (x: MBoolean): MBoolean = !(this == x)
+    def < (x: MBoolean): MBoolean = ifThenElse(MFalse, x)
+  }
+  object MTrue extends MBoolean {
+    override def ifThenElse(t: => MBoolean, e: => MBoolean): MBoolean = t
+    //override def ifThenElse[T](t: => T, e: => T): T = t
+  }
+  object MFalse extends MBoolean {
+    override def ifThenElse(t: => MBoolean, e: => MBoolean): MBoolean = e
+    //override def ifThenElse[T](t: => T, e: => T): T = e
   }
 }
