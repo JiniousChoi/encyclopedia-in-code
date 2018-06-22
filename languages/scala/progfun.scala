@@ -129,10 +129,32 @@ object runnable {
     println("JList() = " + exer10.JList())
     println("JList(1,2) = " + exer10.JList(1,2))
 
+    horizontal_line
+    println("Nat class")
+    val zero = exer11.Zero
+    val one = zero.successor
+    val two = one.successor
+    val three = two.successor
+    val four = three.successor
+    val five = four.successor
+    printEq("zero == zero", zero == zero)
+    printEq("zero == zero.successor.predecessor", zero == zero.successor.predecessor)
+    printEq("three + one == four", three + one == four)
+    printEq("three - two == one", three - two == one)
+    printError("three - four", three - four)
+    
     println("")
   }
 
   def horizontal_line = println("-" * 30)
+  def printEq(left:String, right:Any) = println(s"($left) = $right")
+  def printIs(left:String, right:Any) = println(s"($left) is $right")
+  def printTo(left:String, right:Any) = println(s"($left) => $right")
+  def printError(exprInStr: String, expr: => Any) {
+    try { expr }
+    catch { case e : Error => println(s"($exprInStr) throws $e") }
+  }
+  
 }
 
 object exer1 {
@@ -350,4 +372,26 @@ object exer10 {
     def apply[T](x1: T, x2: T): JList[T] = new JCons(x1, new JCons(x2, new JNil))
     def apply[T]() = new JNil
   }
+}
+
+object exer11 {
+  abstract class Nat {
+    def isZero: Boolean
+    def predecessor: Nat
+    // Now, every Nat instances including `object Zero` are singletons.
+    lazy val successor: Nat = new Succ(this)
+    def +(that: Nat): Nat
+    def -(that: Nat): Nat
+  }
+  object Zero extends Nat {
+    override def isZero: Boolean = true
+    override def predecessor: Nat = throw new Error("0.predecessor")
+    override def +(that: Nat): Nat = that
+    override def -(that: Nat): Nat = if (that isZero) this else throw new Error("negative num")
+  }
+  class Succ (val predecessor: Nat) extends Nat {
+    override def isZero: Boolean = false
+    override def +(that: Nat): Nat = (this predecessor) + (that successor)
+    override def -(that: Nat): Nat = if (that isZero) this else this.predecessor - that.predecessor
+  }  
 }
