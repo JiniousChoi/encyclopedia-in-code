@@ -3,46 +3,46 @@
 object runnable {
   def main(args: Array[String]) {
     horizontal_line
-    println("fractorial1(10) = " + exer1.factorial1(10))
-    println("fractorial2(10) = " + exer1.factorial2(10))
+    printEq("fractorial1(10)", exer1.factorial1(10))
+    printEq("fractorial2(10)", exer1.factorial2(10))
 
     horizontal_line
-    println("abs(-3) = " + exer2.abs(-3))
-    println("sqrt(2) = " + exer2.sqrt(2))
-    println("sqrt(4) = " + exer2.sqrt(4))
-    println("sqrt(1e-6) = " + exer2.sqrt(1e-6))
-    println("sqrt(1e60) = " + exer2.sqrt(1e60))
+    printEq("abs(-3)", exer2.abs(-3))
+    printEq("sqrt(2)", exer2.sqrt(2))
+    printEq("sqrt(4)", exer2.sqrt(4))
+    printEq("sqrt(1e-6)", exer2.sqrt(1e-6))
+    printEq("sqrt(1e60)", exer2.sqrt(1e60))
 
     horizontal_line
-    println("sum(id, 1, 10) = " + exer3.sum(exer3.id, 1, 10))
-    println("sum(sq, 1, 10) = " + exer3.sum(exer3.sq, 1, 10))
-    println("sum((x=> 3*x), 3, 5) = " + exer3.sum((x=> 3*x), 3, 5))
+    printEq("sum(id, 1, 10)", exer3.sum(exer3.id, 1, 10))
+    printEq("sum(sq, 1, 10)", exer3.sum(exer3.sq, 1, 10))
+    printEq("sum((x=> 3*x), 3, 5)", exer3.sum((x=> 3*x), 3, 5))
 
     horizontal_line
-    println("product(id, 1, 5) = " + exer4.product(exer4.id, 1, 5))
-    println("fact(10) with currying = " + exer4.fact(10))
+    printEq("product(id, 1, 5)", exer4.product(exer4.id, 1, 5))
+    printEq("fact(10) with currying", exer4.fact(10))
 
     horizontal_line
     val aOne = new exer5.Rational(1)
     val aThird = new exer5.Rational(1, 3)
     val aHalf = new exer5.Rational(1, 2)
     val aSixth = new exer5.Rational(1, 6)
-    println("new Rational(1) = " + aOne)
-    println("aHalf + aHalf = " + (aHalf + aHalf))
-    println("aHalf - aHalf = " + (aHalf - aHalf))
-    println("aHalf + aThird = " + (aHalf + aThird))
-    println("aThird - aHalf = " + (aThird - aHalf))
-    println("aOne - aSixth = " + (aOne - aSixth))
-    println("aHalf / aHalf = " + (aHalf / aHalf))
-    println("aHalf * aHalf = " + (aHalf * aHalf))
-    println("aHalf < aOne = " + (aHalf < aOne))
-    println("aHalf max aOne = " + (aHalf max aOne))
-    println("aSixth max aHalf = " + (aSixth max aHalf))
-    println("aHalf max aSixth = " + (aHalf max aSixth))
-    println("-aHalf = " + -aHalf)
+    printEq("new Rational(1)", aOne)
+    printEq("aHalf + aHalf", (aHalf + aHalf))
+    printEq("aHalf - aHalf", (aHalf - aHalf))
+    printEq("aHalf + aThird", (aHalf + aThird))
+    printEq("aThird - aHalf", (aThird - aHalf))
+    printEq("aOne - aSixth", (aOne - aSixth))
+    printEq("aHalf / aHalf", (aHalf / aHalf))
+    printEq("aHalf * aHalf", (aHalf * aHalf))
+    printEq("aHalf < aOne", (aHalf < aOne))
+    printEq("aHalf max aOne", (aHalf max aOne))
+    printEq("aSixth max aHalf", (aSixth max aHalf))
+    printEq("aHalf max aSixth", (aHalf max aSixth))
+    printEq("-aHalf", -aHalf)
 
     horizontal_line
-    println("1 + aHalf = " + (1 + aHalf) + " (implicit conversion)")
+    printEq("1 + aHalf", (1 + aHalf) + " (implicit conversion)")
 
     horizontal_line
     println("todo week2/find_fixed_points")
@@ -51,15 +51,11 @@ object runnable {
     val nil = new exer7.JNil[Int]
     val ls = new exer7.JCons(1, new exer7.JCons(2, nil))
     println("val ls = new JCons(1, new JCons(2, new JNil[Int]))")
-    println("ls.head = " + ls.head)
-    println("ls.tail.head = " + ls.tail.head)
-    println("nth(0, ls) = " + exer7.nth(0, ls))
-    println("nth(1, ls) = " + exer7.nth(1, ls))
-    try {
-      exer7.nth(11, ls)
-    } catch {
-      case e : Exception => println("nth(11, ls) => " + e)
-    }
+    printEq("ls.head", ls.head)
+    printEq("ls.tail.head", ls.tail.head)
+    printEq("nth(0, ls)", exer7.nth(0, ls))
+    printEq("nth(1, ls)", exer7.nth(1, ls))
+    printError("nth(11, ls)", exer7.nth(11, ls))
 
     horizontal_line
     println("IntSet is binary search tree for int")
@@ -67,9 +63,9 @@ object runnable {
     val tree2 = new exer8.NonEmpty(4, new exer8.NonEmpty(1), new exer8.NonEmpty(8))
     println("val tree1 = new NonEmpty(3, new NonEmpty(2), new NonEmpty(5))")
     println("val tree2 = new NonEmpty(4, new NonEmpty(1), new NonEmpty(8))")
-    println("tree1 => " + tree1)
-    println("tree1 => " + tree2)
-    println("tree1 union tree2 => " + (tree1 union tree2))
+    printTo("tree1", tree1)
+    printTo("tree1", tree2)
+    printTo("tree1 union tree2", (tree1 union tree2))
 
     horizontal_line
     println("""assert (MTrue === MTrue)
@@ -126,8 +122,8 @@ object runnable {
               ^assert ((JFalse < JFalse) === JFalse)""".stripMargin('^'))
 
     horizontal_line
-    println("JList() = " + exer10.JList())
-    println("JList(1,2) = " + exer10.JList(1,2))
+    printEq("JList()", exer10.JList())
+    printEq("JList(1,2)", exer10.JList(1,2))
 
     horizontal_line
     println("Nat class")
@@ -137,24 +133,34 @@ object runnable {
     val three = two.successor
     val four = three.successor
     val five = four.successor
-    printEq("zero == zero", zero == zero)
-    printEq("zero == zero.successor.predecessor", zero == zero.successor.predecessor)
-    printEq("three + one == four", three + one == four)
-    printEq("three - two == one", three - two == one)
-    printError("three - four", three - four)
+    printAssert("zero == zero", zero == zero)
+    printAssert("zero == zero.successor.predecessor", zero == zero.successor.predecessor)
+    printAssert("three + one == four", three + one == four)
+    printAssert("three - two == one", three - two == one)
+    printError("three - four", three - four, paren=true)
     
     println("")
   }
 
   def horizontal_line = println("-" * 30)
-  def printEq(left:String, right:Any) = println(s"($left) = $right")
-  def printIs(left:String, right:Any) = println(s"($left) is $right")
-  def printTo(left:String, right:Any) = println(s"($left) => $right")
-  def printError(exprInStr: String, expr: => Any) {
+  def printEq(left:String, right:Any, paren:Boolean=false) = printAbstract(left, "=", right, paren)
+  def printIs(left:String, right:Any, paren:Boolean=false) = printAbstract(left, "is", right, paren)
+  def printTo(left:String, right:Any, paren:Boolean=false) = printAbstract(left, "=>", right, paren)
+  def printAbstract(left:String, sep:String, right:Any, paren:Boolean=false) = 
+    if (paren) println(s"($left) $sep $right")
+    else println(s"$left $sep $right")
+  def printError(exprInStr: String, expr: => Any, paren:Boolean=false) {
     try { expr }
-    catch { case e : Error => println(s"($exprInStr) throws $e") }
+    catch {
+      case t : Throwable =>
+        if (paren) println(s"($exprInStr) throws $t")
+        else println(s"$exprInStr throws $t")
+    }
   }
-  
+  def printAssert(exprInStr: String, expr: => Boolean) {
+    assert(expr)
+    println(s"assert ( $exprInStr )")
+  }
 }
 
 object exer1 {
