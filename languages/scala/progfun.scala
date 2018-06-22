@@ -125,6 +125,10 @@ object runnable {
               ^assert ((JFalse < JTrue) === JTrue)
               ^assert ((JFalse < JFalse) === JFalse)""".stripMargin('^'))
 
+    horizontal_line
+    println("JList() = " + exer10.JList())
+    println("JList(1,2) = " + exer10.JList(1,2))
+
     println("")
   }
 
@@ -225,6 +229,7 @@ object exer7 {
     def head: T
     def tail: JList[T]
     def isEmpty: Boolean
+    override def toString = "jinsung"
   }
 
   class JNil[T] extends JList[T] {
@@ -321,5 +326,28 @@ object exer9 {
     override def &&(that: JBoolean): JBoolean = this
     override def ||(that: JBoolean): JBoolean = that
     override def <(that: JBoolean): JBoolean = that
+  }
+}
+
+object exer10 {
+  trait JList[T] {
+    def head: T
+    def tail: JList[T]
+    def isEmpty: Boolean
+  }
+  class JNil[T] extends JList[T] {
+    def head: Nothing = throw new NoSuchElementException("JNil.head")
+    def tail: Nothing = throw new NoSuchElementException("JNil.tail")
+    def isEmpty: Boolean = true
+    override def toString = "Nil"
+  }
+  class JCons[T](val head: T, val tail: JList[T]) extends JList[T] {
+    def isEmpty: Boolean = false
+    override def toString = head.toString + " -> " + tail.toString
+  }
+  object JList {
+    // todo: only () and (1,2) is appliable. make it variable
+    def apply[T](x1: T, x2: T): JList[T] = new JCons(x1, new JCons(x2, new JNil))
+    def apply[T]() = new JNil
   }
 }
