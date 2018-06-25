@@ -2,31 +2,28 @@
 
 object runnable {
   def main(args: Array[String]) {
-    horizontal_line
-    printEq("fractorial1(10)", exer1.factorial1(10))
-    printEq("fractorial2(10)", exer1.factorial2(10))
+    printTitle("week1")
+    printEq("fractorial1(10)", week1.factorial1(10))
+    printEq("fractorial2(10)", week1.factorial2(10))
+    horizontal_line()
+    printEq("abs(-3)", week1.abs(-3))
+    printEq("sqrt(2)", week1.sqrt(2))
+    printEq("sqrt(4)", week1.sqrt(4))
+    printEq("sqrt(1e-6)", week1.sqrt(1e-6))
+    printEq("sqrt(1e60)", week1.sqrt(1e60))
 
-    horizontal_line
-    printEq("abs(-3)", exer2.abs(-3))
-    printEq("sqrt(2)", exer2.sqrt(2))
-    printEq("sqrt(4)", exer2.sqrt(4))
-    printEq("sqrt(1e-6)", exer2.sqrt(1e-6))
-    printEq("sqrt(1e60)", exer2.sqrt(1e60))
-
-    horizontal_line
-    printEq("sum(id, 1, 10)", exer3.sum(exer3.id, 1, 10))
-    printEq("sum(sq, 1, 10)", exer3.sum(exer3.sq, 1, 10))
-    printEq("sum((x=> 3*x), 3, 5)", exer3.sum((x=> 3*x), 3, 5))
-
-    horizontal_line
-    printEq("product(id, 1, 5)", exer4.product(exer4.id, 1, 5))
-    printEq("fact(10) with currying", exer4.fact(10))
-
-    horizontal_line
-    val aOne = new exer5.Rational(1)
-    val aThird = new exer5.Rational(1, 3)
-    val aHalf = new exer5.Rational(1, 2)
-    val aSixth = new exer5.Rational(1, 6)
+    printTitle("week2")
+    printEq("sum(id, 1, 10)", week2.sum(week2.id, 1, 10))
+    printEq("sum(sq, 1, 10)", week2.sum(week2.sq, 1, 10))
+    printEq("sum((x=> 3*x), 3, 5)", week2.sum((x=> 3*x), 3, 5))
+    horizontal_line()
+    printEq("product(id, 1, 5)", week2.product(week2.id, 1, 5))
+    printEq("fact(10) with currying", week2.fact(10))
+    horizontal_line()
+    val aOne = new week2.Rational(1)
+    val aThird = new week2.Rational(1, 3)
+    val aHalf = new week2.Rational(1, 2)
+    val aSixth = new week2.Rational(1, 6)
     printEq("new Rational(1)", aOne)
     printEq("aHalf + aHalf", (aHalf + aHalf))
     printEq("aHalf - aHalf", (aHalf - aHalf))
@@ -40,34 +37,31 @@ object runnable {
     printEq("aSixth max aHalf", (aSixth max aHalf))
     printEq("aHalf max aSixth", (aHalf max aSixth))
     printEq("-aHalf", -aHalf)
-
-    horizontal_line
     printEq("1 + aHalf", (1 + aHalf) + " (implicit conversion)")
-
-    horizontal_line
+    horizontal_line()
     println("todo week2/find_fixed_points")
 
-    horizontal_line
-    val nil = new exer7.JNil[Int]
-    val ls = new exer7.JCons(1, new exer7.JCons(2, nil))
+    printTitle("week3")
+    val nil = new week3.JNil[Int]
+    val ls = new week3.JCons(1, new week3.JCons(2, nil))
     println("val ls = new JCons(1, new JCons(2, new JNil[Int]))")
     printEq("ls.head", ls.head)
     printEq("ls.tail.head", ls.tail.head)
-    printEq("nth(0, ls)", exer7.nth(0, ls))
-    printEq("nth(1, ls)", exer7.nth(1, ls))
-    printError("nth(11, ls)", exer7.nth(11, ls))
+    printEq("nth(0, ls)", week3.nth(0, ls))
+    printEq("nth(1, ls)", week3.nth(1, ls))
+    printError("nth(11, ls)", week3.nth(11, ls))
 
-    horizontal_line
+    horizontal_line()
     println("IntSet is binary search tree for int")
-    val tree1 = new exer8.NonEmpty(3, new exer8.NonEmpty(2), new exer8.NonEmpty(5))
-    val tree2 = new exer8.NonEmpty(4, new exer8.NonEmpty(1), new exer8.NonEmpty(8))
+    val tree1 = new week3.NonEmpty(3, new week3.NonEmpty(2), new week3.NonEmpty(5))
+    val tree2 = new week3.NonEmpty(4, new week3.NonEmpty(1), new week3.NonEmpty(8))
     println("val tree1 = new NonEmpty(3, new NonEmpty(2), new NonEmpty(5))")
     println("val tree2 = new NonEmpty(4, new NonEmpty(1), new NonEmpty(8))")
     printTo("tree1", tree1)
     printTo("tree1", tree2)
     printTo("tree1 union tree2", (tree1 union tree2))
 
-    horizontal_line
+    printTitle("week4")
     println("""assert (MTrue === MTrue)
               ^assert (MFalse === MFalse)
               ^assert (MTrue !== MFalse)
@@ -94,7 +88,7 @@ object runnable {
               ^assert ((MFalse < MTrue) === MTrue)
               ^assert ((MFalse < MFalse) === MFalse)""".stripMargin('^'))
 
-    horizontal_line
+    horizontal_line()
     println("""assert (JTrue === JTrue)
               ^assert (JFalse === JFalse)
               ^assert (JTrue !== JFalse)
@@ -121,13 +115,13 @@ object runnable {
               ^assert ((JFalse < JTrue) === JTrue)
               ^assert ((JFalse < JFalse) === JFalse)""".stripMargin('^'))
 
-    horizontal_line
-    printEq("JList()", exer10.JList())
-    printEq("JList(1,2)", exer10.JList(1,2))
+    horizontal_line()
+    printEq("JList()", week4.JList())
+    printEq("JList(1,2)", week4.JList(1,2))
 
-    horizontal_line
+    horizontal_line()
     println("Nat class")
-    val zero = exer11.Zero
+    val zero = week4.Zero
     val one = zero.successor
     val two = one.successor
     val three = two.successor
@@ -142,7 +136,15 @@ object runnable {
     println("")
   }
 
-  def horizontal_line = println("-" * 30)
+  def horizontal_line(len: Int = 50) = println("-" * len)
+  def printTitle(title: String) = {
+    val dashes = "-" * (50 - 2 - title.length)
+    val (left, right) = dashes.splitAt(dashes.length/2) 
+    println("")
+    horizontal_line()
+    println(s"$left $title $right")
+    horizontal_line()
+  }
   def printEq(left:String, right:Any, paren:Boolean=false) = printAbstract(left, "=", right, paren)
   def printIs(left:String, right:Any, paren:Boolean=false) = printAbstract(left, "is", right, paren)
   def printTo(left:String, right:Any, paren:Boolean=false) = printAbstract(left, "=>", right, paren)
@@ -163,7 +165,7 @@ object runnable {
   }
 }
 
-object exer1 {
+object week1 {
   def factorial1(x: Int) : Int =
     if (x==1) 1
     else x * factorial1(x-1)
@@ -174,9 +176,7 @@ object exer1 {
       else loop(a+1, b, a*acc)
     loop(1, x, 1)
   }
-}
 
-object exer2 {
   def abs(x:Double) : Double = if (x<0) -x else x
 
   def sqrt(x: Double) : Double = {
@@ -191,7 +191,7 @@ object exer2 {
   }
 }
 
-object exer3 {
+object week2 {
   // higher order functions
   def id(x: Int): Int = x
   def sq(x: Int): Int = x*x
@@ -200,23 +200,18 @@ object exer3 {
       if (a > b) acc
       else loop(a+1, acc + f(a))
     }
-
     loop(a, 0)
   }
-}
 
-object exer4 {
   // currying
-  def id(a: Int): Int = a
   def mapReduce(f: Int=>Int, combine: (Int, Int) => Int, zero: Int)(a: Int, b:Int): Int =
     if (a > b) zero
     else combine(f(a), mapReduce(f, combine, zero)(a+1, b))
   def product(f: Int=>Int, a: Int, b: Int): Int =
     mapReduce(f, (_ * _), 1)(a, b)
   def fact(n: Int): Int = product(id, 1, n)
-}
 
-object exer5 {
+  // rational class designing
   implicit def int2rational(i:Int) = new Rational(i)
   class Rational(x: Int, y: Int) {
     require(y != 0, "denominator should be non-zero!")
@@ -246,13 +241,11 @@ object exer5 {
       if (denom == 1) numer + "" else numer + "/" + denom
     def gcd(a: Int, b: Int): Int = if (b==0) a else gcd(b, a%b)
   }
+
+  //todo find_fixed_points
 }
 
-object exer6 {
-  //todo week2/find_fixed_points
-}
-
-object exer7 {
+object week3 {
   trait JList[T] {
     def head: T
     def tail: JList[T]
@@ -275,9 +268,7 @@ object exer7 {
     if (n==0) xs.head
     else nth(n-1, xs.tail)
   }
-}
 
-object exer8 {
   // binary search tree for int
   abstract class IntSet {
     def contains(x: Int): Boolean
@@ -310,8 +301,7 @@ object exer8 {
   }
 }
 
-// week4
-object exer9 {
+object week4 {
   // This is how an OOP(Polymorphism, to be specific) would eliminate if-else parts
   abstract class MBoolean {
     // Below is the original one by Martin Odersky.
@@ -355,9 +345,8 @@ object exer9 {
     override def ||(that: JBoolean): JBoolean = that
     override def <(that: JBoolean): JBoolean = that
   }
-}
 
-object exer10 {
+  // Custom List
   trait JList[T] {
     def head: T
     def tail: JList[T]
@@ -378,9 +367,8 @@ object exer10 {
     def apply[T](x1: T, x2: T): JList[T] = new JCons(x1, new JCons(x2, new JNil))
     def apply[T]() = new JNil
   }
-}
 
-object exer11 {
+  // Nat class
   abstract class Nat {
     def isZero: Boolean
     def predecessor: Nat
