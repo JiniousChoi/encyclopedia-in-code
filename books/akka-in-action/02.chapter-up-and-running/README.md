@@ -141,9 +141,9 @@ $ sbt clean compile test
 | buy ticket | POST | /events/RHCP/tickets | {"tickets":2} | 201 Created | {"event":"RHCP",<br/>"entries":[{"id":1},{"id":2}]} |
 | cancel event | DELETE | /events/RHCP | | 200 OK | {"event":"RHCP",<br/>"tickets":249} |
 
-## create event
+## create events
 ```console
-# brew install httpie`
+# brew install httpie
 ```
 
 ```console
