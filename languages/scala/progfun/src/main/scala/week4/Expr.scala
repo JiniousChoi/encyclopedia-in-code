@@ -34,7 +34,7 @@ object Expr1 {
  // quadratic increase of methods
  def eval(e: Expr1): Int = {
   if (e.isNumber) e.numValue
-  else if (e.isSum) eval(e.leftOp) - eval(e.rightOp)
+  else if (e.isSum) eval(e.leftOp) + eval(e.rightOp)
   else throw new Error("Unknown Expression " + e)
  }
 }
