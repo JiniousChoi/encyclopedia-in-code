@@ -17,6 +17,8 @@ main = do
     chapter02
     printTitle "Chapter 02 Exercise"
     chapter02_exercise
+    printTitle "Chapter 03"
+    chapter03
 
 printTitle title = do putStrLn $ replicate 50 '-'
                       putStrLn $ left ++ " "  ++ title ++ " " ++ right
@@ -100,3 +102,73 @@ last' = head . reverse
 last'' xs = head $ drop (length xs-1) xs
 init' xs = take (length xs - 1) xs
 init'' = reverse . drop 1 . reverse
+
+-- Types and classes
+chapter03 :: IO()
+chapter03 = do
+    -- A type is a collection of related values.
+    -- e.g. Bool type contains two logical values False and True
+    -- e.g. type Bool -> Bool contains functions like, `not`, a logical notation function
+    
+    -- Basic types
+    -- Bool     e.g. False, True
+    -- Char     e.g. 'a', 'A', '3', '_'
+    -- String   e.g. "abc", "1+2=3"
+    -- Int      e.g. -2^63 ~ 2^63-1
+    -- Integer  e.g. -inf ~ inf
+    -- Float    e.g. sqrt 2 :: Float = 1.4142135
+    -- Double   e.g. sqrt 2 :: Double = 1.4142135623730951
+
+    -- List types
+    -- a sequence of elements of the same type
+    -- e.g. [False, True, False] :: [Bool]
+    -- e.g. ['a','b','c','d'] :: [Char] or String
+    -- e.g. ["One","Two","Three"] :: [String]
+   
+    -- Tuple types
+    -- a finite sequence of components of possibly different types
+    -- e.g. (False,1) :: (Bool,Int)
+    -- i.e. (Bool,Int) type includes (False,1), (True,-99), and such
+
+    -- Function types
+    -- a mapping from arguments of one type to results of another type.
+    -- e.g. fn1 :: T1 -> T2
+    -- e.g. fn2 :: T3 -> T4 -> T5
+    -- i.e. type Int -> Bool includes `even`, `odd` and such
+
+    -- Curried functions
+    -- functions with multiple arguments can be handled in a new way by
+    -- exploiting the fact that functions are free to return functions as results
+    -- e.g. mult :: Int -> (Int -> (Int -> Int))
+    --      mult x y z = x*y*z
+    -- As the function arrow -> in types is assumed to associate to the right,
+    -- we can rewrite the definition of the mult function above as follows
+    -- e.g. mult :: Int -> Int -> Int -> Int
+    --      mult x y z = x*y*z
+    putStrLn "mult :: Int -> Int -> Int -> Int"
+    putStrLn "mult x y z = x*y*z"
+    putStrLn "multBy6 = mult 2 3"
+    printEq "multBy6 4" $ multBy6 4
+
+    -- Polymorphic types
+    printEq "length [1,3,5,7]" $ length [1,3,5,7]
+    printEq "length [sin,cos,tan]" $ length [sin,cos,tan]
+    printEq "length [\"Yes\",\"No\"]" $ length ["Yes","No"]
+    -- The type of function length is [a] -> Int
+    -- `a` is called a type variable. In this case, `a` could be anything such as Int, String, etc.
+    -- That's why a type that contains 1+ type variables is called polymorphic (of many forms)
+    -- length is a polymorphic function, type [a] -> Int is a polymorphic type.
+    -- e.g. fst  :: (a,b) -> a
+    --      head :: [a] -> a
+    --      take :: Int -> [a] -> [a] 
+    --      zip  :: [a] -> [b] -> [(a,b)]
+    --      id   :: a -> a
+    -- The type of a polymorphic function often gives a strong indication about the
+    -- function's behavior.
+    
+    -- Overloaded types
+    -- to be continued
+
+mult :: Int -> Int -> Int -> Int
+mult x y z = x*y*z
+multBy6 = mult 2 3
