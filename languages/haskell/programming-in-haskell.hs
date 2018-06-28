@@ -7,6 +7,8 @@
 --                     Prelude> :load script.hs
 --                  or Prelude> :reload
 
+import Control.Exception
+
 main :: IO ()
 main = do
     printTitle "Chapter 01"
@@ -29,6 +31,11 @@ printTitle title = do putStrLn $ replicate 50 '-'
 
 printEq :: Show a => [Char] -> a -> IO ()
 printEq s a = putStrLn $ s ++ " = " ++ (show a)
+
+printError :: String -> String -> IO ()
+printError s e = do putStr s
+                    putStr " => [error] "
+                    putStrLn e
 
 chapter01 :: IO ()
 chapter01 = do
@@ -167,7 +174,24 @@ chapter03 = do
     -- function's behavior.
     
     -- Overloaded types
-    -- to be continued
+    -- A type that contains 1+ class constraints is called overloaded
+    -- e.g. (*) :: Num a => a -> a -> a
+    --      abs :: Num a => a -> a
+    --      (+) :: Num a => a -> a -> a
+    --       ^     ^ ^ ^              ^
+    --       |     | | type variable  |
+    --       |     | class name       |
+    --       |     +~~overloaded type~+ 
+    --       overloaded function
+    -- e.g. 3 :: Num a => a
+    --      ^
+    --      an overloaded(numeric) type that can be 3::Int, 3::Double, or 
+    --      of any numeric type depending on the context in which it is used.
+    printEq "(3::Int) * (5::Num a=>a)" $ (3::Int) * (5::Num a=>a)
+    printError "(3::Int) * (5::Float)" "Couldn't match expected type ‘Int’ with actual type ‘Float’"
+    -- Question
+    -- fn1 :: IO a -> IO b -> IO a 는 되면서
+    -- fn2 :: Num a -> Num a -> Num a 는 왜 안되고 Num a => a -> a -> a로 해야만 하나?
 
 mult :: Int -> Int -> Int -> Int
 mult x y z = x*y*z
