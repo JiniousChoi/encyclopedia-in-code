@@ -32,7 +32,11 @@ const willIGetNewPhone = new Promise(
 const showOff = function (phone) {
     const message = 'Hey friend, I have a new ' +
                 phone.color + ' ' + phone.brand + ' phone';
-    return Promise.resolve(message);
+    //return Promise.resolve(message);
+    // When a value is simply returned from within a then handler,
+    // it will effectively return Promise.resolve(<value returned by whichever handler was called>).
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
+    return message;
 };
 
 // call our promise
