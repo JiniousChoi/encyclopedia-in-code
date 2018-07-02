@@ -35,7 +35,8 @@ const showOff = function (phone) {
     // When a value is simply returned from within a then handler,
     // it will effectively return Promise.resolve(<value returned by whichever handler was called>).
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then
-    // return Promise.resolve(message); // this is the same as the following return statement:
+    // return Promise.resolve(message); // this is the same as the following return statement
+    // as a callback function of `then` method:
     return message;
 };
 
