@@ -18,6 +18,17 @@ const willIGetNewPhone = new Promise(
     }
 );
 
+//// 2nd promise
+//var showOff = function (phone) {
+//    return new Promise(
+//       function (resolve, reject) {
+//            var message = 'Hey friend, I have a new ' +
+//                phone.color + ' ' + phone.brand + ' phone';
+//            resolve(message);
+//        }
+//    );
+//};
+
 const showOff = function (phone) {
     const message = 'Hey friend, I have a new ' +
                 phone.color + ' ' + phone.brand + ' phone';
