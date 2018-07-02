@@ -1,3 +1,5 @@
+// https://scotch.io/tutorials/javascript-promises-for-dummies
+// https://jsbin.com/nifocu/1/edit?js,console
 /* ES5, using Bluebird */
 var isMomHappy = true;
 
