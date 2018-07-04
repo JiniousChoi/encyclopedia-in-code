@@ -2,6 +2,7 @@
 const isMomHappy = true;
 
 // Promise
+// this is a promise instance, hence no `async keyword`
 const willIGetNewPhone = new Promise(
     (resolve, reject) => {
         if (isMomHappy) {
@@ -19,6 +20,7 @@ const willIGetNewPhone = new Promise(
 );
 
 // 2nd promise
+// this is a function that produces a promise, hence `async keyword` is required.
 async function showOff(phone) {
     return new Promise(
         (resolve, reject) => {
@@ -31,6 +33,7 @@ async function showOff(phone) {
 };
 
 // call our promise
+// await is only valid in `async function`
 async function askMom() {
     try {
         console.log('before asking Mom');
@@ -46,6 +49,7 @@ async function askMom() {
     }
 }
 
+// await is only valid in `async function`
 (async () => {
     await askMom();
 })();
