@@ -37,9 +37,10 @@ invariantFn2(new InvariantNil2[Int])
 
 
 // Covariant List
-def covariantFn(ls: CovariantList2[Int]): Unit = print()
-val covariantNil = CovariantNil2
-val covariantLs1: CovariantCons2[Int] = new CovariantCons2(3, covariantNil)
-val covariantLs2: CovariantCons2[AnyVal] = new CovariantCons2(false, covariantLs1)
+def covariantFn(ls: CovariantList3[Int]): Unit = print()
+val covariantNil = CovariantNil3
+val covariantLs1: CovariantCons3[Int] = new CovariantCons3(3, covariantNil)
+val covariantLs2: CovariantCons3[AnyVal] = new CovariantCons3(false, covariantLs1)
 covariantFn(covariantNil)
 covariantFn(covariantLs1)
+//covariantFn(covariantLs2)

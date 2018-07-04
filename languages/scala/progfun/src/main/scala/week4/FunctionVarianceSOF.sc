@@ -14,7 +14,7 @@ def needsDog(f: Dog => Dog)(d: Dog) = f(d)
 
 needsDog(fn1)(new Dog("jin")).bark
 needsDog(fn2)(new Dog("jang")).bark
-// needsDog(fn3)(new Husky("pj")).bark // Error
+// needsDog(fn3)(new Husky("pj")).bark // compile error
 
 // Covariance, Invariance, Contra-variance 에 대해 이해
 // Variance란, 클래스 파라미터의 속성이다.
@@ -33,6 +33,5 @@ needsDog(fn2)(new Dog("jang")).bark
 // 결론, Function[-X, +Y]는 당연한 귀결이다. -,+도 사실 관점의 뱡향의 차이일분, 해석타입이 항상
 // 상위 클래스여만 한다는 LSP를 그대로 따르고 있다.
 
-
-// 키워드: LSP(Liskov Substitution Principle
+// 키워드: LSP(Liskov Substitution Principle)
 // 상위 클래스에 대해 참인 것은, 하위 클래스에 대해서도 항상 참이어야만 한다. 그 반대는 거짓이다.

@@ -2,19 +2,19 @@ package week4
 
 import org.scalatest.FunSuite
 
-class Animal
-class Human extends Animal
-class Dog extends Animal
-
 class CovarianceList1Test extends FunSuite {
 
-  test("invariant") {
-    val empty = InvariantNil
+  class Animal
+  class Human extends Animal
+  class Dog extends Animal
+
+  test("InvariantList1 is useless.") {
+    val empty = InvariantNil1
     // Compile Error Expected
     // uncomment and then run it to see the following error message
     // BTW, by just uncommenting it doesn't show grammar error check in IntellJ. Maybe it's not yet implemented?
     // Shouldn't it show some error in red if it's going to fail in complile time, eventually, someday?
-    // new InvariantCons(new Animal(), empty)
+    //new InvariantCons(new Animal(), empty)
     /**
       * Error:(14, 37) type mismatch;
       * found   : week4.InvariantNil.type
@@ -23,6 +23,12 @@ class CovarianceList1Test extends FunSuite {
       * You may wish to define T as +T instead. (SLS 4.5)
       * new InvariantCons(new Animal(), empty) // Compile Error Expected
       */
+  }
+
+  test("InvariantList2 is homogeneous") {
+    val empty = new InvariantNil2[Dog];
+    val ls1: InvariantList2[Dog] = new InvariantCons2[Dog](new Dog(), empty);
+    val ls2: InvariantList2[Dog] = new InvariantCons2[Dog](new Dog(), ls1);
   }
 
   test("Use Covariant Type Parameter to make Nil as an singleton object") {
@@ -40,8 +46,8 @@ class CovarianceList1Test extends FunSuite {
   }
 
   test("prepend needs lower bound type parameter") {
-    val empty: CovariantList2[Nothing] = CovariantNil2
-    val ls1: CovariantList2[Human] = empty.prepend(new Human())
-    val ls2: CovariantList2[Animal] = ls1.prepend(new Dog())
+    val empty: CovariantList3[Nothing] = CovariantNil3
+    val ls1: CovariantList3[Human] = empty.prepend(new Human())
+    val ls2: CovariantList3[Animal] = ls1.prepend(new Dog())
   }
 }
