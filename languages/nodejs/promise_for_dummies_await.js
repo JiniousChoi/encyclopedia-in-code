@@ -53,3 +53,8 @@ async function askMom() {
 (async () => {
     await askMom();
 })();
+
+// `async` keyword wraps the result of a function in a promise.
+// It's like `async` makes a function acts as if in `then` method.
+// const fn1 = async (arg) => { console.log('start'); return arg }
+// fn1(5).then((arg)=>console.log('done', arg))
