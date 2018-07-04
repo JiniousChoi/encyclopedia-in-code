@@ -1,4 +1,4 @@
-#(How to create users via script)[https://wiki.apache.org/couchdb/How_to_create_users_via_script]
+# [How to create users via script](https://wiki.apache.org/couchdb/How_to_create_users_via_script)
 ```console
 $ COUCH=http://admin:passwd@localhost:5984
 
