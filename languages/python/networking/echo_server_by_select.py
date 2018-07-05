@@ -1,4 +1,5 @@
 #!/usr/bin/env python2.7
+# https://steelkiwi.com/blog/working-tcp-sockets/
 
 from __future__ import print_function
 import select, socket, sys, Queue
