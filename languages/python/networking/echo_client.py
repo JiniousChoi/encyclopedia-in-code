@@ -14,6 +14,7 @@ def sender_bot(_id):
         s.connect((server, port))
         for msg in msgs:
             sz = s.send(msg.encode())
+            print('<- {} : {}'.format(id(s), msg))
             print('-> {} : {}'.format(id(s), s.recv(sz).decode()))
             sleep(1)
         s.close()

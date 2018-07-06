@@ -1,105 +1,79 @@
-# echo_server_by_select
+# 5 bots from client
 ```console
-$ ./echo_server_by_select.py 
--- 4391975744 : CONNECTED 
--- 4391975968 : CONNECTED 
-<- 4391975744 : hello, I am bot_5
--- 4391976416 : CONNECTED 
--> 4391975744 : hello, I am bot_5
--- 4391976192 : CONNECTED 
-<- 4391976416 : hello, I am bot_7
--- 4391976752 : CONNECTED 
-<- 4391976192 : hello, I am bot_10
--> 4391976416 : hello, I am bot_7
-<- 4391975968 : hello, I am bot_8
-<- 4391976752 : hello, I am bot_2
--> 4391976192 : hello, I am bot_10
--> 4391975968 : hello, I am bot_8
--> 4391976752 : hello, I am bot_2
-<- 4391975744 : nice to meet you_5
-<- 4391975968 : nice to meet you_8
-<- 4391976192 : nice to meet you_10
-<- 4391976752 : nice to meet you_2
--> 4391975744 : nice to meet you_5
-<- 4391976416 : nice to meet you_7
--> 4391975968 : nice to meet you_8
--> 4391976192 : nice to meet you_10
--> 4391976752 : nice to meet you_2
--> 4391976416 : nice to meet you_7
-<- 4391976752 : FIN
--> 4391976752 : ACK+FIN
-<- 4391975744 : FIN
--> 4391975744 : ACK+FIN
-<- 4391975968 : FIN
--> 4391975968 : ACK+FIN
-<- 4391976192 : FIN
--> 4391976192 : ACK+FIN
-<- 4391976416 : FIN
--> 4391976416 : ACK+FIN
+$ ./echo_server_by_select.py            $ ./echo_client.py 
+-- 4340103776 : CONNECTED               <- 4303214152 : hello, I am bot_4
+-- 4340104000 : CONNECTED               <- 4302742824 : hello, I am bot_1
+<- 4340103776 : hello, I am bot_1       <- 4302745320 : hello, I am bot_2
+-- 4340104224 : CONNECTED               <- 4303213288 : hello, I am bot_3
+<- 4340104000 : hello, I am bot_2       <- 4303215592 : hello, I am bot_5
+-> 4340103776 : hello, I am bot_1       -> 4302742824 : hello, I am bot_1
+-- 4340104448 : CONNECTED               -> 4302745320 : hello, I am bot_2
+<- 4340104224 : hello, I am bot_3       -> 4303213288 : hello, I am bot_3
+-> 4340104000 : hello, I am bot_2       -> 4303214152 : hello, I am bot_4
+-- 4340104672 : CONNECTED               -> 4303215592 : hello, I am bot_5
+<- 4340104448 : hello, I am bot_4       <- 4302742824 : nice to meet you_1
+-> 4340104224 : hello, I am bot_3       <- 4303215592 : nice to meet you_5
+<- 4340104672 : hello, I am bot_5       <- 4303214152 : nice to meet you_4
+-> 4340104448 : hello, I am bot_4       <- 4303213288 : nice to meet you_3
+-> 4340104672 : hello, I am bot_5       <- 4302745320 : nice to meet you_2
+<- 4340103776 : nice to meet you_1      -> 4302742824 : nice to meet you_1
+<- 4340104000 : nice to meet you_2      -> 4302745320 : nice to meet you_2
+<- 4340104224 : nice to meet you_3      -> 4303213288 : nice to meet you_3
+<- 4340104672 : nice to meet you_5      -> 4303215592 : nice to meet you_5
+-> 4340103776 : nice to meet you_1      -> 4303214152 : nice to meet you_4
+<- 4340104448 : nice to meet you_4      
+-> 4340104000 : nice to meet you_2      
+-> 4340104224 : nice to meet you_3      
+-> 4340104672 : nice to meet you_5      
+-> 4340104448 : nice to meet you_4      
+<- 4340103776 : FIN 
+-> 4340103776 : ACK+FIN                 
+<- 4340104000 : FIN 
+-> 4340104000 : ACK+FIN                 
+<- 4340104224 : FIN 
+-> 4340104224 : ACK+FIN                 
+<- 4340104448 : FIN 
+-> 4340104448 : ACK+FIN                 
+<- 4340104672 : FIN 
+-> 4340104672 : ACK+FIN
 ```
 
-# echo_client
-ConnectionResetError occurs because the server listens only up to 5 clients
+# 10 bots from client
 ```console
-$ ./echo_client.py 
--> 4552850408 : hello, I am bot_5
--> 4552850984 : hello, I am bot_10
--> 4552850696 : hello, I am bot_7
--> 4552380136 : hello, I am bot_2
--> 4552850792 : hello, I am bot_8
-Exception in thread Thread-4:
-Traceback (most recent call last):
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 916, in _bootstrap_inner
-    self.run()
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 864, in run
-    self._target(*self._args, **self._kwargs)
-  File "./echo_client.py", line 17, in __sender_bot
-    print('-> {} : {}'.format(id(s), s.recv(sz).decode()))
-ConnectionResetError: [Errno 54] Connection reset by peer
-
-Exception in thread Thread-1:
-Traceback (most recent call last):
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 916, in _bootstrap_inner
-    self.run()
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 864, in run
-    self._target(*self._args, **self._kwargs)
-  File "./echo_client.py", line 17, in __sender_bot
-    print('-> {} : {}'.format(id(s), s.recv(sz).decode()))
-ConnectionResetError: [Errno 54] Connection reset by peer
-Exception in thread Thread-3:
-Traceback (most recent call last):
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 916, in _bootstrap_inner
-    self.run()
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 864, in run
-    self._target(*self._args, **self._kwargs)
-  File "./echo_client.py", line 17, in __sender_bot
-    print('-> {} : {}'.format(id(s), s.recv(sz).decode()))
-ConnectionResetError: [Errno 54] Connection reset by peer
-
-Exception in thread Thread-9:
-Traceback (most recent call last):
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 916, in _bootstrap_inner
-    self.run()
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 864, in run
-    self._target(*self._args, **self._kwargs)
-  File "./echo_client.py", line 17, in __sender_bot
-    print('-> {} : {}'.format(id(s), s.recv(sz).decode()))
-ConnectionResetError: [Errno 54] Connection reset by peer
-
-Exception in thread Thread-6:
-Traceback (most recent call last):
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 916, in _bootstrap_inner
-    self.run()
-  File "/usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 864, in run
-    self._target(*self._args, **self._kwargs)
-  File "./echo_client.py", line 17, in __sender_bot
-    print('-> {} : {}'.format(id(s), s.recv(sz).decode()))
-ConnectionResetError: [Errno 54] Connection reset by peer
-
-
--> 4552850408 : nice to meet you_5
--> 4552850792 : nice to meet you_8
--> 4552380136 : nice to meet you_2
--> 4552850984 : nice to meet you_10
--> 4552850696 : nice to meet you_7
+$ ./echo_server_by_select.py            $ ./echo_client.py 
+-- 4549544544 : CONNECTED               <- 4471419624 : hello, I am bot_3
+-- 4549544768 : CONNECTED               <- 4470945064 : hello, I am bot_1
+-- 4549544992 : CONNECTED               <- 4470947560 : hello, I am bot_2
+<- 4549544544 : hello, I am bot_7       <- 4471422408 : hello, I am bot_9
+-- 4549545216 : CONNECTED               <- 4471422120 : hello, I am bot_6
+<- 4549544992 : hello, I am bot_5       <- 4471422504 : hello, I am bot_10
+-> 4549544544 : hello, I am bot_7       <- 4471422216 : hello, I am bot_7
+-- 4549545440 : CONNECTED               <- 4471421928 : hello, I am bot_5
+<- 4549545216 : hello, I am bot_4       <- 4471422312 : hello, I am bot_8
+-> 4549544992 : hello, I am bot_5       <- 4471420488 : hello, I am bot_4
+<- 4549544768 : hello, I am bot_8       Exception in thread Thread-9:
+<- 4549545440 : hello, I am bot_10      ConnectionResetError: [Errno 54] Connection reset by peer
+-> 4549545216 : hello, I am bot_4       -> 4471422504 : hello, I am bot_10
+-> 4549544768 : hello, I am bot_8       -> 4471422216 : hello, I am bot_7
+-> 4549545440 : hello, I am bot_10      -> 4471421928 : hello, I am bot_5
+<- 4549544992 : nice to meet you_5      -> 4471422312 : hello, I am bot_8
+<- 4549545440 : nice to meet you_10     Exception in thread Thread-1:
+<- 4549545216 : nice to meet you_4      ConnectionResetError: [Errno 54] Connection reset by peer
+-> 4549544992 : nice to meet you_5      -> 4471420488 : hello, I am bot_4
+-> 4549545440 : nice to meet you_10     Exception in thread Thread-3:
+<- 4549544544 : nice to meet you_7      ConnectionResetError: [Errno 54] Connection reset by peer
+<- 4549544768 : nice to meet you_8      Exception in thread Thread-2:
+-> 4549545216 : nice to meet you_4      ConnectionResetError: [Errno 54] Connection reset by peer
+-> 4549544544 : nice to meet you_7      Exception in thread Thread-6:
+-> 4549544768 : nice to meet you_8      ConnectionResetError: [Errno 54] Connection reset by peer
+<- 4549544544 : FIN                     <- 4471422504 : nice to meet you_10
+-> 4549544544 : ACK+FIN                 <- 4471420488 : nice to meet you_4
+<- 4549545216 : FIN                     <- 4471421928 : nice to meet you_5
+-> 4549545216 : ACK+FIN                 <- 4471422216 : nice to meet you_7
+<- 4549545440 : FIN                     <- 4471422312 : nice to meet you_8
+-> 4549545440 : ACK+FIN                 -> 4471421928 : nice to meet you_5
+<- 4549544768 : FIN                     -> 4471422504 : nice to meet you_10
+-> 4549544768 : ACK+FIN                 -> 4471420488 : nice to meet you_4
+<- 4549544992 : FIN                     -> 4471422216 : nice to meet you_7
+-> 4549544992 : ACK+FIN                 -> 4471422312 : nice to meet you_8
 ```
