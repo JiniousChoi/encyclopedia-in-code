@@ -17,3 +17,5 @@ Jun 20 10:45:40 2018 /tmp/com.apple.launchd.VJEMgX6OPc
 Jun 20 10:45:40 2018 /tmp/AVScanfclC
 ```
 
+# todo
+https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
