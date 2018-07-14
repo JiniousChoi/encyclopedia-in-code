@@ -173,7 +173,7 @@ chapter03 = do
     -- The type of a polymorphic function often gives a strong indication about the
     -- function's behavior.
     
-    -- Overloaded types
+    -- 3.8 Overloaded types
     -- A type that contains 1+ class constraints is called overloaded
     -- e.g. (*) :: Num a => a -> a -> a
     --      abs :: Num a => a -> a
@@ -192,6 +192,137 @@ chapter03 = do
     -- Question
     -- fn1 :: IO a -> IO b -> IO a 는 되면서
     -- fn2 :: Num a -> Num a -> Num a 는 왜 안되고 Num a => a -> a -> a로 해야만 하나?
+    
+    -- 3.9 Basic classes
+    -- A type is a collection of related values
+    -- A class is a collection of types that support certain overloaded operations called `methods`
+    -- Some basic classes built-in to the language is as follows:
+    --
+    -- Eq - equality types, whose values can be compared for (in)equality using the following two methods
+    --      (==) :: a -> a -> Bool
+    --      (/=) :: a -> a -> Bool
+    -- All the basic types (Bool, Char, String, Int, Integer, Float, Double) are instances of the Eq class,
+    -- as are list and tuple types, provided that their element are compnent types are instances. For example:
+    --      > False == False
+    --      True
+    --      > 'a' == 'b'
+    --      False
+    --      "abc" == "abc"
+    --      True
+    --      [1,2] == [1,2,3]
+    --      False
+    --      ('a',False) == ('a',False)
+    --      True
+    -- Note. Function types are not in general instances of the Eq class.
+    --
+    -- Ord - ordered types, that are instances of the Eq class, but in addition whose values are
+    -- totally (linearly) ordered, and as such can be compared and processed using the following 6 methods:
+    --      (<) :: a -> a -> Bool
+    --      (>) :: a -> a -> Bool
+    --      (<=) :: a -> a -> Bool
+    --      (>=) :: a -> a -> Bool
+    --      min :: a -> a -> Bool
+    --      max :: a -> a -> Bool
+    -- All the basic types are instances of the Ord class, as are list types and tuple types, provided that
+    -- their element and component types are instances. For example:
+    --      > False < True
+    --      True
+    --      > min 'a' 'b'
+    --      'a'
+    --      > "elegant" < "elephant"
+    --      True
+    --      > [1,2,3] < [1,2]
+    --      False
+    --      > ('a',2) < ('b',1)
+    --      True
+    --      > ('a',2) < ('a',1)
+    --      False
+    -- 
+    -- Show - showable types, whose values can be converted into strings of characters using following method:
+    --      show :: a -> String
+    -- All the basic types are instances of the Show class, as are the list types and tuple types, provided that
+    -- their element and component types are instances. For example:
+    --      > show False
+    --      "False"
+    --      > show 'a'
+    --      "'a'"
+    --      > show 123
+    --      "123"
+    --      > show [1,2,3]
+    --      "[1,2,3]"
+    --      show ('a',False)
+    --      "('a',False)"
+    --      show "abc"
+    --      "\"abc\""
+    --
+    -- Read - readable types, daul to Show, whose values can be converted from strings of characters
+    --        using the following method:
+    --      read :: String -> a
+    -- All the basic types are instances of the Read class, as are list types and tuple types, provided that
+    -- their element and component types are instances. For example:
+    --      > read "False" :: Bool
+    --      False
+    --      > read "'a'" :: Char
+    --      'a'
+    --      > read "123" :: Int
+    --      123
+    --      > read "[1,2,3]" :: [Int]
+    --      [1,2,3]
+    --      > read "('a',False)" :: (Char,Bool)
+    --      ('a',False)
+    -- The use of :: in these examples resolves the type of the result, which would otherwise not be able
+    -- to be inferred by GHCi. However, not (read "False") requires no explicit type information, because
+    -- the application of the logical negation function `not` implies that read "False" must have type Bool.
+    --
+    -- Num - numeric types, whose values are numeric, and as such can be processed using the following 6 methods:
+    --      (+) :: a -> a -> a
+    --      (-) :: a -> a -> a
+    --      (*) :: a -> a -> a
+    --      negate :: a -> a
+    --      abs :: a -> a
+    --      signum :: a -> a
+    -- For example:
+    --      > 1 + 2
+    --      3
+    --      > 1.0 + 2.0
+    --      3.0
+    --      > negate 3.0
+    --      -3.0
+    --      > abs (-3)
+    --      3
+    --      > signum (-3)
+    --      -1
+    -- Note that the Num class does not provide a division method. Division is handled separately
+    -- using two special classes, one for integral numbers and one for fractional numbers.
+    -- 
+    -- Integral - integral types, that are instances of the numeric class Num, but in addtion whose
+    --            values are integers, and as such support the mothods of integer division and integer remainder:
+    --      div :: a -> a -> a
+    --      mod :: a -> a -> a
+    -- For example:
+    --      > 7 `div` 2
+    --      3
+    --      > 7 `mod` 2
+    --      1
+    -- For efficiency reasons, a number of prelude functions that involve both list and integers are
+    -- restricted to the type Int of finite-precision integers, rather than being applicable to any
+    -- instance of the Integral class. For example,
+    --      > take 3 [1..]
+    --      [1,2,3]
+    --      > take 3.0 [1..]
+    --      Could not deduce (Fractional Int) arising from the literal ‘3.0’
+    -- If required, however, such generic versions of these functions are provided as part of
+    -- an additional library file called Data.List.
+    --
+    -- Fractional - fractional types, that are instances of the numeric class Mum, but in addition whose values
+    -- are non-integral, and as such support the methods of fractional division and fractional reciprocation:
+    --      (/) :: a -> a -> a
+    --      recip :: a -> a
+    -- For example:
+    --      > 7.0 / 2.0
+    --      3.5
+    --      > recip 2.0
+    --      0.5
 
 mult :: Int -> Int -> Int -> Int
 mult x y z = x*y*z
