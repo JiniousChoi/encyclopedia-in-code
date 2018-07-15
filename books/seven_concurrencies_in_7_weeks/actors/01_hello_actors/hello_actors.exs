@@ -1,8 +1,6 @@
 import :timer, only: [ sleep: 1 ]
 
-# START:talker
 defmodule Talker do
-# START:loop
   def loop do
     receive do
       {:greet, name} -> IO.puts("Hello #{name}")
@@ -11,14 +9,14 @@ defmodule Talker do
     end
     loop
   end
-# END:loop
 end
-# END:talker
 
-# START:main
 pid = spawn(&Talker.loop/0)
 send(pid, {:greet, "Huey"})
 send(pid, {:praise, "Dewey"})
 send(pid, {:celebrate, "Louie", 16})
+
+# give some time to process all messages by the actor
+# not the best solution. better solution is in hello_actors2.exs
 sleep(1000)
-# END:main
+
