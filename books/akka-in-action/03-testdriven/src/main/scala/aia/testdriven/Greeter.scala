@@ -1,6 +1,5 @@
 package aia.testdriven
 
-
 import akka.actor.{ActorLogging, Actor}
 
 case class Greeting(message: String)

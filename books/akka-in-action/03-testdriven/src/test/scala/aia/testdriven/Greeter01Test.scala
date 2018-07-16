@@ -1,10 +1,13 @@
 package aia.testdriven
+
 import akka.testkit.{ CallingThreadDispatcher, EventFilter, TestKit }
 import akka.actor.{ Props, ActorSystem }
 import com.typesafe.config.ConfigFactory
 import org.scalatest.WordSpecLike
 
-
+// because of
+// 1. to use the Greeter01Test object which is defined later than Greeter01Test class
+// 2. to use Greeter Actor in /src/main/scala/aia/testdriven
 import Greeter01Test._
 
 class Greeter01Test extends TestKit(testSystem)
@@ -33,5 +36,4 @@ object Greeter01Test {
     ActorSystem("testsystem", config)
   }
 }
-
 

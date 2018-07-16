@@ -32,10 +32,7 @@ class SilentActor01Test extends TestKit(ActorSystem("testsystem"))
       fail("not implemented yet")
     }
   }
-
 }
-
-
 
 class SilentActor extends Actor {
   def receive = {
