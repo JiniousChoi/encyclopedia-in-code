@@ -1,17 +1,10 @@
-# START:loop
 defmodule Counter do
-# END:loop
-# START_HIGHLIGHT
   def start(count) do
     spawn(__MODULE__, :loop, [count])
   end
-# END_HIGHLIGHT
-# START_HIGHLIGHT
   def next(counter) do
     send(counter, {:next})
   end
-# END_HIGHLIGHT
-# START:loop
   def loop(count) do
     receive do
       {:next} ->
@@ -20,4 +13,13 @@ defmodule Counter do
     end
   end
 end
-# END:loop
+
+# main logic by jin
+counter = spawn(Counter, :loop, [1])
+send(counter, {:next})
+send(counter, {:next})
+send(counter, {:next})
+
+# give it some slack to consume all messages
+import :timer, only: [ sleep: 1 ]
+sleep(1000)
