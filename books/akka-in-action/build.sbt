@@ -6,6 +6,8 @@ organization := "com.manning"
 
 lazy val up          = project.in(file("02.chapter-up-and-running"))
 
+lazy val test        = project.in(file("03.chapter-testdriven"))
+
 //lazy val channels    = project.in(file("chapter-channels"))
 
 //lazy val cluster     = project.in(file("chapter-cluster"))
@@ -32,5 +34,4 @@ lazy val up          = project.in(file("02.chapter-up-and-running"))
 
 //lazy val structure   = project.in(file("chapter-structure"))
 
-//lazy val test        = project.in(file("chapter-testdriven"))
 
