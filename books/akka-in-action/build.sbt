@@ -4,9 +4,9 @@ version := "1.0"
 
 organization := "com.manning"
 
-lazy val up          = project.in(file("02.chapter-up-and-running"))
+lazy val up          = project.in(file("02-up-and-running"))
 
-lazy val test        = project.in(file("03.chapter-testdriven"))
+lazy val test        = project.in(file("03-testdriven"))
 
 //lazy val channels    = project.in(file("chapter-channels"))
 
