@@ -7,22 +7,26 @@ defmodule Counter do
     end
   end
 
-# START:api
+  # API
   def start(count) do
     pid = spawn(__MODULE__, :loop, [count])
-    # START_HIGHLIGHT
-    Process.register(pid, :counter)
-    # END_HIGHLIGHT
+    Process.register(pid, :counter) # HIGHLIGHT
     pid
   end
+
+  # API
   def next do
     ref = make_ref()
-    # START_HIGHLIGHT
-    send(:counter, {:next, self(), ref})
-    # END_HIGHLIGHT
+    send(:counter, {:next, self(), ref}) # HIGHLIGHT
     receive do
-      {:ok, ^ref, count} -> count
+      {:ok, ^ref, count} -> IO.puts(count)
     end
   end
-# END:api
 end
+
+# main by jin
+pid = Counter.start(33)
+Counter.next()
+Counter.next()
+Counter.next()
+
