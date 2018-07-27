@@ -17,7 +17,8 @@
   - as-now: `docker run -d -t --name alpine-d alpine`
   - to attach to the terminal in the background:
     `docker exec -it alpine-d sh`
-
+- send a single command to a container
+  - `docker exec <container_id> command arg1 arg2 ..`
 
 ## [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
 
