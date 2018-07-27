@@ -13,13 +13,25 @@
 - override entrypoint and attach to a terminal
   - ``` docker run --rm -it --entrypoint sh bigjin0/ansible-playbook-player ```
 
+
 ## [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
+
 1. Sign-in to docker hub and create a public repository
 1. Create Dockerfile
 1. `docker build --tag username/servername .`
 1. `docker login`
 1. `docker push username/servername`
 
+
+## Restore Dockerfile from History of a Docker Image
+
+1. `docker history --format "{{.CreatedBy}}" --no-trunc <dockerimage>`
+1. relocate ENV commands atop (just in case it's used in CMD command later in this Dockerfile)
+1. and then CMD commands
+1. remove rubbish lines (e.g. ADD file:6ee19b92d5cb1bf143947fe2e2481cb3b353d42e1e54888a8ba48c03dd4155f2 in /)
+1. remove /bin/sh -c #(nop) prefixes
+1. Compare [history of a image](./Dockerfile.in) VS [working Dockerfile](./Dockerfile.out)
+   Used docker image is [bigjin0/ansible-control-machine](https://hub.docker.com/r/bigjin0/ansible-control-machine/)
 
 ## Troubleshooting
 
@@ -34,4 +46,5 @@
 
 
 ## reference
+
 - http://longbe00.blogspot.com/2015/03/docker_98.html
