@@ -10,6 +10,8 @@
   - ``` docker rm `docker ps --no-trunc -aq` ```
 - remove all images
   - ``` docker rmi `docker ps --no-trunc -aq` ```
+- override entrypoint and attach to a terminal
+  - ``` docker run --rm -it --entrypoint sh bigjin0/ansible-playbook-player ```
 
 ## [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
 1. Sign-in to docker hub and create a public repository
