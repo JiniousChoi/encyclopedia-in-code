@@ -1,0 +1,13 @@
+/bin/sh -c #(nop)  ENV ANSIBLE_LIBRARY=/ansible/library
+/bin/sh -c #(nop)  ENV PATH=/ansible/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+/bin/sh -c #(nop)  ENV PYTHONPATH=/ansible/lib
+/bin/sh -c #(nop)  ENV ANSIBLE_SSH_PIPELINING=True
+/bin/sh -c #(nop)  ENV ANSIBLE_ROLES_PATH=/ansible/playbooks/roles
+/bin/sh -c #(nop)  ENV ANSIBLE_RETRY_FILES_ENABLED=false
+/bin/sh -c #(nop)  ENV ANSIBLE_HOST_KEY_CHECKING=false
+/bin/sh -c #(nop)  ENV ANSIBLE_GATHERING=smart
+/bin/sh -c set -x &&         echo "==> Adding build-dependencies..."  &&     apk --update add --virtual build-dependencies       gcc       musl-dev       libffi-dev       openssl-dev       python-dev &&         echo "==> Upgrading apk and system..."  &&     apk update && apk upgrade &&         echo "==> Adding Python runtime..."  &&     apk add --no-cache ${BUILD_PACKAGES} &&     pip install --upgrade pip &&     pip install python-keyczar docker-py &&         echo "==> Installing Ansible..."  &&     pip install ansible==${ANSIBLE_VERSION} &&         echo "==> Cleaning up..."  &&     apk del build-dependencies &&     rm -rf /var/cache/apk/* &&         echo "==> Adding hosts for convenience..."  &&     mkdir -p /etc/ansible /ansible &&     echo "[local]" >> /etc/ansible/hosts &&     echo "localhost" >> /etc/ansible/hosts
+/bin/sh -c #(nop)  ENV BUILD_PACKAGES=bash   curl   tar   openssh-client   sshpass   git   python   py-boto   py-dateutil   py-httplib2   py-jinja2   py-paramiko   py-pip   py-yaml   ca-certificates
+/bin/sh -c #(nop)  ENV ANSIBLE_VERSION=2.5.0
+/bin/sh -c #(nop)  CMD ["/bin/sh"]
+/bin/sh -c #(nop) ADD file:6ee19b92d5cb1bf143947fe2e2481cb3b353d42e1e54888a8ba48c03dd4155f2 in / 
