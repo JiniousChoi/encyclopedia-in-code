@@ -23,15 +23,19 @@
 1. `docker push username/servername`
 
 
-## Restore Dockerfile from History of a Docker Image
+## Restore Dockerfile from History of [a Docker Image](https://hub.docker.com/r/bigjin0/ansible-control-machine/)
 
-1. `docker history --format "{{.CreatedBy}}" --no-trunc <dockerimage>`
+#### Save history of an docker image as [Dockerfile.in](./Dockerfile.in)
+
+1. `docker history --format "{{.CreatedBy}}" --no-trunc <dockerimage> | tee Dockerfile.in`
+
+#### Touch up the [Dockerfile.in](./Dockerfile.in) to get a working [Dockerfile.out](./Dockerfile.out)
+
 1. relocate ENV commands atop (just in case it's used in CMD command later in this Dockerfile)
 1. and then CMD commands
 1. remove rubbish lines (e.g. ADD file:6ee19b92d5cb1bf143947fe2e2481cb3b353d42e1e54888a8ba48c03dd4155f2 in /)
 1. remove /bin/sh -c #(nop) prefixes
-1. Compare [history of a image](./Dockerfile.in) VS [working Dockerfile](./Dockerfile.out)
-   Used docker image is [bigjin0/ansible-control-machine](https://hub.docker.com/r/bigjin0/ansible-control-machine/)
+
 
 ## Troubleshooting
 
