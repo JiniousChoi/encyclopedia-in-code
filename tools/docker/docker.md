@@ -15,7 +15,7 @@
 - [run a container in background. alive!](https://stackoverflow.com/a/30209974)
   - as-was: `docker run -d --name alpine-d alpine tail -f /dev/null`
   - as-now: `docker run -d -t --name alpine-d alpine`
-  - to attach to the terminal in the background:
+  - to attach to the terminal of the container in background:
     `docker exec -it alpine-d sh`
 - send a single command to a container
   - `docker exec <container_id> command arg1 arg2 ..`
