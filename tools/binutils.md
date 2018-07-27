@@ -28,5 +28,23 @@ $ expr "$ls" : '.*-> \(.*\)$'
 ../Cellar/python/3.6.5/bin/python3
 ```
 
+## /etc/*-release in linux server
+this shows what linux distribution it is
+```console
+# ls /etc/*release
+/etc/alpine-release  /etc/os-release
+
+# cat /etc/alpine-release 
+3.7.0
+
+# cat /etc/os-release 
+NAME="Alpine Linux"
+ID=alpine
+VERSION_ID=3.7.0
+PRETTY_NAME="Alpine Linux v3.7"
+HOME_URL="http://alpinelinux.org"
+BUG_REPORT_URL="http://bugs.alpinelinux.org"
+```
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
