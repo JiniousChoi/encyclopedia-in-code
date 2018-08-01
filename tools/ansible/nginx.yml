@@ -1,0 +1,10 @@
+---
+- hosts : test-servers
+  tasks :
+    - name : install nginx
+      apt : name=nginx state=present
+      notify :
+        - start nginx
+  handlers :
+    - name : start nginx
+      service : name=nginx state=started
