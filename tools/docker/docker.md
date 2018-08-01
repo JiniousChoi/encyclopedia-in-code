@@ -58,6 +58,16 @@
 - [docker-tuntap-osx](https://github.com/AlmirKadric-Published/docker-tuntap-osx)
 - [docker-mac-network](https://github.com/wojas/docker-mac-network)
 
+#### [[Ubuntu Container] Cannot use man-db](https://github.com/tianon/docker-brew-ubuntu-core/issues/122)
+  ```
+  # Do not exclude man pages & other documentation
+  RUN rm /etc/dpkg/dpkg.cfg.d/excludes
+  # Reinstall all currently installed packages in order to get the man pages back
+  RUN apt-get update && \
+      dpkg -l | grep ^ii | cut -d' ' -f3 | xargs apt-get install -y --reinstall && \
+      rm -r /var/lib/apt/lists/*
+  ```
+
 ## reference
 
 - http://longbe00.blogspot.com/2015/03/docker_98.html
