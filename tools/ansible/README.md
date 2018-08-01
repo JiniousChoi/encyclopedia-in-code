@@ -94,7 +94,6 @@ Commercial support is available at
 <p><em>Thank you for using nginx.</em></p>
 </body>
 </html>
-100   612  100   612    0     0   597k      0 --:--:-- --:--:-- --:--:--  597k
 ```
 
 
@@ -109,3 +108,7 @@ ansible-node-machine
 ansible-control-machine
 ansible-bridge
 ```
+
+## Reference
+- [dockerizing-all-the-things-running-ansible-inside-docker-container](http://ruleoftech.com/2017/dockerizing-all-the-things-running-ansible-inside-docker-container)
+- [running-ansible-inside-docker](https://medium.com/@tech_phil/running-ansible-inside-docker-550d3bb2bdff)
