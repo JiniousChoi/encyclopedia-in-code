@@ -45,7 +45,7 @@
 
 ## Troubleshooting
 
-#### [Cannot connect to the internet from your Docker containers?](https://odino.org/cannot-connect-to-the-internet-from-your-docker-containers)
+#### [[MacOS] Cannot connect to the internet from your Docker containers?](https://odino.org/cannot-connect-to-the-internet-from-your-docker-containers)
 
 1. login as root
 1. `printf '# Docker Upstart and SysVinit configuration file\n\n# Use DOCKER_OPTS to modify the daemon startup options.\nDOCKER_OPTS="--dns 208.67.222.222 --dns 208.67.220.220"' > /etc/defaults/docker`
