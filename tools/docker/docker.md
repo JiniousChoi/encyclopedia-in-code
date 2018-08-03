@@ -46,6 +46,20 @@
 
 ## Install
 
+#### [on Ubuntu 18.04 LTS](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
+
+```
+$ sudo apt update && \
+  sudo apt install apt-transport-https ca-certificates curl software-properties-common && \
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
+  sudo apt update && \
+  sudo apt install docker-ce && \
+  sudo systemctl status docker && \
+  sudo usermod -aG docker $USER && \
+  sudo docker info
+```
+
 #### [on Ubuntu 14.04 LTS or 16.04 LTS](https://docs.docker.com/cs-engine/1.12/)
 
 ```
