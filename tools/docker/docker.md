@@ -20,6 +20,7 @@
 - send a single command to a container
   - `docker exec <container_id> command arg1 arg2 ..`
 
+
 ## [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
 
 1. Sign-in to docker hub and create a public repository
@@ -41,6 +42,33 @@
 1. and then CMD commands
 1. remove rubbish lines (e.g. ADD file:6ee19b92d5cb1bf143947fe2e2481cb3b353d42e1e54888a8ba48c03dd4155f2 in /)
 1. remove /bin/sh -c #(nop) prefixes
+
+
+## Install
+
+#### [on Ubuntu 14.04 LTS or 16.04 LTS](https://docs.docker.com/cs-engine/1.12/)
+
+```
+$ sudo apt-get update && \
+  # Install packages to allow apt to use a repository over HTTPS: \
+  sudo apt-get install -y --no-install-recommends \
+                       apt-transport-https \
+                       curl \
+                       software-properties-common && \
+  # Optionally, install additional kernel modules to add AUFS support. \
+  sudo apt-get install -y --no-install-recommends \
+                       linux-image-extra-$(uname -r) \
+                       linux-image-extra-virtual && \
+  # If the key server below does not respond, try `pgp.mit.edu` or `keyserver.ubuntu.com` \
+  curl -fsSL 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e' | sudo apt-key add - && \
+  sudo add-apt-repository "deb https://packages.docker.com/1.12/apt/repo/ ubuntu-$(lsb_release -cs) main" && \
+  sudo apt-get update && \
+  sudo apt-get -y install docker-engine && \
+  sudo docker info && \
+  sudo usermod -a -G docker $USER
+  
+
+```
 
 
 ## Troubleshooting
