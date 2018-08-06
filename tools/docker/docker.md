@@ -44,7 +44,7 @@
 1. remove /bin/sh -c #(nop) prefixes
 
 
-## Install
+## Install Docker
 
 #### [on Ubuntu 18.04 LTS](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 
@@ -85,6 +85,13 @@ $ sudo apt-get update && \
 #### [Docker Compose on Linux](https://docs.docker.com/compose/install/#install-compose)
 ```
 $ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+```
+
+
+## Install Docker Composer
+
+```
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose && sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 
