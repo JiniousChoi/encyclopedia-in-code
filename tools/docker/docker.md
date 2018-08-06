@@ -75,7 +75,7 @@ $ sudo apt-get update && \
                        linux-image-extra-virtual && \
   # If the key server below does not respond, try `pgp.mit.edu` or `keyserver.ubuntu.com` \
   curl -fsSL 'https://sks-keyservers.net/pks/lookup?op=get&search=0xee6d536cf7dc86e2d7d56f59a178ac6c6238f52e' | sudo apt-key add - && \
-  sudo add-apt-repository "deb https://packages.docker.com/1.12/apt/repo/ ubuntu-$(lsb_release -cs) main" && \
+  sudo add-apt-repository "deb https://packages.docker.com/1.13/apt/repo/ ubuntu-$(lsb_release -cs) main" && \
   sudo apt-get update && \
   sudo apt-get -y install docker-engine && \
   sudo docker info && \
