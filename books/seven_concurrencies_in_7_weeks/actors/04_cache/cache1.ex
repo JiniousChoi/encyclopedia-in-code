@@ -1,19 +1,17 @@
-# START:cache
 defmodule Cache do
-# END:cache
-# START:cachestart
+  # api
   def start_link do
     pid = spawn_link(__MODULE__, :loop, [HashDict.new, 0])
     Process.register(pid, :cache)
     pid
   end
-# END:cachestart
 
-# START:cacheapi
+  # api
   def put(url, page) do
     send(:cache, {:put, url, page})
   end
 
+  # api
   def get(url) do
     ref = make_ref()
     send(:cache, {:get, self(), ref, url})
@@ -21,6 +19,8 @@ defmodule Cache do
       {:ok, ^ref, page} -> page
     end
   end
+
+  # api
   def size do
     ref = make_ref()
     send(:cache, {:size, self(), ref})
@@ -29,12 +29,11 @@ defmodule Cache do
     end
   end
 
+  # api
   def terminate do
     send(:cache, {:terminate})
   end
-# END:cacheapi
 
-# START:cache
   def loop(pages, size) do
     receive do
       {:put, url, page} ->
@@ -51,13 +50,18 @@ defmodule Cache do
     end
   end
 end
-# END:cache
 
-# START:supervisor
 defmodule CacheSupervisor do
+  # api
   def start do
     spawn(__MODULE__, :loop_system, [])
   end
+
+  def loop_system do
+    Process.flag(:trap_exit, true)
+    loop
+  end
+
   def loop do
     pid = Cache.start_link
     receive do
@@ -69,9 +73,23 @@ defmodule CacheSupervisor do
         loop
     end
   end
-  def loop_system do
-    Process.flag(:trap_exit, true)
-    loop
-  end
 end
-# END:supervisor
+
+Cache.start_link
+# PID<0.47.0>
+
+Cache.put("google.com", "Welcome to Google ...")
+# {:put, "google.com", "Welcome to Google ..."}
+
+IO.puts(Cache.get("google.com"))
+# Welcome to Google ...
+
+IO.puts(Cache.size())
+# 21
+
+# Exception handling is missing
+# Cache.put("paulbutcher.com", nil)
+# ** (EXIT from #PID<0.47.0>) an exception was raised:
+#     ** (ArgumentError) argument error
+#         :erlang.byte_size(nil)
+#         cache1.ex:41: Cache.loop/2
