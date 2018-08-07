@@ -1,15 +1,17 @@
 defmodule Cache do
+  # api
   def start_link do
     pid = spawn_link(__MODULE__, :loop, [HashDict.new, 0])
     Process.register(pid, :cache)
     pid
   end
 
+  # api
   def put(url, page) do
     send(:cache, {:put, url, page})
   end
 
-# START:get
+  # api
   def get(url) do
     ref = make_ref()
     send(:cache, {:get, self(), ref, url})
@@ -20,8 +22,8 @@ defmodule Cache do
       # END_HIGHLIGHT
     end
   end
-# END:get
 
+  # api
   def size do
     ref = make_ref()
     send(:cache, {:size, self(), ref})
@@ -31,6 +33,7 @@ defmodule Cache do
     end
   end
 
+  # api
   def terminate do
     send(:cache, {:terminate})
   end
@@ -41,23 +44,26 @@ defmodule Cache do
         new_pages = Dict.put(pages, url, page)
         new_size = size + byte_size(page)
         loop(new_pages, new_size)
-
       {:get, sender, ref, url} ->
         send(sender, {:ok, ref, pages[url]})
         loop(pages, size)
-
       {:size, sender, ref} ->
         send(sender, {:ok, ref, size})
         loop(pages, size)
-
       {:terminate} -> # Terminate request - don't recurse
     end
   end
 end
 
 defmodule CacheSupervisor do
+  # api
   def start do
     spawn(__MODULE__, :loop_system, [])
+  end
+
+  def loop_system do
+    Process.flag(:trap_exit, true)
+    loop
   end
 
   def loop do
@@ -66,15 +72,9 @@ defmodule CacheSupervisor do
       {:EXIT, ^pid, :normal} ->
         IO.puts("Cache exited normally")
         :ok
-
       {:EXIT, ^pid, reason} ->
         IO.puts("Cache failed with reason #{inspect reason} - restarting it")
         loop
     end
-  end
-
-  def loop_system do
-    Process.flag(:trap_exit, true)
-    loop
   end
 end
