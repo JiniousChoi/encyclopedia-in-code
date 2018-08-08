@@ -64,5 +64,42 @@ jinchoi$ cat auth.guest | xargs printf "%s\n"
 jinchoi$ 
 ```
 
+
+## /usr/bin/dirname
+```
+$ dirname /usr/bin/  
+/usr  
+  
+$ dirname dir1/str dir2/str  
+dir1  
+dir2  
+
+$ dirname stdio.h  
+. # meaning the current directory
+```
+
+
+## /usr/bin/basename
+```
+$ basename /usr/bin/sort  
+sort  
+  
+$ basename include/stdio.h .h  
+stdio  
+  
+$ basename -s .h include/stdio.h  
+stdio  
+  
+$ basename -a any/str1 any/str2  
+str1  
+str2  
+  
+$ basename -s .h -a path/file1.h path/file2.h  
+file1  
+file2  
+```
+
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
+
