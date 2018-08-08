@@ -46,5 +46,23 @@ HOME_URL="http://alpinelinux.org"
 BUG_REPORT_URL="http://bugs.alpinelinux.org"
 ```
 
+## [/usr/bin/xargs](https://stackoverflow.com/questions/35589179/when-to-use-xargs-when-piping)
+Virtually, it transforms(X) standard input as arguments(ARGS), hence the name `XARGS`.
+`printf` utility does NOT read standard input. It uses given arguments.
+```
+jinchoi$ cat auth.guest 
+23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwPjinchoi$ 
+```
+```
+jinchoi$ cat auth.guest | printf "%s\n"
+
+jinchoi$
+```
+```
+jinchoi$ cat auth.guest | xargs printf "%s\n"
+23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
+jinchoi$ 
+```
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
