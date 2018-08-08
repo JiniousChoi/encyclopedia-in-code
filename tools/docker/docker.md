@@ -95,6 +95,37 @@ $ sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker
 ```
 
 
+## How to checkout a previous commit (on a new tag)
+
+```
+$ docker pull ubuntu
+$ docker run --rm -dt --name ubuntu ubuntu
+$ docker exec ubuntu touch jinchoi
+$ docker commit -m "add a file" -a "jinchoiseoul@gmail.com" ubuntu ubuntu:test
+$ docker images | grep ubuntu
+ubuntu                          test                  51509821b96e        16 seconds ago      83.5MB
+ubuntu                          latest                735f80812f90        12 days ago         83.5MB
+```
+```
+$ docker history ubuntu:test
+IMAGE               CREATED              CREATED BY                                      SIZE                COMMENT
+51509821b96e        About a minute ago   /bin/bash                                       0B                  add a file
+735f80812f90        12 days ago          /bin/sh -c #(nop)  CMD ["/bin/bash"]            0B                  
+<missing>           12 days ago          /bin/sh -c mkdir -p /run/systemd && echo 'do…   7B                  
+<missing>           12 days ago          /bin/sh -c sed -i 's/^#\s*\(deb.*universe\)$…   2.76kB              
+<missing>           12 days ago          /bin/sh -c rm -rf /var/lib/apt/lists/*          0B                  
+<missing>           12 days ago          /bin/sh -c set -xe   && echo '#!/bin/sh' > /…   745B                
+<missing>           12 days ago          /bin/sh -c #(nop) ADD file:4bb62bb0587406855…   83.5MB 
+```
+```
+$ docker tag 735f80812f90 ubuntu:original
+$ docker images | grep ubuntu
+ubuntu                          test                  51509821b96e        2 minutes ago       83.5MB
+ubuntu                          latest                735f80812f90        12 days ago         83.5MB
+ubuntu                          original              735f80812f90        12 days ago         83.5MB
+```
+
+
 ## Troubleshooting
 
 #### [[MacOS] Cannot connect to the internet from your Docker containers?](https://odino.org/cannot-connect-to-the-internet-from-your-docker-containers)
