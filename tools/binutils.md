@@ -102,6 +102,29 @@ file2
 ```
 
 
+## /bin/lsblk
+### list block devices
+
+disk of IDE/SATA/SCSI type
+```
+jin@pm01:~$ lsblk
+NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0  79.4G  0 disk 
+|-sda1   8:1    0    30M  0 part 
+|-sda2   8:2    0   477M  0 part /boot
+|-sda3   8:3    0   9.6G  0 part [SWAP]
+`-sda4   8:4    0  69.4G  0 part /
+```
+
+[disk type of the paravirtualizated](https://serverfault.com/a/803391)
+```
+jin@vm01:~$ lsblk
+NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
+vda    253:0    0  50G  0 disk 
+`-vda1 253:1    0  50G  0 part /
+```
+
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
 
