@@ -125,6 +125,13 @@ vda    253:0    0  50G  0 disk
 ```
 
 
+## /bin/stty - set the options for a terminal device interface
+
+#### [How to reverse-i-search back and forth?](https://stackoverflow.com/questions/12373586/how-to-reverse-i-search-back-and-forth)
+
+`stty -ixon` enables <C-s> for forward-i-search, whereas <C-r> is for reverse-i-search.
+
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
 
