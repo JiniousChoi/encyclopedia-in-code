@@ -132,6 +132,17 @@ vda    253:0    0  50G  0 disk
 `stty -ixon` enables <C-s> for forward-i-search, whereas <C-r> is for reverse-i-search.
 
 
+## /usr/bin/bluetoothctl
+How to connect to bluetooth speak automatically on booting
+
+```
+$ cat /etc/rc.local
+...
+echo "connect 00:02:3C:4C:B2:A8" | bluetoothctl
+...
+```
+
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
 
