@@ -19,6 +19,8 @@
     `docker exec -it alpine-d sh`
 - send a single command to a container
   - `docker exec <container_id> command arg1 arg2 ..`
+- mount volume between host machine and docker container
+  - `$ docker run --rm -d --name mongo34 -v /data:/data/db mongo:3.4`
 
 
 ## [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
