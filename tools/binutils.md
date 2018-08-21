@@ -143,6 +143,48 @@ echo "connect 00:02:3C:4C:B2:A8" | bluetoothctl
 ```
 
 
+## How to use proxy on linux server
+
+### set proxy for the current shell
+
+```
+$ unset http_proxy
+$ unset https_proxy
+$ export http_proxy=http://proxy.example.com:3128
+$ export https_proxy=http://proxy.example.com:3128
+```
+
+### `sudo apt-get update` doesn't work?
+
+`sudo` opens a new shell environment. A workaround is to preserve the environment variable,
+
+```
+sudo -E apt-get update
+```
+
+### `./gradlew` fails on downloading `gradle-?.?.?-bin.zip`
+
+- set jvm options in gradlew
+  ```
+  $ cat ./gradlew
+  ...
+  # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+  DEFAULT_JVM_OPTS="-Dhttp.proxyHost=proxy.example.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128"
+  ...
+  ```
+- [set global proxy setting](https://stackoverflow.com/questions/34640698/gradle-failing-to-download-distribution-behind-company-proxy)
+  ```
+  $ cat ~/.gradle/gradle.properties
+  org.gradle.daemon=true
+  systemProp.https.proxyHost=proxy.example.com
+  systemProp.https.proxyPort=3128
+  systemProp.http.proxyHost=proxy.example.com
+  systemProp.http.proxyPort=3128
+  systemProp.https.nonProxyHosts=*.example.com|localhost
+  ```
+  this is like passing these args to gradlew, say, `./gradlew -Dhttp.proxyHost=xxx -Dhttp.proxyPort=xxx -Dhttps.proxyHost=xxx -Dhttps.proxyPort=xxx`
+
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
 
