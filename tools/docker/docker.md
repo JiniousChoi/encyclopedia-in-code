@@ -48,6 +48,8 @@
 
 ## Install Docker
 
+Maybe the way to install docker on any distributions is using [docker-install project](https://github.com/docker/docker-install)
+
 #### [on Ubuntu 18.04 LTS](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 
 ```
