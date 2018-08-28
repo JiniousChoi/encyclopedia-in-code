@@ -185,6 +185,38 @@ sudo -E apt-get update
   this is like passing these args to gradlew, say, `./gradlew -Dhttp.proxyHost=xxx -Dhttp.proxyPort=xxx -Dhttps.proxyHost=xxx -Dhttps.proxyPort=xxx`
 
 
+## /usr/sbin/usermod
+
+#### append a user to a group
+```
+# after installing docker
+$ sudo usermod -a -G docker $USER
+```
+
+#### You need to log back in.
+```
+$ groups
+jin adm cdrom sudo dip plugdev lpadmin sambashare
+$ docker ps
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+```
+
+#### Ad-hoc
+```
+$ sudo su $USER -c 'groups'
+jin adm cdrom sudo dip plugdev lpadmin sambashare docker
+$ sudo su $USER -c 'docker ps'
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+```
+
+#### Limitation: Not working for every situations
+```
+jin@jin-VirtualBox:~/github/openwhisk$ sudo su $USER -c './gradlew distDocker' 2>&1 | head
+Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+...
+```
+
+
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
 
