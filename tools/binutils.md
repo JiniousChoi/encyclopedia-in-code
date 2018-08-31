@@ -143,6 +143,24 @@ echo "connect 00:02:3C:4C:B2:A8" | bluetoothctl
 ```
 
 
+## /usr/bin/pacmd
+Reconfigure a PulseAudio sound server during runtime
+
+```
+$ cat /etc/rc.local
+...
+pacmd set-default-sink bluez_sink.00_02_3C_4C_B2_A8 >> /etc/rc.local
+...
+```
+```
+$ pacmd stat
+...
+Default sink name: bluez_sink.00_02_3C_4C_B2_A8
+Default source name: alsa_input.pci-0000_00_1b.0.analog-stereo
+...
+```
+
+
 ## How to use proxy on linux server
 
 ### set proxy for the current shell
