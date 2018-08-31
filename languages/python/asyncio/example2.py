@@ -14,7 +14,9 @@ async def main():
         tasks.append(asyncio.ensure_future(my_coroutine(_id)))
         
     await asyncio.gather(*tasks)
+    print("I am done in async def main!")
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
+print("I ran main until complete")
 loop.close()
