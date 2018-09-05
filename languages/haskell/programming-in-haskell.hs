@@ -21,6 +21,8 @@ main = do
     chapter02_exercise
     printTitle "Chapter 03"
     chapter03
+    printTitle "Chapter 04"
+    chapter04
 
 printTitle title = do putStrLn $ replicate 50 '-'
                       putStrLn $ left ++ " "  ++ title ++ " " ++ right
@@ -327,3 +329,25 @@ chapter03 = do
 mult :: Int -> Int -> Int -> Int
 mult x y z = x*y*z
 multBy6 = mult 2 3
+
+-- Defining functions
+chapter04 :: IO()
+chapter04 = do
+    -- 4.1 New from old
+    printEq "even' 3" $ even' 3
+    printEq "even' 4" $ even' 4
+
+    printEq "splitAt' 2 [1,2,3,4]" $ splitAt' 2 [1,2,3,4]
+    printEq "splitAt' 6 [1,2,3,4]" $ splitAt' 6 [1,2,3,4]
+
+    printEq "recip' 6" $ recip' 6
+
+
+even' :: Integral a => a -> Bool
+even' n = n `mod` 2 == 0
+
+splitAt' :: Int -> [a] -> ([a],[a])
+splitAt' n xs = (take n xs, drop n xs)
+
+recip' :: Fractional a => a -> a
+recip' n = 1/n
