@@ -234,6 +234,22 @@ Cannot connect to the Docker daemon. Is the docker daemon running on this host?
 ...
 ```
 
+## [How to use sudo to redirect output to a file?](https://stackoverflow.com/questions/82256/how-do-i-use-sudo-to-redirect-output-to-a-location-i-dont-have-permission-to-wr)
+
+```
+sudo command > /some/file.log
+`-----v-----'`-------v-------'
+   command       redirection
+```
+redirection part is performed by a new shell (which has nothing to do with the `sudo` on the left side of '>')
+
+```
+$ sudo cat | sudo tee /etc/docker/daemon.json
+```
+```
+sudo ls -hal /root/ | sudo dd of=/root/test.out
+```
+
 
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
