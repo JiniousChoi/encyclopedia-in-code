@@ -342,6 +342,13 @@ chapter04 = do
 
     printEq "recip' 6" $ recip' 6
 
+    -- 4.2 Conditional expressions
+    printEq "abs' (-3)" $ abs' (-3)
+    printEq "abs' 3" $ abs' 3
+    printEq "signum' (-3)" $ signum' (-3)
+    printEq "signum' 0" $ signum' 0
+    printEq "signum' 3" $ signum' 3
+
 
 even' :: Integral a => a -> Bool
 even' n = n `mod` 2 == 0
@@ -351,3 +358,10 @@ splitAt' n xs = (take n xs, drop n xs)
 
 recip' :: Fractional a => a -> a
 recip' n = 1/n
+
+abs' :: Int -> Int
+abs' n = if n >= 0 then n else -n
+
+signum' :: Int -> Int
+signum' n = if n > 0 then 1 else
+               if n == 0 then 0 else -1
