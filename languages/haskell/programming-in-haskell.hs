@@ -349,6 +349,13 @@ chapter04 = do
     printEq "signum' 0" $ signum' 0
     printEq "signum' 3" $ signum' 3
 
+    -- 4.3 Guarded equations
+    printEq "abs'' (-3)" $ abs'' (-3)
+    printEq "abs'' 3" $ abs'' 3
+    printEq "signum'' (-3)" $ signum'' (-3)
+    printEq "signum'' 0" $ signum'' 0
+    printEq "signum'' 3" $ signum'' 3
+
 
 even' :: Integral a => a -> Bool
 even' n = n `mod` 2 == 0
@@ -365,3 +372,13 @@ abs' n = if n >= 0 then n else -n
 signum' :: Int -> Int
 signum' n = if n > 0 then 1 else
                if n == 0 then 0 else -1
+
+abs'' :: Int -> Int
+abs'' n | n >= 0    = n
+        | otherwise = -n
+
+signum'' :: Int -> Int
+signum'' n | n > 0     = 1
+           | n == 0    = 0
+           | otherwise = -1
+
