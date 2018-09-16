@@ -130,6 +130,21 @@ ubuntu                          original              735f80812f90        12 day
 ```
 
 
+## [Where is docker daemon log?](https://stackoverflow.com/a/30970134)
+
+- Ubuntu (new using systemd ) - sudo journalctl -fu docker.service
+- Ubuntu (old using upstart ) - /var/log/upstart/docker.log
+- Boot2Docker - /var/log/docker.log
+- Debian GNU/Linux - /var/log/daemon.log
+- CentOS - /var/log/daemon.log | grep docker
+- CoreOS - journalctl -u docker.service
+- Fedora - journalctl -u docker.service
+- Red Hat Enterprise Linux Server - /var/log/messages | grep docker
+- OpenSuSE - journalctl -u docker.service
+- OSX - ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/log/d‌​ocker.log
+- Windows - Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time, as mentioned here.
+
+
 ## Troubleshooting
 
 #### [[MacOS] Cannot connect to the internet from your Docker containers?](https://odino.org/cannot-connect-to-the-internet-from-your-docker-containers)
