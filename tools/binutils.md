@@ -250,6 +250,16 @@ $ sudo cat | sudo tee /etc/docker/daemon.json
 sudo ls -hal /root/ | sudo dd of=/root/test.out
 ```
 
+## /usr/bin/ssh
+
+#### [Environment variables are unavailable when running scripts over ssh](https://serverfault.com/questions/586382/environment-variables-are-unavailable-when-running-scripts-over-ssh)
+
+FYI, `~/.bashrc`, `~/.bash_profile`, `/etc/bashrc`, `/etc/profile` are NOT being read when ssh-logged-in. However, `/etc/environment` should be loaded in Ubuntu. (No other platforms are tested) But this is too much global in cases.
+
+To confine env vars to ssh log-in, `~/.ssh/environment` comes in. If it exists, and users are allowed to change their environment. See the PermitUserEnvironment option in sshd_config(5). To enable this feature, set `PermitUserEnvironment` property to `yes` in /etc/ssh/sshd_config. Finally your environment variables set in `~/.ssh/environment` would be valid when ssh-logged-in.
+
+[When ssh'ing, how can I set an environment variable on the server that changes from session to session?](https://superuser.com/questions/163167/when-sshing-how-can-i-set-an-environment-variable-on-the-server-that-changes-f/163228)
+
 
 # todo
 https://unix.stackexchange.com/questions/16443/combine-text-files-column-wise
