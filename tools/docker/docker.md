@@ -170,6 +170,12 @@ ubuntu                          original              735f80812f90        12 day
       rm -r /var/lib/apt/lists/*
   ```
 
+#### [How to debug an exploding Docker container](https://medium.com/@pimterry/5-ways-to-debug-an-exploding-docker-container-4f729e2c0aa8)
+1. `docker logs <container_id>`
+1. `docker stats <container_id>`
+1. `docker commit <container_id> my-broken-container &&
+docker run -it my-broken-container /bin/bash`
+
 ## reference
 
 - http://longbe00.blogspot.com/2015/03/docker_98.html
