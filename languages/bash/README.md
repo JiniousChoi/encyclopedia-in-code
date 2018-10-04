@@ -1,3 +1,17 @@
+## `:` 
+
+```bash
+$ help :
+:: :
+    No effect; the command does nothing.  A zero exit code is returned.
+```
+
+```bash
+$ : invalid-command
+$ 
+```
+
+
 # [parameter expansion](https://www.gnu.org/software/bash/manual/bashref.html#Shell-Parameter-Expansion)
 
 
