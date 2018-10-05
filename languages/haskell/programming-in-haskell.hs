@@ -8,6 +8,7 @@
 --                  or Prelude> :reload
 
 import Control.Exception
+import ChapterX
 
 main :: IO ()
 main = do
@@ -51,27 +52,6 @@ chapter01 = do
     -- res <- seqn [getChar, getChar, getChar]
     -- putStrLn res
 
--- Chapter 01
--- double :: Num a => a -> a
-double x = x + x
-
--- sum' :: Num a => [a] -> a
-sum' [] = 0
-sum' (n:ns) = n + sum'(ns)
-
-qsort :: (Ord a) => [a] -> [a]
-qsort [] = []
-qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
-               where smaller = [a|a <- xs, a <= x]
-                     larger  = [b|b <- xs, b > x ]
-
--- seqn :: [IO a] -> IO [a]
-seqn :: Monad m => [m a] -> m [a]
-seqn []         = return []
-seqn (act:acts) = do x <- act
-                     xs <- seqn acts
-                     return (x:xs)
-
 -- chapter01_exercise
 chapter01_exercise = do
     printEq "product' [1,2,3]" $ product' [1,2,3]
@@ -90,27 +70,10 @@ chapter02 = do
     printEq "reverse [1..6]" $ reverse [1..6]
     printEq "average [1..6]" $ average [1..6]
 
--- product' :: Num a => [a] -> a
-product' [] = 1
-product' (n:ns) = n * product' ns
-
-qsort_reverse :: (Ord a) => [a] -> [a]
-qsort_reverse [] = []
-qsort_reverse (x:xs) = qsort_reverse larger ++ [x] ++ qsort_reverse smaller
-                       where larger = [a | a <- xs, a >= x]
-                             smaller = [b | b <- xs, x > b]
-
-average ns = sum ns `div` length ns 
-
 chapter02_exercise = do printEq "last' [1..6]" $ last' [1..6]
                         printEq "last'' [1..6]" $ last'' [1..6]
                         printEq "init' [1..6]" $ init' [1..6]
                         printEq "init'' [1..6]" $ init'' [1..6]
-
-last' = head . reverse
-last'' xs = head $ drop (length xs-1) xs
-init' xs = take (length xs - 1) xs
-init'' = reverse . drop 1 . reverse
 
 -- Types and classes
 chapter03 :: IO()
@@ -326,10 +289,6 @@ chapter03 = do
     --      > recip 2.0
     --      0.5
 
-mult :: Int -> Int -> Int -> Int
-mult x y z = x*y*z
-multBy6 = mult 2 3
-
 -- Defining functions
 chapter04 :: IO()
 chapter04 = do
@@ -356,29 +315,4 @@ chapter04 = do
     printEq "signum'' 0" $ signum'' 0
     printEq "signum'' 3" $ signum'' 3
 
-
-even' :: Integral a => a -> Bool
-even' n = n `mod` 2 == 0
-
-splitAt' :: Int -> [a] -> ([a],[a])
-splitAt' n xs = (take n xs, drop n xs)
-
-recip' :: Fractional a => a -> a
-recip' n = 1/n
-
-abs' :: Int -> Int
-abs' n = if n >= 0 then n else -n
-
-signum' :: Int -> Int
-signum' n = if n > 0 then 1 else
-               if n == 0 then 0 else -1
-
-abs'' :: Int -> Int
-abs'' n | n >= 0    = n
-        | otherwise = -n
-
-signum'' :: Int -> Int
-signum'' n | n > 0     = 1
-           | n == 0    = 0
-           | otherwise = -1
 
