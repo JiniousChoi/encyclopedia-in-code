@@ -11,7 +11,7 @@ Tue Sep 11 08:41:34 KST 2018
 ## [Information discovered from systems: Facts](https://docs.ansible.com/ansible/2.6/user_guide/playbooks_variables.html?highlight=ansible_distribution_release#information-discovered-from-systems-facts)
 
 ```
-$ ansible all -i my.example.com -m setup
+$ ansible all -i my.example.com, -m setup
 {
     "ansible_all_ipv4_addresses": [
         "REDACTED IP ADDRESS"
