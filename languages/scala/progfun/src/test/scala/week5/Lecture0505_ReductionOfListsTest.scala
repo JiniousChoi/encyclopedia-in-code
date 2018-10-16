@@ -2,7 +2,7 @@ package week5
 
 import org.scalatest.FunSuite
 
-class Lesson0505_ReductionOfListsTest extends FunSuite {
+class Lecture0505_ReductionOfListsTest extends FunSuite {
   test("fold is more flexible than reduce") {
     val fruits = List("apple", "banana", "grape")
     val fruits2 = List("apple", "banana")
@@ -39,25 +39,25 @@ class Lesson0505_ReductionOfListsTest extends FunSuite {
 
   test("Impl") {
     val xs = List(1,2,3,4,5)
-    assert (Lesson0505_ReductionOfLists.Impl.reduceLeft(xs)(_ + _) == 15)
-    assert (Lesson0505_ReductionOfLists.Impl.reduceRight(xs)(_ + _) == 15)
-    assert (Lesson0505_ReductionOfLists.Impl.foldLeft(xs)(0)(_ + _) == 15)
-    assert (Lesson0505_ReductionOfLists.Impl.foldRight(xs)(0)(_ + _) == 15)
+    assert (Lecture0505_ReductionOfLists.Impl.reduceLeft(xs)(_ + _) == 15)
+    assert (Lecture0505_ReductionOfLists.Impl.reduceRight(xs)(_ + _) == 15)
+    assert (Lecture0505_ReductionOfLists.Impl.foldLeft(xs)(0)(_ + _) == 15)
+    assert (Lecture0505_ReductionOfLists.Impl.foldRight(xs)(0)(_ + _) == 15)
 
-    assert (Lesson0505_ReductionOfLists.Impl.foldLeft(xs)("")((acc, x) => acc + x.toString*x) == "122333444455555")
-    assert (Lesson0505_ReductionOfLists.Impl.foldRight(xs)("")((x, acc) => x.toString*x + acc) == "122333444455555")
+    assert (Lecture0505_ReductionOfLists.Impl.foldLeft(xs)("")((acc, x) => acc + x.toString*x) == "122333444455555")
+    assert (Lecture0505_ReductionOfLists.Impl.foldRight(xs)("")((x, acc) => x.toString*x + acc) == "122333444455555")
   }
 
   test("Impl2") {
     val xs = List(1,2,3)
     val ys = List(4,5,6)
-    assert (Lesson0505_ReductionOfLists.Impl2.concat(xs, ys) === List(1,2,3,4,5,6))
+    assert (Lecture0505_ReductionOfLists.Impl2.concat(xs, ys) === List(1,2,3,4,5,6))
   }
 
   test("exercise") {
     val xs = List("jin", "choi", "rocks")
-    assert (Lesson0505_ReductionOfLists.exercise.mapFun(xs, (x:String)=>x.size) === List(3,4,5))
-    assert (Lesson0505_ReductionOfLists.exercise.lengthFun(xs) === 3)
+    assert (Lecture0505_ReductionOfLists.exercise.mapFun(xs, (x:String)=>x.size) === List(3,4,5))
+    assert (Lecture0505_ReductionOfLists.exercise.lengthFun(xs) === 3)
   }
 
 }

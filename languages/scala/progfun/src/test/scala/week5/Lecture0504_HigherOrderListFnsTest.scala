@@ -8,13 +8,13 @@ class Lecture0504_HigherOrderListFnsTest extends FunSuite{
   val xs1pos = List(1,2,3)
 
   test("squareList") {
-    assert (Lesson0504_HigherOrderListFns.Mapping.squareListByPatternMatching(xs1) === xs1sq)
-    assert (Lesson0504_HigherOrderListFns.Mapping.squareListByMap(xs1) === xs1sq)
+    assert (Lecture0504_HigherOrderListFns.Mapping.squareListByPatternMatching(xs1) === xs1sq)
+    assert (Lecture0504_HigherOrderListFns.Mapping.squareListByMap(xs1) === xs1sq)
   }
 
   test("posElems") {
-    assert (Lesson0504_HigherOrderListFns.Filtering.posElemsByPatternMatching(xs1) === xs1pos)
-    assert (Lesson0504_HigherOrderListFns.Filtering.posElemsByFilter(xs1) === xs1pos)
+    assert (Lecture0504_HigherOrderListFns.Filtering.posElemsByPatternMatching(xs1) === xs1pos)
+    assert (Lecture0504_HigherOrderListFns.Filtering.posElemsByFilter(xs1) === xs1pos)
   }
 
   test("more higher order methods on list - filter, filterNot, partition") {
@@ -38,13 +38,13 @@ class Lecture0504_HigherOrderListFnsTest extends FunSuite{
   test("pack") {
     val xs = List("a", "a", "a", "b", "c", "c", "a")
     val xsPacked = List(List("a", "a", "a"), List("b"), List("c", "c"), List("a"))
-    assert (Lesson0504_HigherOrderListFns.exercise.pack(xs) === xsPacked)
+    assert (Lecture0504_HigherOrderListFns.exercise.pack(xs) === xsPacked)
   }
 
   test("encode") {
     val input = List("a", "a", "a", "b", "c", "c", "a")
     val expected = List(("a", 3), ("b", 1), ("c", 2), ("a", 1))
-    assert (Lesson0504_HigherOrderListFns.exercise.encodeByJin(input) === expected)
-    assert (Lesson0504_HigherOrderListFns.exercise.encodeByMartin(input) === expected)
+    assert (Lecture0504_HigherOrderListFns.exercise.encodeByJin(input) === expected)
+    assert (Lecture0504_HigherOrderListFns.exercise.encodeByMartin(input) === expected)
   }
 }

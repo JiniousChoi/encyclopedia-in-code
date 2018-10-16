@@ -1,6 +1,6 @@
 package week5
 
-object Lesson0504_HigherOrderListFns {
+object Lecture0504_HigherOrderListFns {
   object Mapping {
     def squareListByPatternMatching(xs: List[Int]): List[Int] = xs match {
       case Nil => Nil

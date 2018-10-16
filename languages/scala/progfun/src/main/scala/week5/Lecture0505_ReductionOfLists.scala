@@ -8,7 +8,7 @@ import scala.annotation.tailrec
  * they insert and give an operator between adjacent elements of a list.
  */
 
-object Lesson0505_ReductionOfLists {
+object Lecture0505_ReductionOfLists {
   object Sum {
     def byReduceLeft (xs: List[Int]): Int =
       (0 :: xs) reduceLeft (_ + _)
