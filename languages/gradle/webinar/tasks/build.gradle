@@ -1,0 +1,63 @@
+/*
+ * Why another build tool?
+ * Ant :: too Imperative
+ * Maven :: too Declarative
+ * Gradle :: Basically declarative and yet customizable
+ * Gradle, the build file syntax, is actually an elaboration
+ * of the Groovy language. It's a domain-specific extension of Groovy
+ * A.k.a. DSL
+ */
+
+/*
+ * - A task is the basic unit of build activity in Gradle
+ * - A task is an object
+ *     - A task has an API
+ * - A task has a list of activities
+ * - Tasks from a Directed Acyclic Graph
+ * - A gradle build is ... a program
+ */
+
+/*
+ * `dependsOn` is a collection, 
+ * thus, a task can depend on many other tasks
+ */
+
+/* Just a task declaration without body 
+ * `$ gradle tasks --all`
+ */
+task helloworld_bodyless
+
+
+task helloworld
+
+helloworld {
+    doLast {
+        println "Hello World, Jin"
+    }
+}
+
+task hello
+task world
+
+world {
+    // `<<` is one Groovy syntax for adding an object to a collection.
+    dependsOn << hello
+    // IMPERATIVE !!!
+    doLast { println "World" }
+}
+
+hello {
+    doLast { print "Hello, " }
+}
+
+task helloworld2 {
+    dependsOn << world << hello
+}
+
+def whatsUp() {
+    // This is a legit Groovy function. 
+    // Even so you probably don't want a lot of this directly
+    // in Gradle Build by the time the build is produciton ready
+    // That would be sorta like having an all imperative build.
+    println "Hey, glad you are leaning about Gradle today!"
+}

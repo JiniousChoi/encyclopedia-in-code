@@ -1,0 +1,36 @@
+allprojects {
+  apply plugin: 'java'
+
+  repositories {
+    mavenCentral()
+  }
+}
+
+dependencies {
+  compile project(':codec')
+  compile project(':content')
+}
+
+project(':content') {
+  dependencies {
+    testCompile 'junit:junit:4.9'
+  }
+}
+
+project(':codec') {
+  dependencies {
+    compile 'commons-codec:commons-codec:1.6'
+  }
+}
+
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.0'
+}
+
+
+task poetry(type: JavaExec) {
+  main = 'com.nofluff.poetry.PoetryEmitter'
+  classpath = sourceSets.main.runtimeClasspath
+}
+

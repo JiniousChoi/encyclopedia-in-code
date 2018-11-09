@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'commons-codec:commons-codec:1.6'
+}
+
+// this is a task running java programs
+task caesar(type: JavaExec) {
+    main = 'org.gradle.poetry.Poetry'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task crypticCaesar(type: JavaExec) {
+    main = 'org.gradle.poetry.CrypticPoetry'
+    classpath = sourceSets.main.runtimeClasspath
+}
