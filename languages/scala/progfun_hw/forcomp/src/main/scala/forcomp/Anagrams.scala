@@ -1,5 +1,7 @@
 package forcomp
 
+import scala.annotation.tailrec
+
 object Anagrams {
 
   /** A word is simply a `String`. */
@@ -32,14 +34,14 @@ object Anagrams {
    *  same character, and are represented as a lowercase character in the occurrence list.
    *
    *  Note: you must use `groupBy` to implement this method!
-   *  e.g. "BAAC" becomes List( ('A',2), ('B',1), ('C',1) )
+   *  e.g. "BaAC" becomes List( ('a',2), ('b',1), ('c',1) )
    */
   def wordOccurrences(w: Word): Occurrences =
     w.groupBy(c => c.toLower).map{ case (c, cs) => (c, cs.size) }.toList.sorted
 
 
   /** Converts a sentence into its character occurrence list. */
-  def sentenceOccurrences(s: Sentence): Occurrences = s flatMap wordOccurrences
+  def sentenceOccurrences(s: Sentence): Occurrences = wordOccurrences(s.mkString(""))
 
   /** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
    *  the words that have that occurrence count.
@@ -87,7 +89,17 @@ object Anagrams {
    *  Note that the order of the occurrence list subsets does not matter -- the subsets
    *  in the example above could have been displayed in some other order.
    */
-  def combinations(occurrences: Occurrences): List[Occurrences] = ???
+  def combinations(occurrences: Occurrences): List[Occurrences] = {
+    if (occurrences == Nil) List(occurrences)
+    else {
+      val sub_combi = combinations(occurrences.tail)
+      val (h_c, h_i) = occurrences.head
+      for {
+        i <- (0 to h_i).toList
+        sub_occ <- sub_combi
+      } yield if (i==0) sub_occ else (h_c, i) :: sub_occ
+    }
+  }
 
   /** Subtracts occurrence list `y` from occurrence list `x`.
    *
@@ -98,12 +110,16 @@ object Anagrams {
    *
    *  Note: the resulting value is an occurrence - meaning it is sorted
    *  and has no zero-entries.
+   *
+   *  Time Complexity: O(n*n)
+   *  TODO: We could make this O(n)
    */
+  @tailrec
   def subtract(xs: Occurrences, ys: Occurrences): Occurrences = {
     if (ys == List()) xs
     else {
       val (y_c, y_i) = ys.head
-      val xs1 = for ( (x_c, x_i) <- xs ) yield if (x_c!=y_c) (x_c, x_i) else (x_c, x_i-y_i)
+      val xs1 = for ( (x_c, x_i) <- xs ) yield if (x_c != y_c) (x_c, x_i) else (x_c, x_i-y_i)
       val xs2 = xs1.filter{ case (c,i) => i>0 }
       subtract(xs2, ys.tail)
     }
@@ -149,5 +165,20 @@ object Anagrams {
    *
    *  Note: There is only one anagram of an empty sentence.
    */
-  def sentenceAnagrams(sentence: Sentence): List[Sentence] = ???
+  def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
+    val occ2words = dictionaryByOccurrences withDefaultValue List()
+    def occAnagrams(occ: Occurrences): List[Sentence] = {
+      if (occ.isEmpty) List(Nil)
+      else {
+        for {
+          part_occ <- combinations(occ)
+          rest_occ = subtract(occ, part_occ)
+          a_word <- occ2words(part_occ)
+          sentence <- occAnagrams(rest_occ)
+        } yield a_word :: sentence
+      }
+    }
+    val occ = sentenceOccurrences(sentence)
+    occAnagrams(occ)
+  }
 }

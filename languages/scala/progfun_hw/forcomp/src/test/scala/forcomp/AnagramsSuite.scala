@@ -24,8 +24,15 @@ class AnagramsSuite extends FunSuite  {
     assert(wordOccurrences("Robert") === List(('b', 1), ('e', 1), ('o', 1), ('r', 2), ('t', 1)))
   }
 
+  test("sentenceOccurences: List()") {
+    assert (sentenceOccurrences(List()) === List() )
+  }
+
   test("sentenceOccurrences: abcd e") {
     assert(sentenceOccurrences(List("abcd", "e")) === List(('a', 1), ('b', 1), ('c', 1), ('d', 1), ('e', 1)))
+  }
+  test("sentenceOccurrences: abcd ABCD e") {
+    assert(sentenceOccurrences(List("abcd", "ABCD", "e")) === List(('a', 2), ('b', 2), ('c', 2), ('d', 2), ('e', 1)))
   }
 
   test("dictionaryByOccurrences.get: eat") {
@@ -54,6 +61,22 @@ class AnagramsSuite extends FunSuite  {
     assert(combinations(Nil) === List(Nil))
   }
 
+  test("zip and unzip") {
+    val xs = List(1,2)
+    val ys = List('a','b')
+    val zipped = xs zip ys
+    assert (zipped === List((1,'a'), (2,'b')))
+
+    val (xs_new, ys_new) = zipped.unzip
+    assert (xs === xs_new)
+    assert (ys === ys_new)
+  }
+
+  test("range test") {
+    val ls = for( i <- 1 to 5) yield i
+    assert (ls === List(1,2,3,4,5))
+  }
+
   test("combinations: abba") {
     val abba = List(('a', 2), ('b', 2))
     val abbacomb = List(
@@ -74,6 +97,15 @@ class AnagramsSuite extends FunSuite  {
   test("sentence anagrams: []") {
     val sentence = List()
     assert(sentenceAnagrams(sentence) === List(Nil))
+  }
+
+  test("sentence anagrams: cat") {
+    val sentence = List("c", "a", "t")
+    val anas = List(
+      List("act"),
+      List("cat")
+    )
+    assert (sentenceAnagrams(sentence).toSet === anas.toSet)
   }
 
   test("sentence anagrams: Linux rulez") {
