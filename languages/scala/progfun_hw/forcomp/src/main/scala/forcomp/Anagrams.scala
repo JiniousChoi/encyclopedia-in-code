@@ -181,4 +181,27 @@ object Anagrams {
     val occ = sentenceOccurrences(sentence)
     occAnagrams(occ)
   }
+
+  /** Optional Quiz **/
+  def sentenceAnagramsMemo(sentence: Sentence): List[Sentence] = {
+    val memo = scala.collection.mutable.Map[Occurrences,List[Sentence]]()
+    val occ2words = dictionaryByOccurrences withDefaultValue List()
+    def occAnagramsMemo(occ: Occurrences): List[Sentence] = {
+      if (occ.isEmpty) List(Nil)
+      else if (memo contains occ) memo(occ)
+      else {
+        val res = for {
+          part_occ <- combinations(occ)
+          rest_occ = subtract(occ, part_occ)
+          a_word <- occ2words(part_occ)
+          sentence <- occAnagramsMemo(rest_occ)
+        } yield a_word :: sentence
+        memo(occ) = res
+        res
+      }
+    }
+    val occ = sentenceOccurrences(sentence)
+    occAnagramsMemo(occ)
+
+  }
 }
