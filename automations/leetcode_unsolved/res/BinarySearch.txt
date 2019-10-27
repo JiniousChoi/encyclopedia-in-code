@@ -1,0 +1,237 @@
+4	
+Median of Two Sorted Arrays    
+		27.6%	Hard	
+	29	
+Divide Two Integers    
+		16.2%	Medium	
+	33	
+Search in Rotated Sorted Array    
+		33.3%	Medium	
+	34	
+Find First and Last Position of Element in Sorted Array    
+		34.4%	Medium	
+	35	
+Search Insert Position    
+		41.2%	Easy	
+	50	
+Pow(x, n)    
+		28.7%	Medium	
+	69	
+Sqrt(x)    
+		32.3%	Easy	
+	74	
+Search a 2D Matrix    
+		35.4%	Medium	
+	81	
+Search in Rotated Sorted Array II    
+		32.8%	Medium	
+	153	
+Find Minimum in Rotated Sorted Array    
+		43.8%	Medium	
+	154	
+Find Minimum in Rotated Sorted Array II    
+		39.9%	Hard	
+	162	
+Find Peak Element    
+		42.0%	Medium	
+	167	
+Two Sum II - Input array is sorted    
+		51.7%	Easy	
+	174	
+Dungeon Game    
+		28.3%	Hard	
+	209	
+Minimum Size Subarray Sum    
+		35.9%	Medium	
+	222	
+Count Complete Tree Nodes    
+		38.1%	Medium	
+	230	
+Kth Smallest Element in a BST    
+		54.0%	Medium	
+	240	
+Search a 2D Matrix II    
+		41.7%	Medium	
+	270	
+Closest Binary Search Tree Value    
+		45.1%	Easy	
+	275	
+H-Index II    
+		35.8%	Medium	
+	278	
+First Bad Version    
+		31.7%	Easy	
+	287	
+Find the Duplicate Number    
+		51.4%	Medium	
+	300	
+Longest Increasing Subsequence    
+		41.6%	Medium	
+	302	
+Smallest Rectangle Enclosing Black Pixels    
+		50.2%	Hard	
+	315	
+Count of Smaller Numbers After Self    
+		39.8%	Hard	
+	327	
+Count of Range Sum    
+		33.8%	Hard	
+	349	
+Intersection of Two Arrays    
+		57.4%	Easy	
+	350	
+Intersection of Two Arrays II    
+		49.4%	Easy	
+	352	
+Data Stream as Disjoint Intervals    
+		44.4%	Hard	
+	354	
+Russian Doll Envelopes    
+		34.5%	Hard	
+	363	
+Max Sum of Rectangle No Larger Than K    
+		35.7%	Hard	
+	367	
+Valid Perfect Square    
+		40.5%	Easy	
+	374	
+Guess Number Higher or Lower    
+		40.6%	Easy	
+	378	
+Kth Smallest Element in a Sorted Matrix    
+		51.1%	Medium	
+	392	
+Is Subsequence    
+		47.6%	Easy	
+	410	
+Split Array Largest Sum    
+		43.2%	Hard	
+	436	
+Find Right Interval    
+		43.7%	Medium	
+	441	
+Arranging Coins    
+		38.8%	Easy	
+	454	
+4Sum II    
+		51.7%	Medium	
+	475	
+Heaters    
+		32.4%	Easy	
+	483	
+Smallest Good Base    
+		34.7%	Hard	
+	493	
+Reverse Pairs    
+		23.9%	Hard	
+	497	
+Random Point in Non-overlapping Rectangles    
+		36.7%	Medium	
+	528	
+Random Pick with Weight    
+		43.2%	Medium	
+	644	
+Maximum Average Subarray II    
+		29.9%	Hard	
+	658	
+Find K Closest Elements    
+		39.0%	Medium	
+	668	
+Kth Smallest Number in Multiplication Table    
+		43.3%	Hard	
+	702	
+Search in a Sorted Array of Unknown Size    
+		62.4%	Medium	
+	704	
+Binary Search    
+		49.7%	Easy	
+	710	
+Random Pick with Blacklist    
+		32.2%	Hard	
+	718	
+Maximum Length of Repeated Subarray    
+		47.6%	Medium	
+	719	
+Find K-th Smallest Pair Distance    
+		30.1%	Hard	
+	744	
+Find Smallest Letter Greater Than Target    
+		44.6%	Easy	
+	774	
+Minimize Max Distance to Gas Station    
+		43.8%	Hard	
+	778	
+Swim in Rising Water    
+		49.4%	Hard	
+	786	
+K-th Smallest Prime Fraction    
+		41.0%	Hard	
+	793	
+Preimage Size of Factorial Zeroes Function    
+		39.3%	Hard	
+	852	
+Peak Index in a Mountain Array    
+		70.2%	Easy	
+	862	
+Shortest Subarray with Sum at Least K    
+		22.8%	Hard	
+	875	
+Koko Eating Bananas    
+		47.7%	Medium	
+	878	
+Nth Magical Number    
+		26.3%	Hard	
+	887	
+Super Egg Drop    
+		25.8%	Hard	
+	911	
+Online Election    
+		48.3%	Medium	
+	927	
+Three Equal Parts    
+		31.1%	Hard	
+	981	
+Time Based Key-Value Store    
+		51.8%	Medium	
+	1011	
+Capacity To Ship Packages Within D Days    
+		55.3%	Medium	
+	1044	
+Longest Duplicate Substring    
+		23.7%	Hard	
+	1060	
+Missing Element in Sorted Array    
+		53.8%	Medium	
+	1064	
+Fixed Point    
+		71.6%	Easy	
+	1095	
+Find in Mountain Array    
+		34.7%	Hard	
+	1111	
+Maximum Nesting Depth of Two Valid Parentheses Strings    
+		67.3%	Medium	
+	1150	
+Check If a Number Is Majority Element in a Sorted Array    
+		61.4%	Easy	
+	1157	
+Online Majority Element In Subarray    
+		33.3%	Hard	
+	1182	
+Shortest Distance to Target Color    
+		51.8%	Medium	
+	1198	
+Find Smallest Common Element in All Rows    
+		73.8%	Medium	
+	1201	
+Ugly Number III    
+		24.3%	Medium	
+	1231	
+Divide Chocolate    
+		49.9%	Hard	
+	1235	
+Maximum Profit in Job Scheduling    
+		44.1%	Hard	
+	1237	
+Find Positive Integer Solution for a Given Equation    
+		60.6%	Easy

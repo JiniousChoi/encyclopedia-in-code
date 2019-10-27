@@ -1,0 +1,102 @@
+23	
+Merge k Sorted Lists    
+		36.7%	Hard	
+	215	
+Kth Largest Element in an Array    
+		50.5%	Medium	
+	218	
+The Skyline Problem    
+		32.7%	Hard	
+	239	
+Sliding Window Maximum    
+		39.7%	Hard	
+	253	
+Meeting Rooms II    
+		43.9%	Medium	
+	264	
+Ugly Number II    
+		37.8%	Medium	
+	295	
+Find Median from Data Stream    
+		39.3%	Hard	
+	313	
+Super Ugly Number    
+		42.9%	Medium	
+	347	
+Top K Frequent Elements    
+		57.2%	Medium	
+	355	
+Design Twitter    
+		28.5%	Medium	
+	358	
+Rearrange String k Distance Apart    
+		33.8%	Hard	
+	373	
+Find K Pairs with Smallest Sums    
+		34.7%	Medium	
+	378	
+Kth Smallest Element in a Sorted Matrix    
+		51.1%	Medium	
+	407	
+Trapping Rain Water II    
+		40.1%	Hard	
+	451	
+Sort Characters By Frequency    
+		57.6%	Medium	
+	502	
+IPO    
+		38.5%	Hard	
+	659	
+Split Array into Consecutive Subsequences    
+		41.9%	Medium	
+	692	
+Top K Frequent Words    
+		47.6%	Medium	
+	703	
+Kth Largest Element in a Stream    
+		47.2%	Easy	
+	719	
+Find K-th Smallest Pair Distance    
+		30.1%	Hard	
+	743	
+Network Delay Time    
+		44.4%	Medium	
+	759	
+Employee Free Time    
+		63.0%	Hard	
+	767	
+Reorganize String    
+		44.5%	Medium	
+	778	
+Swim in Rising Water    
+		49.4%	Hard	
+	786	
+K-th Smallest Prime Fraction    
+		41.0%	Hard	
+	787	
+Cheapest Flights Within K Stops    
+		36.5%	Medium	
+	818	
+Race Car    
+		36.9%	Hard	
+	857	
+Minimum Cost to Hire K Workers    
+		48.6%	Hard	
+	864	
+Shortest Path to Get All Keys    
+		38.3%	Hard	
+	871	
+Minimum Number of Refueling Stops    
+		30.3%	Hard	
+	882	
+Reachable Nodes In Subdivided Graph    
+		39.0%	Hard	
+	973	
+K Closest Points to Origin    
+		61.2%	Medium	
+	1046	
+Last Stone Weight    
+		62.4%	Easy	
+	1054	
+Distant Barcodes    
+		40.2%	Medium

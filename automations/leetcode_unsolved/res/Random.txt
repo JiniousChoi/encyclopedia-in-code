@@ -1,0 +1,18 @@
+470	
+Implement Rand10() Using Rand7()    
+		45.3%	Medium	
+	478	
+Generate Random Point in a Circle    
+		37.8%	Medium	
+	497	
+Random Point in Non-overlapping Rectangles    
+		36.7%	Medium	
+	519	
+Random Flip Matrix    
+		33.9%	Medium	
+	528	
+Random Pick with Weight    
+		43.2%	Medium	
+	710	
+Random Pick with Blacklist    
+		32.2%	Hard

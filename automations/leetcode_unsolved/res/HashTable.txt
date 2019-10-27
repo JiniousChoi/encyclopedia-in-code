@@ -1,0 +1,357 @@
+1	
+Two Sum    
+		44.7%	Easy	
+	3	
+Longest Substring Without Repeating Characters    
+		29.0%	Medium	
+	18	
+4Sum    
+		31.8%	Medium	
+	30	
+Substring with Concatenation of All Words    
+		24.3%	Hard	
+	36	
+Valid Sudoku    
+		45.3%	Medium	
+	37	
+Sudoku Solver    
+		39.3%	Hard	
+	49	
+Group Anagrams    
+		50.2%	Medium	
+	76	
+Minimum Window Substring    
+		32.3%	Hard	
+	85	
+Maximal Rectangle    
+		34.9%	Hard	
+	94	
+Binary Tree Inorder Traversal    
+		59.1%	Medium	
+	136	
+Single Number    
+		61.8%	Easy	
+	138	
+Copy List with Random Pointer    
+		29.8%	Medium	
+	149	
+Max Points on a Line    
+		16.2%	Hard	
+	159	
+Longest Substring with At Most Two Distinct Characters    
+		48.1%	Hard	
+	166	
+Fraction to Recurring Decimal    
+		20.2%	Medium	
+	170	
+Two Sum III - Data structure design    
+		31.9%	Easy	
+	187	
+Repeated DNA Sequences    
+		37.2%	Medium	
+	202	
+Happy Number    
+		47.1%	Easy	
+	204	
+Count Primes    
+		30.0%	Easy	
+	205	
+Isomorphic Strings    
+		38.5%	Easy	
+	217	
+Contains Duplicate    
+		53.7%	Easy	
+	219	
+Contains Duplicate II    
+		36.2%	Easy	
+	242	
+Valid Anagram    
+		54.0%	Easy	
+	244	
+Shortest Word Distance II    
+		49.7%	Medium	
+	246	
+Strobogrammatic Number    
+		43.4%	Easy	
+	249	
+Group Shifted Strings    
+		50.3%	Medium	
+	266	
+Palindrome Permutation    
+		60.7%	Easy	
+	274	
+H-Index    
+		35.0%	Medium	
+	288	
+Unique Word Abbreviation    
+		20.7%	Medium	
+	290	
+Word Pattern    
+		35.8%	Easy	
+	299	
+Bulls and Cows    
+		40.7%	Easy	
+	311	
+Sparse Matrix Multiplication    
+		58.0%	Medium	
+	314	
+Binary Tree Vertical Order Traversal    
+		42.3%	Medium	
+	325	
+Maximum Size Subarray Sum Equals k    
+		45.5%	Medium	
+	336	
+Palindrome Pairs    
+		32.1%	Hard	
+	340	
+Longest Substring with At Most K Distinct Characters    
+		41.5%	Hard	
+	347	
+Top K Frequent Elements    
+		57.2%	Medium	
+	349	
+Intersection of Two Arrays    
+		57.4%	Easy	
+	350	
+Intersection of Two Arrays II    
+		49.4%	Easy	
+	355	
+Design Twitter    
+		28.5%	Medium	
+	356	
+Line Reflection    
+		31.2%	Medium	
+	358	
+Rearrange String k Distance Apart    
+		33.8%	Hard	
+	359	
+Logger Rate Limiter    
+		67.2%	Easy	
+	380	
+Insert Delete GetRandom O(1)    
+		44.2%	Medium	
+	381	
+Insert Delete GetRandom O(1) - Duplicates allowed    
+		32.9%	Hard	
+	387	
+First Unique Character in a String    
+		50.8%	Easy	
+	389	
+Find the Difference    
+		53.8%	Easy	
+	409	
+Longest Palindrome    
+		48.9%	Easy	
+	438	
+Find All Anagrams in a String    
+		39.0%	Medium	
+	447	
+Number of Boomerangs    
+		50.6%	Easy	
+	451	
+Sort Characters By Frequency    
+		57.6%	Medium	
+	454	
+4Sum II    
+		51.7%	Medium	
+	463	
+Island Perimeter    
+		62.0%	Easy	
+	500	
+Keyboard Row    
+		63.0%	Easy	
+	508	
+Most Frequent Subtree Sum    
+		55.8%	Medium	
+	525	
+Contiguous Array    
+		43.9%	Medium	
+	535	
+Encode and Decode TinyURL    
+		78.0%	Medium	
+	554	
+Brick Wall    
+		48.4%	Medium	
+	560	
+Subarray Sum Equals K    
+		43.0%	Medium	
+	575	
+Distribute Candies    
+		60.2%	Easy	
+	594	
+Longest Harmonious Subsequence    
+		44.8%	Easy	
+	599	
+Minimum Index Sum of Two Lists    
+		48.9%	Easy	
+	609	
+Find Duplicate File in System    
+		56.9%	Medium	
+	624	
+Maximum Distance in Arrays    
+		38.0%	Easy	
+	632	
+Smallest Range Covering Elements from K Lists    
+		49.7%	Hard	
+	645	
+Set Mismatch    
+		41.2%	Easy	
+	648	
+Replace Words    
+		53.7%	Medium	
+	676	
+Implement Magic Dictionary    
+		52.5%	Medium	
+	690	
+Employee Importance    
+		55.1%	Easy	
+	692	
+Top K Frequent Words    
+		47.6%	Medium	
+	694	
+Number of Distinct Islands    
+		52.9%	Medium	
+	705	
+Design HashSet    
+		56.4%	Easy	
+	706	
+Design HashMap    
+		57.6%	Easy	
+	710	
+Random Pick with Blacklist    
+		32.2%	Hard	
+	711	
+Number of Distinct Islands II    
+		47.6%	Hard	
+	718	
+Maximum Length of Repeated Subarray    
+		47.6%	Medium	
+	720	
+Longest Word in Dictionary    
+		46.1%	Easy	
+	726	
+Number of Atoms    
+		46.0%	Hard	
+	734	
+Sentence Similarity    
+		41.2%	Easy	
+	739	
+Daily Temperatures    
+		61.0%	Medium	
+	748	
+Shortest Completing Word    
+		55.6%	Easy	
+	760	
+Find Anagram Mappings    
+		79.9%	Easy	
+	770	
+Basic Calculator IV    
+		46.1%	Hard	
+	771	
+Jewels and Stones    
+		83.9%	Easy	
+	781	
+Rabbits in Forest    
+		52.6%	Medium	
+	811	
+Subdomain Visit Count    
+		66.8%	Easy	
+	884	
+Uncommon Words from Two Sentences    
+		61.4%	Easy	
+	895	
+Maximum Frequency Stack    
+		58.2%	Hard	
+	930	
+Binary Subarrays With Sum    
+		39.6%	Medium	
+	939	
+Minimum Area Rectangle    
+		51.6%	Medium	
+	953	
+Verifying an Alien Dictionary    
+		55.5%	Easy	
+	954	
+Array of Doubled Pairs    
+		35.2%	Medium	
+	957	
+Prison Cells After N Days    
+		38.2%	Medium	
+	961	
+N-Repeated Element in Size 2N Array    
+		72.7%	Easy	
+	966	
+Vowel Spellchecker    
+		44.4%	Medium	
+	970	
+Powerful Integers    
+		39.6%	Easy	
+	974	
+Subarray Sums Divisible by K    
+		47.0%	Medium	
+	981	
+Time Based Key-Value Store    
+		51.8%	Medium	
+	987	
+Vertical Order Traversal of a Binary Tree    
+		33.0%	Medium	
+	992	
+Subarrays with K Different Integers    
+		45.5%	Hard	
+	1001	
+Grid Illumination    
+		34.8%	Hard	
+	1002	
+Find Common Characters    
+		65.8%	Easy	
+	1044	
+Longest Duplicate Substring    
+		23.7%	Hard	
+	1048	
+Longest String Chain    
+		51.0%	Medium	
+	1072	
+Flip Columns For Maximum Number of Equal Rows    
+		59.2%	Medium	
+	1078	
+Occurrences After Bigram    
+		64.6%	Easy	
+	1086	
+High Five    
+		75.3%	Easy	
+	1090	
+Largest Values From Labels    
+		57.5%	Medium	
+	1133	
+Largest Unique Number    
+		67.2%	Easy	
+	1138	
+Alphabet Board Path    
+		44.5%	Medium	
+	1152	
+Analyze User Website Visit Pattern    
+		38.9%	Medium	
+	1160	
+Find Words That Can Be Formed by Characters    
+		66.7%	Easy	
+	1166	
+Design File System    
+		58.5%	Medium	
+	1178	
+Number of Valid Words for Each Puzzle    
+		35.5%	Hard	
+	1189	
+Maximum Number of Balloons    
+		61.9%	Easy	
+	1198	
+Find Smallest Common Element in All Rows    
+		73.8%	Medium	
+	1207	
+Unique Number of Occurrences    
+		72.9%	Easy	
+	1213	
+Intersection of Three Sorted Arrays    
+		77.6%	Easy	
+	1224	
+Maximum Equal Frequency    
+		31.3%	Hard

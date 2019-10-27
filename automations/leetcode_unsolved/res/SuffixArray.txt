@@ -1,0 +1,3 @@
+1163	
+Last Substring in Lexicographical Order    
+		30.6%	Hard

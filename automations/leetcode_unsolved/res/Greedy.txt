@@ -1,0 +1,192 @@
+44	
+Wildcard Matching    
+		23.6%	Hard	
+	45	
+Jump Game II    
+		29.1%	Hard	
+	55	
+Jump Game    
+		32.7%	Medium	
+	122	
+Best Time to Buy and Sell Stock II    
+		53.4%	Easy	
+	134	
+Gas Station    
+		35.5%	Medium	
+	135	
+Candy    
+		29.6%	Hard	
+	253	
+Meeting Rooms II    
+		43.9%	Medium	
+	316	
+Remove Duplicate Letters    
+		33.7%	Hard	
+	321	
+Create Maximum Number    
+		26.0%	Hard	
+	330	
+Patching Array    
+		33.8%	Hard	
+	358	
+Rearrange String k Distance Apart    
+		33.8%	Hard	
+	376	
+Wiggle Subsequence    
+		38.4%	Medium	
+	392	
+Is Subsequence    
+		47.6%	Easy	
+	402	
+Remove K Digits    
+		27.1%	Medium	
+	406	
+Queue Reconstruction by Height    
+		61.5%	Medium	
+	435	
+Non-overlapping Intervals    
+		41.8%	Medium	
+	452	
+Minimum Number of Arrows to Burst Balloons    
+		47.5%	Medium	
+	455	
+Assign Cookies    
+		48.9%	Easy	
+	484	
+Find Permutation    
+		58.9%	Medium	
+	502	
+IPO    
+		38.5%	Hard	
+	621	
+Task Scheduler    
+		46.7%	Medium	
+	630	
+Course Schedule III    
+		32.6%	Hard	
+	649	
+Dota2 Senate    
+		38.2%	Medium	
+	651	
+4 Keys Keyboard    
+		51.4%	Medium	
+	659	
+Split Array into Consecutive Subsequences    
+		41.9%	Medium	
+	714	
+Best Time to Buy and Sell Stock with Transaction Fee    
+		52.1%	Medium	
+	738	
+Monotone Increasing Digits    
+		42.5%	Medium	
+	757	
+Set Intersection Size At Least Two    
+		37.2%	Hard	
+	759	
+Employee Free Time    
+		63.0%	Hard	
+	763	
+Partition Labels    
+		72.6%	Medium	
+	765	
+Couples Holding Hands    
+		52.5%	Hard	
+	767	
+Reorganize String    
+		44.5%	Medium	
+	842	
+Split Array into Fibonacci Sequence    
+		35.3%	Medium	
+	860	
+Lemonade Change    
+		50.8%	Easy	
+	861	
+Score After Flipping Matrix    
+		70.6%	Medium	
+	870	
+Advantage Shuffle    
+		43.5%	Medium	
+	874	
+Walking Robot Simulation    
+		33.3%	Easy	
+	881	
+Boats to Save People    
+		44.8%	Medium	
+	910	
+Smallest Range II    
+		24.9%	Medium	
+	921	
+Minimum Add to Make Parentheses Valid    
+		70.8%	Medium	
+	927	
+Three Equal Parts    
+		31.1%	Hard	
+	936	
+Stamping The Sequence    
+		35.6%	Hard	
+	944	
+Delete Columns to Make Sorted    
+		69.7%	Easy	
+	948	
+Bag of Tokens    
+		39.8%	Medium	
+	955	
+Delete Columns to Make Sorted II    
+		32.4%	Medium	
+	984	
+String Without AAA or BBB    
+		34.9%	Medium	
+	991	
+Broken Calculator    
+		42.1%	Medium	
+	995	
+Minimum Number of K Consecutive Bit Flips    
+		46.8%	Hard	
+	1005	
+Maximize Sum Of Array After K Negations    
+		50.3%	Easy	
+	1007	
+Minimum Domino Rotations For Equal Row    
+		51.3%	Medium	
+	1029	
+Two City Scheduling    
+		55.2%	Easy	
+	1046	
+Last Stone Weight    
+		62.4%	Easy	
+	1053	
+Previous Permutation With One Swap    
+		46.9%	Medium	
+	1055	
+Shortest Way to Form String    
+		57.3%	Medium	
+	1057	
+Campus Bikes    
+		58.3%	Medium	
+	1058	
+Minimize Rounding Error to Meet Target    
+		40.6%	Medium	
+	1090	
+Largest Values From Labels    
+		57.5%	Medium	
+	1094	
+Car Pooling    
+		57.0%	Medium	
+	1111	
+Maximum Nesting Depth of Two Valid Parentheses Strings    
+		67.3%	Medium	
+	1167	
+Minimum Cost to Connect Sticks    
+		61.5%	Medium	
+	1196	
+How Many Apples Can You Put into the Basket    
+		69.1%	Easy	
+	1217	
+Play with Chips    
+		63.5%	Easy	
+	1221	
+Split a String in Balanced Strings    
+		78.7%	Easy	
+	1231	
+Divide Chocolate    
+		49.9%	Hard

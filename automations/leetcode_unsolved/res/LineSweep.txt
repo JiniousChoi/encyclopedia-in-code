@@ -1,0 +1,12 @@
+218	
+The Skyline Problem    
+		32.7%	Hard	
+	391	
+Perfect Rectangle    
+		29.0%	Hard	
+	850	
+Rectangle Area II    
+		46.1%	Hard	
+	1229	
+Meeting Scheduler    
+		39.8%	Medium

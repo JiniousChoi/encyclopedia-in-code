@@ -1,0 +1,45 @@
+247	
+Strobogrammatic Number II    
+		45.8%	Medium	
+	248	
+Strobogrammatic Number III    
+		37.8%	Hard	
+	544	
+Output Contest Matches    
+		74.0%	Medium	
+	625	
+Minimum Factorization    
+		32.4%	Medium	
+	687	
+Longest Univalue Path    
+		34.6%	Easy	
+	698	
+Partition to K Equal Sum Subsets    
+		43.9%	Medium	
+	726	
+Number of Atoms    
+		46.0%	Hard	
+	761	
+Special Binary String    
+		53.3%	Hard	
+	776	
+Split BST    
+		53.5%	Medium	
+	779	
+K-th Symbol in Grammar    
+		37.4%	Medium	
+	783	
+Minimum Distance Between BST Nodes    
+		51.1%	Easy	
+	794	
+Valid Tic-Tac-Toe State    
+		31.2%	Medium	
+	894	
+All Possible Full Binary Trees    
+		72.0%	Medium	
+	938	
+Range Sum of BST    
+		78.3%	Easy	
+	1137	
+N-th Tribonacci Number    
+		58.0%	Easy

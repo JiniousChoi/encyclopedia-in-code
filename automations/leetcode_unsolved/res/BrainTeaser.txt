@@ -1,0 +1,15 @@
+292	
+Nim Game    
+		55.9%	Easy	
+	319	
+Bulb Switcher    
+		44.6%	Medium	
+	777	
+Swap Adjacent in LR String    
+		34.0%	Medium	
+	1033	
+Moving Stones Until Consecutive    
+		38.3%	Easy	
+	1227	
+Airplane Seat Assignment Probability    
+		61.7%	Medium	

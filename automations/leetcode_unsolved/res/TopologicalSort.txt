@@ -1,0 +1,18 @@
+207	
+Course Schedule    
+		39.7%	Medium	
+	210	
+Course Schedule II    
+		36.8%	Medium	
+	269	
+Alien Dictionary    
+		32.8%	Hard	
+	329	
+Longest Increasing Path in a Matrix    
+		41.3%	Hard	
+	444	
+Sequence Reconstruction    
+		20.8%	Medium	
+	1203	
+Sort Items by Groups Respecting Dependencies    
+		45.1%	Hard

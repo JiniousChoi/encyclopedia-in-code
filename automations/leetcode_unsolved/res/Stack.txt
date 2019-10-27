@@ -1,0 +1,159 @@
+20	
+Valid Parentheses    
+		37.4%	Easy	
+	42	
+Trapping Rain Water    
+		45.3%	Hard	
+	71	
+Simplify Path    
+		30.0%	Medium	
+	84	
+Largest Rectangle in Histogram    
+		32.5%	Hard	
+	85	
+Maximal Rectangle    
+		34.9%	Hard	
+	94	
+Binary Tree Inorder Traversal    
+		59.1%	Medium	
+	103	
+Binary Tree Zigzag Level Order Traversal    
+		43.7%	Medium	
+	144	
+Binary Tree Preorder Traversal    
+		53.0%	Medium	
+	145	
+Binary Tree Postorder Traversal    
+		50.8%	Hard	
+	150	
+Evaluate Reverse Polish Notation    
+		33.8%	Medium	
+	155	
+Min Stack    
+		39.4%	Easy	
+	173	
+Binary Search Tree Iterator    
+		51.3%	Medium	
+	224	
+Basic Calculator    
+		34.4%	Hard	
+	225	
+Implement Stack using Queues    
+		41.3%	Easy	
+	232	
+Implement Queue using Stacks    
+		45.4%	Easy	
+	255	
+Verify Preorder Sequence in Binary Search Tree    
+		44.6%	Medium	
+	272	
+Closest Binary Search Tree Value II    
+		47.3%	Hard	
+	316	
+Remove Duplicate Letters    
+		33.7%	Hard	
+	331	
+Verify Preorder Serialization of a Binary Tree    
+		39.3%	Medium	
+	341	
+Flatten Nested List Iterator    
+		49.9%	Medium	
+	385	
+Mini Parser    
+		32.5%	Medium	
+	394	
+Decode String    
+		46.9%	Medium	
+	402	
+Remove K Digits    
+		27.1%	Medium	
+	439	
+Ternary Expression Parser    
+		54.4%	Medium	
+	456	
+132 Pattern    
+		27.5%	Medium	
+	496	
+Next Greater Element I    
+		61.0%	Easy	
+	503	
+Next Greater Element II    
+		52.5%	Medium	
+	591	
+Tag Validator    
+		33.3%	Hard	
+	636	
+Exclusive Time of Functions    
+		49.8%	Medium	
+	682	
+Baseball Game    
+		61.8%	Easy	
+	726	
+Number of Atoms    
+		46.0%	Hard	
+	735	
+Asteroid Collision    
+		39.3%	Medium	
+	739	
+Daily Temperatures    
+		61.0%	Medium	
+	770	
+Basic Calculator IV    
+		46.1%	Hard	
+	772	
+Basic Calculator III    
+		41.3%	Hard	
+	844	
+Backspace String Compare    
+		46.7%	Easy	
+	856	
+Score of Parentheses    
+		57.9%	Medium	
+	880	
+Decoded String at Index    
+		23.7%	Medium	
+	895	
+Maximum Frequency Stack    
+		58.2%	Hard	
+	901	
+Online Stock Span    
+		51.8%	Medium	
+	907	
+Sum of Subarray Minimums    
+		29.4%	Medium	
+	921	
+Minimum Add to Make Parentheses Valid    
+		70.8%	Medium	
+	946	
+Validate Stack Sequences    
+		58.4%	Medium	
+	975	
+Odd Even Jump    
+		45.2%	Hard	
+	1003	
+Check If Word Is Valid After Substitutions    
+		53.0%	Medium	
+	1019	
+Next Greater Node In Linked List    
+		56.8%	Medium	
+	1021	
+Remove Outermost Parentheses    
+		75.4%	Easy	
+	1047	
+Remove All Adjacent Duplicates In String    
+		65.0%	Easy	
+	1063	
+Number of Valid Subarrays    
+		71.6%	Hard	
+	1124	
+Longest Well-Performing Interval    
+		32.0%	Medium	
+	1130	
+Minimum Cost Tree From Leaf Values    
+		61.6%	Medium	
+	1190	
+Reverse Substrings Between Each Pair of Parentheses    
+		57.1%	Medium	
+	1209	
+Remove All Adjacent Duplicates in String II    
+		57.9%	Medium

@@ -1,0 +1,147 @@
+10	
+Regular Expression Matching    
+		25.8%	Hard	
+	17	
+Letter Combinations of a Phone Number    
+		43.5%	Medium	
+	22	
+Generate Parentheses    
+		57.7%	Medium	
+	37	
+Sudoku Solver    
+		39.3%	Hard	
+	39	
+Combination Sum    
+		51.4%	Medium	
+	40	
+Combination Sum II    
+		44.0%	Medium	
+	44	
+Wildcard Matching    
+		23.6%	Hard	
+	46	
+Permutations    
+		58.2%	Medium	
+	47	
+Permutations II    
+		42.7%	Medium	
+	51	
+N-Queens    
+		42.0%	Hard	
+	52	
+N-Queens II    
+		54.2%	Hard	
+	60	
+Permutation Sequence    
+		34.4%	Medium	
+	77	
+Combinations    
+		50.4%	Medium	
+	78	
+Subsets    
+		55.9%	Medium	
+	79	
+Word Search    
+		32.7%	Medium	
+	89	
+Gray Code    
+		47.0%	Medium	
+	90	
+Subsets II    
+		44.1%	Medium	
+	93	
+Restore IP Addresses    
+		32.7%	Medium	
+	126	
+Word Ladder II    
+		19.3%	Hard	
+	131	
+Palindrome Partitioning    
+		43.2%	Medium	
+	140	
+Word Break II    
+		28.6%	Hard	
+	211	
+Add and Search Word - Data structure design    
+		32.5%	Medium	
+	212	
+Word Search II    
+		30.6%	Hard	
+	216	
+Combination Sum III    
+		53.5%	Medium	
+	254	
+Factor Combinations    
+		45.3%	Medium	
+	267	
+Palindrome Permutation II    
+		34.6%	Medium	
+	291	
+Word Pattern II    
+		42.1%	Hard	
+	294	
+Flip Game II    
+		49.1%	Medium	
+	306	
+Additive Number    
+		28.8%	Medium	
+	320	
+Generalized Abbreviation    
+		49.7%	Medium	
+	351	
+Android Unlock Patterns    
+		47.0%	Medium	
+	357	
+Count Numbers with Unique Digits    
+		47.6%	Medium	
+	401	
+Binary Watch    
+		45.9%	Easy	
+	411	
+Minimum Unique Word Abbreviation    
+		35.4%	Hard	
+	425	
+Word Squares    
+		45.7%	Hard	
+	526	
+Beautiful Arrangement    
+		55.9%	Medium	
+	691	
+Stickers to Spell Word    
+		40.1%	Hard	
+	784	
+Letter Case Permutation    
+		59.7%	Easy	
+	842	
+Split Array into Fibonacci Sequence    
+		35.3%	Medium	
+	980	
+Unique Paths III    
+		71.6%	Hard	
+	996	
+Number of Squareful Arrays    
+		47.6%	Hard	
+	1066	
+Campus Bikes II    
+		52.5%	Medium	
+	1079	
+Letter Tile Possibilities    
+		74.5%	Medium	
+	1087	
+Brace Expansion    
+		60.5%	Medium	
+	1088	
+Confusing Number II    
+		36.3%	Hard	
+	1215	
+Stepping Numbers    
+		35.8%	Medium	
+	1219	
+Path with Maximum Gold    
+		60.7%	Medium	
+	1239	
+Maximum Length of a Concatenated String with Unique Characters    
+		30.4%	Medium	
+	1240	
+Tiling a Rectangle with the Fewest Squares    
+		37.4%	Hard

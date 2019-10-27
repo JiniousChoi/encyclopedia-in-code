@@ -1,0 +1,108 @@
+133	
+Clone Graph    
+		29.3%	Medium	
+	207	
+Course Schedule    
+		39.7%	Medium	
+	210	
+Course Schedule II    
+		36.8%	Medium	
+	261	
+Graph Valid Tree    
+		40.7%	Medium	
+	269	
+Alien Dictionary    
+		32.8%	Hard	
+	310	
+Minimum Height Trees    
+		31.0%	Medium	
+	323	
+Number of Connected Components in an Undirected Graph    
+		53.2%	Medium	
+	332	
+Reconstruct Itinerary    
+		33.0%	Medium	
+	399	
+Evaluate Division    
+		49.1%	Medium	
+	444	
+Sequence Reconstruction    
+		20.8%	Medium	
+	684	
+Redundant Connection    
+		54.0%	Medium	
+	685	
+Redundant Connection II    
+		31.5%	Hard	
+	743	
+Network Delay Time    
+		44.4%	Medium	
+	765	
+Couples Holding Hands    
+		52.5%	Hard	
+	785	
+Is Graph Bipartite?    
+		45.1%	Medium	
+	802	
+Find Eventual Safe States    
+		45.8%	Medium	
+	839	
+Similar String Groups    
+		36.0%	Hard	
+	841	
+Keys and Rooms    
+		61.6%	Medium	
+	854	
+K-Similar Strings    
+		35.6%	Hard	
+	928	
+Minimize Malware Spread II    
+		39.6%	Hard	
+	959	
+Regions Cut By Slashes    
+		63.7%	Medium	
+	990	
+Satisfiability of Equality Equations    
+		41.6%	Medium	
+	996	
+Number of Squareful Arrays    
+		47.6%	Hard	
+	997	
+Find the Town Judge    
+		49.4%	Easy	
+	1042	
+Flower Planting With No Adjacent    
+		47.9%	Easy	
+	1043	
+Partition Array for Maximum Sum    
+		62.8%	Medium	
+	1059	
+All Paths from Source Lead to Destination    
+		44.4%	Medium	
+	1102	
+Path With Maximum Minimum Value    
+		46.5%	Medium	
+	1129	
+Shortest Path with Alternating Colors    
+		36.9%	Medium	
+	1135	
+Connecting Cities With Minimum Cost    
+		54.3%	Medium	
+	1136	
+Parallel Courses    
+		59.5%	Hard	
+	1153	
+String Transforms Into Another String    
+		33.6%	Hard	
+	1161	
+Maximum Level Sum of a Binary Tree    
+		70.8%	Medium	
+	1162	
+As Far from Land as Possible    
+		39.9%	Medium	
+	1168	
+Optimize Water Distribution in a Village    
+		55.7%	Hard	
+	1203	
+Sort Items by Groups Respecting Dependencies    
+		45.1%	Hard

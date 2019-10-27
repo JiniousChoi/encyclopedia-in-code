@@ -1,0 +1,123 @@
+146	
+LRU Cache    
+		28.0%	Medium	
+	155	
+Min Stack    
+		39.4%	Easy	
+	170	
+Two Sum III - Data structure design    
+		31.9%	Easy	
+	173	
+Binary Search Tree Iterator    
+		51.3%	Medium	
+	208	
+Implement Trie (Prefix Tree)    
+		41.5%	Medium	
+	211	
+Add and Search Word - Data structure design    
+		32.5%	Medium	
+	225	
+Implement Stack using Queues    
+		41.3%	Easy	
+	232	
+Implement Queue using Stacks    
+		45.4%	Easy	
+	244	
+Shortest Word Distance II    
+		49.7%	Medium	
+	251	
+Flatten 2D Vector    
+		44.7%	Medium	
+	281	
+Zigzag Iterator    
+		56.9%	Medium	
+	284	
+Peeking Iterator    
+		42.2%	Medium	
+	288	
+Unique Word Abbreviation    
+		20.7%	Medium	
+	295	
+Find Median from Data Stream    
+		39.3%	Hard	
+	297	
+Serialize and Deserialize Binary Tree    
+		43.3%	Hard	
+	341	
+Flatten Nested List Iterator    
+		49.9%	Medium	
+	346	
+Moving Average from Data Stream    
+		67.9%	Easy	
+	348	
+Design Tic-Tac-Toe    
+		51.5%	Medium	
+	353	
+Design Snake Game    
+		31.9%	Medium	
+	355	
+Design Twitter    
+		28.5%	Medium	
+	359	
+Logger Rate Limiter    
+		67.2%	Easy	
+	362	
+Design Hit Counter    
+		60.7%	Medium	
+	379	
+Design Phone Directory    
+		44.0%	Medium	
+	380	
+Insert Delete GetRandom O(1)    
+		44.2%	Medium	
+	381	
+Insert Delete GetRandom O(1) - Duplicates allowed    
+		32.9%	Hard	
+	432	
+All O`one Data Structure    
+		30.8%	Hard	
+	460	
+LFU Cache    
+		30.7%	Hard	
+	588	
+Design In-Memory File System    
+		42.1%	Hard	
+	604	
+Design Compressed String Iterator    
+		35.7%	Easy	
+	622	
+Design Circular Queue    
+		41.2%	Medium	
+	631	
+Design Excel Sum Formula    
+		30.1%	Hard	
+	635	
+Design Log Storage System    
+		56.5%	Medium	
+	641	
+Design Circular Deque    
+		50.1%	Medium	
+	642	
+Design Search Autocomplete System    
+		40.6%	Hard	
+	705	
+Design HashSet    
+		56.4%	Easy	
+	706	
+Design HashMap    
+		57.6%	Easy	
+	707	
+Design Linked List    
+		20.9%	Medium	
+	716	
+Max Stack    
+		41.3%	Easy	
+	1166	
+Design File System    
+		58.5%	Medium	
+	1172	
+Dinner Plate Stacks    
+		40.6%	Hard	
+	1206	
+Design Skiplist    
+		59.8%	Hard

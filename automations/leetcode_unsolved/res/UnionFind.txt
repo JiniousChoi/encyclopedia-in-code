@@ -1,0 +1,84 @@
+128	
+Longest Consecutive Sequence    
+		43.0%	Hard	
+	130	
+Surrounded Regions    
+		24.4%	Medium	
+	200	
+Number of Islands    
+		43.4%	Medium	
+	261	
+Graph Valid Tree    
+		40.7%	Medium	
+	305	
+Number of Islands II    
+		41.0%	Hard	
+	323	
+Number of Connected Components in an Undirected Graph    
+		53.2%	Medium	
+	399	
+Evaluate Division    
+		49.1%	Medium	
+	547	
+Friend Circles    
+		55.6%	Medium	
+	684	
+Redundant Connection    
+		54.0%	Medium	
+	685	
+Redundant Connection II    
+		31.5%	Hard	
+	721	
+Accounts Merge    
+		43.5%	Medium	
+	737	
+Sentence Similarity II    
+		44.4%	Medium	
+	765	
+Couples Holding Hands    
+		52.5%	Hard	
+	778	
+Swim in Rising Water    
+		49.4%	Hard	
+	803	
+Bricks Falling When Hit    
+		29.4%	Hard	
+	839	
+Similar String Groups    
+		36.0%	Hard	
+	924	
+Minimize Malware Spread    
+		41.0%	Hard	
+	928	
+Minimize Malware Spread II    
+		39.6%	Hard	
+	947	
+Most Stones Removed with Same Row or Column    
+		54.8%	Medium	
+	952	
+Largest Component Size by Common Factor    
+		27.8%	Hard	
+	959	
+Regions Cut By Slashes    
+		63.7%	Medium	
+	990	
+Satisfiability of Equality Equations    
+		41.6%	Medium	
+	1061	
+Lexicographically Smallest Equivalent String    
+		62.6%	Medium	
+	1101	
+The Earliest Moment When Everyone Become Friends    
+		65.0%	Medium	
+	1102	
+Path With Maximum Minimum Value    
+		46.5%	Medium	
+	1135	
+Connecting Cities With Minimum Cost    
+		54.3%	Medium	
+	1168	
+Optimize Water Distribution in a Village    
+		55.7%	Hard	
+	1202	
+Smallest String With Swaps    
+		40.9%	Medium

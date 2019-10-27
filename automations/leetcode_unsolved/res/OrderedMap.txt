@@ -1,0 +1,30 @@
+220	
+Contains Duplicate III    
+		20.2%	Medium	
+	352	
+Data Stream as Disjoint Intervals    
+		44.4%	Hard	
+	683	
+K Empty Slots    
+		34.8%	Hard	
+	699	
+Falling Squares    
+		40.5%	Hard	
+	715	
+Range Module    
+		36.7%	Hard	
+	731	
+My Calendar II    
+		46.5%	Medium	
+	732	
+My Calendar III    
+		57.1%	Hard	
+	846	
+Hand of Straights    
+		50.3%	Medium	
+	855	
+Exam Room    
+		40.0%	Medium	
+	975	
+Odd Even Jump    
+		45.2%	Hard

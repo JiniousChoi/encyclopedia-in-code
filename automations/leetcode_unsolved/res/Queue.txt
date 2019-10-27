@@ -1,0 +1,27 @@
+346	
+Moving Average from Data Stream    
+		67.9%	Easy	
+	353	
+Design Snake Game    
+		31.9%	Medium	
+	363	
+Max Sum of Rectangle No Larger Than K    
+		35.7%	Hard	
+	582	
+Kill Process    
+		57.8%	Medium	
+	621	
+Task Scheduler    
+		46.7%	Medium	
+	622	
+Design Circular Queue    
+		41.2%	Medium	
+	641	
+Design Circular Deque    
+		50.1%	Medium	
+	862	
+Shortest Subarray with Sum at Least K    
+		22.8%	Hard	
+	933	
+Number of Recent Calls    
+		69.6%	Easy	

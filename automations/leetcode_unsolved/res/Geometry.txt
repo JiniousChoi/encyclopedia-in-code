@@ -1,0 +1,12 @@
+587	
+Erect the Fence    
+		34.6%	Hard	
+	892	
+Surface Area of 3D Shapes    
+		57.0%	Easy	
+	963	
+Minimum Area Rectangle II    
+		47.2%	Medium	
+	1232	
+Check If It Is a Straight Line    
+		47.3%	Easy

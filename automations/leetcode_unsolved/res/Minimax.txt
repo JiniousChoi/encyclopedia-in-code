@@ -1,0 +1,24 @@
+292	
+Nim Game    
+		55.9%	Easy	
+	294	
+Flip Game II    
+		49.1%	Medium	
+	375	
+Guess Number Higher or Lower II    
+		38.8%	Medium	
+	464	
+Can I Win    
+		28.1%	Medium	
+	486	
+Predict the Winner    
+		47.1%	Medium	
+	843	
+Guess the Word    
+		45.2%	Hard	
+	877	
+Stone Game    
+		62.6%	Medium	
+	913	
+Cat and Mouse    
+		29.8%	Hard
