@@ -1,7 +1,7 @@
 version: '2'
 services:
   zoo1:
-    image: 31z4/zookeeper
+    image: 31z4/zookeeper:3.4
     container_name: zoo1
     hostname: zoo1
     ports:
@@ -11,7 +11,7 @@ services:
       ZOO_MY_ID: 1
       ZOO_SERVERS: server.1=0.0.0.0:2888:3888 server.2=zoo2:2888:3888 server.3=zoo3:2888:3888
   zoo2:
-    image: 31z4/zookeeper
+    image: 31z4/zookeeper:3.4
     container_name: zoo2
     hostname: zoo2
     ports:
@@ -21,7 +21,7 @@ services:
       ZOO_MY_ID: 2
       ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=0.0.0.0:2888:3888 server.3=zoo3:2888:3888
   zoo3:
-    image: 31z4/zookeeper
+    image: 31z4/zookeeper:3.4
     container_name: zoo3
     hostname: zoo3
     ports:
@@ -32,7 +32,7 @@ services:
       ZOO_SERVERS: server.1=zoo1:2888:3888 server.2=zoo2:2888:3888 server.3=0.0.0.0:2888:3888
 
   kafka1:
-    image: wurstmeister/kafka
+    image: wurstmeister/kafka:2.12-2.3.0
     container_name: kafka1
     hostname: kafka1
     environment:
@@ -43,7 +43,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   kafka2:
-    image: wurstmeister/kafka
+    image: wurstmeister/kafka:2.12-2.3.0
     container_name: kafka2
     hostname: kafka2
     environment:
@@ -54,7 +54,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
   kafka3:
-    image: wurstmeister/kafka
+    image: wurstmeister/kafka:2.12-2.3.0
     container_name: kafka3
     hostname: kafka3
     environment:
