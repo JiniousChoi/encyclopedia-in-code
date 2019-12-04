@@ -42,10 +42,37 @@ def stream_take(stream, cnt):
     val, stream = stream()
     return (val, stream_take(stream, cnt-1))
 
+@lazy
+def stream_drop(stream, cnt):
+    for i in range(cnt):
+        _, stream = stream()
+    return stream()
+
+@lazy
+def stream_map(stream, fn):
+    while True:
+        val, stream = stream()
+        if val==nil:
+            return (nil, stream)
+        return (fn(val), stream)
+
 ######################
 # stream terminators #
 ######################
+
+def stream_reduce(stream, f, z=None):
+    while True:
+        val, stream = stream()
+        if val == nil:
+            return z
+        z = f(z, val)
     
+def stream_sum(stream):
+    return stream_reduce(stream, lambda z,v: z+v, 0)
+
+def stream_mult(stream):
+    return stream_reduce(stream, lambda z,v: z*v, 1)
+
 def stream_print(stream):
     while True:
         val, stream = stream()
@@ -88,8 +115,17 @@ def main2():
 def main3():
     nat = natural(1)
     nat10 = stream_take(nat, 10)
-    # nat10 should be an Iterator
+    # to make nat10 be usable in builtin sum fn,
+    # it should be of an Iterator type,
     # implementing: __iter__, __next__ methods
+    # but I prefer to make a general reduce fn for such accumulating fns
     print(sum(nat10))
 
-main()
+def main4():
+    nat = natural(1)
+    nat_from_10 = stream_drop(nat, 10)
+    nat_10_to_20 = stream_take(nat_from_10, 10)
+    stream_print(nat_10_to_20)
+    print(stream_sum(nat_10_to_20))
+
+main4()
