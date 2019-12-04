@@ -3,6 +3,8 @@
 
 from math import sqrt
 
+nil = object()
+
 def lazy_seq(body):
     ''' impossible to implement
         lisp-like languages support macro for its arguments
@@ -11,10 +13,50 @@ def lazy_seq(body):
         in each stream fn I want to implement. '''
     pass
 
+def lazy(func, *args, **kwargs):
+    def wrapper(*args, **kwargs):
+        def body():
+            return func(*args, **kwargs)
+        return body
+    return wrapper
+
+@lazy
+def stream_null():
+    return (nil, stream_null)
+
+@lazy
 def natural(n=1):
-    def body():
-        return (n, natural(n+1))
-    return body
+    return (n, natural(n+1))
+
+@lazy
+def stream_filter(stream, pred):
+    while True:
+        val, stream = stream()
+        if pred(val):
+            return (val, stream_filter(stream, pred))
+
+@lazy
+def stream_take(stream, cnt):
+    if cnt <= 0:
+        return (nil, stream_null)
+    val, stream = stream()
+    return (val, stream_take(stream, cnt-1))
+
+######################
+# stream terminators #
+######################
+    
+def stream_print(stream):
+    while True:
+        val, stream = stream()
+        if val == nil:
+            break
+        print(val)
+    print()
+
+##############
+# predicates #
+##############
 
 def is_even(n):
     return n%2==0
@@ -26,36 +68,28 @@ def is_prime(n):
         if n%i==0: return False
     return True
 
-def stream_filter(stream0, pred):
-    ''' this also should return a stream '''
-    def body():
-        # without this, UnboundLocalError: local variable 'stream0' referenced before assignment
-        stream = stream0
-        while True:
-            val, stream = stream()
-            if pred(val):
-                return (val, stream_filter(stream, pred))
-    return body
-            
-def stream_take(stream0, cnt):
-    def body():
-        stream = stream0
-        if cnt <= 0:
-            raise Exception()
-        val, stream = stream()
-        return (val, stream_take(stream, cnt-1))
-
-    return body
-    
-def stream_print(stream):
-    while True:
-        val, stream = stream()
-        print(val)
+########
+# main #
+########
 
 def main():
     #stream_print(natural())
 
     sf = stream_filter(natural(10**13), is_prime)
     stream_print(sf)
+
+def main2():
+    nat = natural(1)
+    nat10 = stream_take(nat, 10)
+    nat5 = stream_take(nat10, 5)
+    nat15 = stream_take(nat5, 15)
+    stream_print(nat15)
+
+def main3():
+    nat = natural(1)
+    nat10 = stream_take(nat, 10)
+    # nat10 should be an Iterator
+    # implementing: __iter__, __next__ methods
+    print(sum(nat10))
 
 main()
