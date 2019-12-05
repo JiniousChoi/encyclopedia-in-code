@@ -2,6 +2,7 @@
 #- author: jinchoiseoul@gmail.com
 
 from math import sqrt
+from functools import reduce
 
 nil = object()
 
@@ -14,6 +15,14 @@ def lazy_seq(body):
     pass
 
 def lazy(func, *args, **kwargs):
+    ''' every function decorated with `lazy` should be 
+        applied twice to get cons. It's because they 
+        get to be wrapped in a hidden function named `body`
+        to defer the immediate application of the function.
+        for example, a function, stream_nil, decorated with `lazy`:
+            stream_nil is \->\->(nil, stream_nil()) # lazy_cons_maker
+            stream_nil() is \->(nil, stream_nil()) # lazy_cons # THIS IS THE ACTUAL STREAM
+            stream_nil()() is (nil, stream_nil()) # cons '''
     def wrapper(*args, **kwargs):
         def body():
             return func(*args, **kwargs)
@@ -21,34 +30,49 @@ def lazy(func, *args, **kwargs):
     return wrapper
 
 @lazy
-def stream_null():
-    return (nil, stream_null)
+def stream_nil():
+    return (nil, stream_nil())
 
 @lazy
-def stream(col, i=0):
+def stream_from(col, i=0):
     if len(col) <= i:
-        return stream_null()()
-    return col[i], stream(col, i+1)
+        return stream_nil()()
+    return col[i], stream_from(col, i+1)
 
 @lazy
 def stream_it(it):
     v = next(it, nil)
     if v==nil:
-        return (nil, stream_null)
+        return (nil, stream_nil())
     else:
         return (v, stream_it(it))
 
 @lazy
 def stream_chain(*streams, i=0):
-    #import pdb; pdb.set_trace()
     if len(streams) <= i:
-        return (nil, stream_null)
+        return (nil, stream_nil())
     v, s = (streams[i])()
     if v == nil:
         return stream_chain(*streams, i=i+1)()
     new_streams = list(streams)
     new_streams[i] = s
     return v, stream_chain(*new_streams, i=i)
+
+def stream_chain_reduce(*streams):
+    ''' How about make stream_chain by utilizing reduce '''
+    return reduce(stream_chain_two, streams, stream_nil())
+
+@lazy
+def stream_chain_two(stream1, stream2, i=0):
+    if 2 <= i:
+        return (nil, stream_nil())
+    s = stream1 if i==0 else stream2
+    v, s = s()
+    if v == nil:
+        return stream_chain_two(stream1, stream2, i+1)()
+    stream1 = s if i==0 else stream1
+    stream2 = s if i==1 else stream2
+    return v, stream_chain_two(stream1, stream2, i)
 
 @lazy
 def natural(n=1):
@@ -64,8 +88,8 @@ def stream_filter(stream, pred):
 @lazy
 def stream_take(stream, cnt):
     if cnt <= 0:
-        # return (nil, stream_null)
-        return stream_null()()
+        # return (nil, stream_nil())
+        return stream_nil()()
     val, stream = stream()
     return (val, stream_take(stream, cnt-1))
 
@@ -95,6 +119,11 @@ def stream_reduce(stream, f, z=None):
         z = f(z, val)
    
 def stream_sum(stream):
+    ''' to make a stream usable in builtin sum fn,
+        it should be of an Iterator type,
+        implementing: __iter__, __next__ methods,
+        However, for simplicity, I prefer to make 
+        a general reduce fn for such accumulating ones '''
     return stream_reduce(stream, lambda z,v: z+v, 0)
 
 def stream_mult(stream):
@@ -122,14 +151,3 @@ def is_prime(n):
         if n%i==0: return False
     return True
 
-########
-# main #
-########
-
-def main7():
-    ''' test chain '''
-    some_nums = stream([3,6,9])
-    other_chs = stream(list("abc"))
-    some_primes = stream([2,3,5,7,11,13,17,19])
-    chained = stream_chain(some_nums, other_chs, some_primes)
-    stream_print(chained)
