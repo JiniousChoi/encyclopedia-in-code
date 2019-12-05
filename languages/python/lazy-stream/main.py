@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 #- author: jinchoiseoul@gmail.com
+#- this is an educational implementation for stream authored by me.
 
 from math import sqrt
 from functools import reduce
 
-nil = object()
+###################
+# LAZY DECORATORS #
+###################
 
 def lazy_seq(body):
     ''' impossible to implement
@@ -19,64 +22,74 @@ def lazy(func, *args, **kwargs):
         applied twice to get cons. It's because they 
         get to be wrapped in a hidden function named `body`
         to defer the immediate application of the function.
-        for example, a function, stream_nil, decorated with `lazy`:
-            stream_nil is \->\->(nil, stream_nil()) # lazy_cons_maker
-            stream_nil() is \->(nil, stream_nil()) # lazy_cons # THIS IS THE ACTUAL STREAM
-            stream_nil()() is (nil, stream_nil()) # cons '''
+        for example, a function, repeat, decorated with `lazy`:
+            repeat: \v->\->(v, repeat(v)) # lazy_cons_maker
+            repeat(v) : \->(v, repeat(v)) # lazy_cons # a.k.a STREAM
+            repeat(v)() :  (v, repeat(v)) # cons '''
     def wrapper(*args, **kwargs):
         def body():
             return func(*args, **kwargs)
         return body
     return wrapper
 
-@lazy
-def stream_nil():
-    return (nil, stream_nil())
+################################
+# STREAM_GENERATORS, MODIFIERS #
+################################
+
+''' 
+A stream is a (in)finite cons with a lazyness attribute.
+It's a type of `\->(v, stream)`, so it needs to be executed
+to retrieve the head value form the stream.
+'''
 
 @lazy
-def stream_from(col, i=0):
+def repeat(v):
+    return (v, repeat(v))
+
+@lazy
+def iterate(v, f):
+    return (v, iterate(f(v), f))
+
+@lazy
+def genstream_from(col, i=0):
     if len(col) <= i:
-        return stream_nil()()
-    return col[i], stream_from(col, i+1)
+        return NIL_STREAM()
+    return col[i], genstream_from(col, i+1)
 
 @lazy
-def stream_it(it):
-    v = next(it, nil)
-    if v==nil:
-        return (nil, stream_nil())
+def genstream_it(it):
+    v = next(it, NIL)
+    if v==NIL:
+        return (NIL, NIL_STREAM)
     else:
-        return (v, stream_it(it))
+        return (v, genstream_it(it))
 
 @lazy
-def stream_chain(*streams, i=0):
+def genstream_chain(*streams, i=0):
     if len(streams) <= i:
-        return (nil, stream_nil())
+        return (NIL, NIL_STREAM)
     v, s = (streams[i])()
-    if v == nil:
-        return stream_chain(*streams, i=i+1)()
+    if v == NIL:
+        return genstream_chain(*streams, i=i+1)()
     new_streams = list(streams)
     new_streams[i] = s
-    return v, stream_chain(*new_streams, i=i)
+    return v, genstream_chain(*new_streams, i=i)
 
 def stream_chain_reduce(*streams):
     ''' How about make stream_chain by utilizing reduce '''
-    return reduce(stream_chain_two, streams, stream_nil())
+    return reduce(genstream_chain_two, streams, NIL_STREAM)
 
 @lazy
-def stream_chain_two(stream1, stream2, i=0):
+def genstream_chain_two(stream1, stream2, i=0):
     if 2 <= i:
-        return (nil, stream_nil())
+        return (NIL, NIL_STREAM)
     s = stream1 if i==0 else stream2
     v, s = s()
-    if v == nil:
-        return stream_chain_two(stream1, stream2, i+1)()
+    if v == NIL:
+        return genstream_chain_two(stream1, stream2, i+1)()
     stream1 = s if i==0 else stream1
     stream2 = s if i==1 else stream2
-    return v, stream_chain_two(stream1, stream2, i)
-
-@lazy
-def natural(n=1):
-    return (n, natural(n+1))
+    return v, genstream_chain_two(stream1, stream2, i)
 
 @lazy
 def stream_filter(stream, pred):
@@ -88,8 +101,7 @@ def stream_filter(stream, pred):
 @lazy
 def stream_take(stream, cnt):
     if cnt <= 0:
-        # return (nil, stream_nil())
-        return stream_nil()()
+        return NIL_STREAM()
     val, stream = stream()
     return (val, stream_take(stream, cnt-1))
 
@@ -103,18 +115,25 @@ def stream_drop(stream, cnt):
 def stream_map(stream, fn):
     while True:
         val, stream = stream()
-        if val==nil:
-            return (nil, stream)
+        if val==NIL:
+            return (NIL, stream)
         return (fn(val), stream)
 
+#################
+# GLOBAL VALUES #
+#################
+
+NIL = object()
+NIL_STREAM = repeat(NIL)
+
 ######################
-# stream terminators #
+# STREAM TERMINATORS #
 ######################
 
 def stream_reduce(stream, f, z=None):
     while True:
         val, stream = stream()
-        if val == nil:
+        if val == NIL:
             return z
         z = f(z, val)
    
@@ -132,13 +151,13 @@ def stream_mult(stream):
 def stream_print(stream):
     while True:
         val, stream = stream()
-        if val == nil:
+        if val == NIL:
             break
         print(val)
     print()
 
 ##############
-# predicates #
+# PREDICATES #
 ##############
 
 def is_even(n):
