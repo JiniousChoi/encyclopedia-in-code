@@ -58,14 +58,16 @@ class StreamTest(unittest.TestCase):
         self.assertEqual(stream_sum(some_nums), 18)
         self.assertEqual(stream_mult(some_nums), 162)
 
-    @unittest.skip("doesn't work yet")
-    def test_chain(self):
+    def test_chain_simple(self):
+        some_nums = stream([3,6,9])
+        chained = stream_chain(some_nums)
+        self.assertStreamIs(chained, [3,6,9])
+
+    def test_chain_compplex(self):
         some_nums = stream([3,6,9])
         some_chars = stream(list("abc"))
-        chained1 = stream_chain(some_nums)
-        chained2 = stream_chain(some_nums, some_chars)
-        self.assertStreamIs(chained1, [3, 6, 9])
-        self.assertStreamIs(chained2, [3, 6, 9, 'a', 'b', 'c'])
+        chained = stream_chain(some_nums, some_chars)
+        self.assertStreamIs(chained, [3,6,9,'a','b','c'])
 
 if __name__=='__main__':
     unittest.main()

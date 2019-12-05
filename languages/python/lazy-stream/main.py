@@ -24,8 +24,11 @@ def lazy(func, *args, **kwargs):
 def stream_null():
     return (nil, stream_null)
 
-def stream(col):
-    return stream_it(iter(col))
+@lazy
+def stream(col, i=0):
+    if len(col) <= i:
+        return stream_null()()
+    return col[i], stream(col, i+1)
 
 @lazy
 def stream_it(it):
@@ -36,22 +39,16 @@ def stream_it(it):
         return (v, stream_it(it))
 
 @lazy
-def stream_chain_err(*streams, i=0):
-    if len(streams) <= i:
-        return (nil, stream_null)
-    v, s = (streams[i])()
-    if v != nil:
-        return v, stream_chain(*streams, i)
-    return stream_chain(*streams, i+1)
-
-@lazy
 def stream_chain(*streams, i=0):
+    #import pdb; pdb.set_trace()
     if len(streams) <= i:
         return (nil, stream_null)
     v, s = (streams[i])()
-    if v != nil:
-        return v, stream_chain(*streams, i)
-    return stream_chain(*streams, i+1)
+    if v == nil:
+        return stream_chain(*streams, i=i+1)()
+    new_streams = list(streams)
+    new_streams[i] = s
+    return v, stream_chain(*new_streams, i=i)
 
 @lazy
 def natural(n=1):
