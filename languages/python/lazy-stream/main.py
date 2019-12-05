@@ -24,6 +24,35 @@ def lazy(func, *args, **kwargs):
 def stream_null():
     return (nil, stream_null)
 
+def stream(col):
+    return stream_it(iter(col))
+
+@lazy
+def stream_it(it):
+    v = next(it, nil)
+    if v==nil:
+        return (nil, stream_null)
+    else:
+        return (v, stream_it(it))
+
+@lazy
+def stream_chain_err(*streams, i=0):
+    if len(streams) <= i:
+        return (nil, stream_null)
+    v, s = (streams[i])()
+    if v != nil:
+        return v, stream_chain(*streams, i)
+    return stream_chain(*streams, i+1)
+
+@lazy
+def stream_chain(*streams, i=0):
+    if len(streams) <= i:
+        return (nil, stream_null)
+    v, s = (streams[i])()
+    if v != nil:
+        return v, stream_chain(*streams, i)
+    return stream_chain(*streams, i+1)
+
 @lazy
 def natural(n=1):
     return (n, natural(n+1))
@@ -38,7 +67,8 @@ def stream_filter(stream, pred):
 @lazy
 def stream_take(stream, cnt):
     if cnt <= 0:
-        return (nil, stream_null)
+        # return (nil, stream_null)
+        return stream_null()()
     val, stream = stream()
     return (val, stream_take(stream, cnt-1))
 
@@ -66,7 +96,7 @@ def stream_reduce(stream, f, z=None):
         if val == nil:
             return z
         z = f(z, val)
-    
+   
 def stream_sum(stream):
     return stream_reduce(stream, lambda z,v: z+v, 0)
 
@@ -99,33 +129,10 @@ def is_prime(n):
 # main #
 ########
 
-def main():
-    #stream_print(natural())
-
-    sf = stream_filter(natural(10**13), is_prime)
-    stream_print(sf)
-
-def main2():
-    nat = natural(1)
-    nat10 = stream_take(nat, 10)
-    nat5 = stream_take(nat10, 5)
-    nat15 = stream_take(nat5, 15)
-    stream_print(nat15)
-
-def main3():
-    nat = natural(1)
-    nat10 = stream_take(nat, 10)
-    # to make nat10 be usable in builtin sum fn,
-    # it should be of an Iterator type,
-    # implementing: __iter__, __next__ methods
-    # but I prefer to make a general reduce fn for such accumulating fns
-    print(sum(nat10))
-
-def main4():
-    nat = natural(1)
-    nat_from_10 = stream_drop(nat, 10)
-    nat_10_to_20 = stream_take(nat_from_10, 10)
-    stream_print(nat_10_to_20)
-    print(stream_sum(nat_10_to_20))
-
-main4()
+def main7():
+    ''' test chain '''
+    some_nums = stream([3,6,9])
+    other_chs = stream(list("abc"))
+    some_primes = stream([2,3,5,7,11,13,17,19])
+    chained = stream_chain(some_nums, other_chs, some_primes)
+    stream_print(chained)
