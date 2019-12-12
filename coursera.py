@@ -10,6 +10,14 @@ WEEK_TMPL = "https://www.coursera.org/learn/progfun1/home/week/{}"
 WEEK_START = 1
 WEEK_STOP = 6
 
+def stderrln(msg):
+    sys.stderr.write(msg)
+    sys.stderr.write('\n')
+
+def stdoutln(msg):
+    sys.stdout.write(msg)
+    sys.stdout.write('\n')
+
 def week_links(start, stop):
     ''' [week_link holding links of lectures for the week] '''
     assert start <= stop
@@ -32,7 +40,7 @@ def css_select(browser, css):
             #waiting for the browser to be fully loaded
             sleep(1)
 
-    sys.stderr.write("[ERR] given css({}) cannot be found\n".format(css))
+    stderrln("[ERR] given css({}) cannot be found".format(css))
 
 def location(browser):
     ''' url::str '''
@@ -71,17 +79,17 @@ def main():
     for week_link in week_links(WEEK_START, WEEK_STOP):
         browser.get(week_link)
 
-        sys.stdout.write('========== starting week_link({}) ==========\n'.format(week_link))
+        stdoutln('========== starting week_link({}) =========='.format(week_link))
 
         for lecture_link in lecture_links(browser):
 
-            sys.stdout.write('===== starting lecture_link({}) =====\n'.format(lecture_link))
+            stdoutln('===== starting lecture_link({}) ====='.format(lecture_link))
             browser.get(lecture_link)
 
             try:
                 headline = inner_html(css_select(browser, 'h1.headline-2-text')).replace(' ','')
             except Exception:
-                sys.stderr.write("no headline found. Abort this lecture link\n")
+                stderrln("no headline found. Abort this lecture link")
                 continue
 
             try:
@@ -89,34 +97,34 @@ def main():
                 if subtitle_lnk:
                     fp.write('wget "{}" -O {}.vtt\n'.format(subtitle_lnk, headline))
             except Exception:
-                sys.stderr.write("no subtitle link found\n")
+                stderrln("no subtitle link found")
 
             try:
                 transcript_lnk = href(css_select(browser, '.rc-TranscriptDownloadItem'))
                 if transcript_lnk:
                     fp.write('wget "{}" -O {}.txt\n'.format(transcript_lnk, headline))
             except Exception:
-                sys.stderr.write("no transcript link found\n")
+                stderrln("no transcript link found")
             
             try:
                 slide_lnk = href(css_select(browser, '.rc-AssetDownloadItem'))
                 if slide_lnk:
                     fp.write('wget "{}" -O {}.pdf\n'.format(slide_lnk, headline))
             except Exception:
-                sys.stderr.write("no slide link found\n")
+                stderrln("no slide link found")
             
             try:
-                click(css_select(browser, '.rc-LectureDownloadItem\n'))
+                click(css_select(browser, '.rc-LectureDownloadItem'))
                 video_lnk = browser.current_url
                 if video_lnk:
                     fp.write('wget "{}" -O {}.mp4\n'.format(video_lnk, headline))
             except Exception:
-                sys.stderr.write("no video link found\n")
+                stderrln("no video link found")
 
             fp.write('\n')
             fp.flush()
 
-            sys.stdout.write('===== end of lecture_link =====\n')
+            stdoutln('===== end of lecture_link =====')
             
     fp.close()
 
