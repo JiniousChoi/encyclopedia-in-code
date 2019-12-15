@@ -1,0 +1,27 @@
+----- jtrees
+* make complete binary search tree out of sorted array
+* make linked lists for each level of tree
+* more balanced bst such as red black tree, etc
+
+----- jgraphs
+* ford-fulkerson algorithm
+* dijkstra
+* bellman-ford
+* floyd
+* spanning tree: prim, kruskal
+* reTRIEval
+
+----- jcollections
+* Counter, ...
+
+----- jstacks
+----- jqueues
+* Queue, deque, priority queue
+----- jmaps
+----- jsets
+
+----- jstrings
+* substring - kmp, boyer-moore
+* prefix - 
+* suffix - suffix array(manber-myers algorithm), suffix tree
+
