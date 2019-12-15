@@ -1,0 +1,16 @@
+[user]
+	email = jinchoiseoul@gmail.com
+	name = jin choi
+[alias]
+    ss = status
+    co = checkout
+    bh = branch
+    lg = log --pretty=oneline --graph --decorate --all
+    diffc = diff --cached
+[core]
+	editor = /usr/bin/vim
+[credential]
+	helper = store
+[push]
+	default = simple
+
