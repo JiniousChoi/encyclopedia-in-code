@@ -1,0 +1,2 @@
+sudo apt-get install -y libjpeg-dev
+pip install pillow

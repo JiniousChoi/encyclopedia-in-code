@@ -1,0 +1,16 @@
+유투브: https://www.youtube.com/watch?v=hpaknsaOr8Y 
+
+@bt 192.168.1.112
+@ubuntu 192.168.1.111
+
+root@bt:~# ssh -R 14433:localhost:22 student@192.168.1.111
+//내생각엔, student가 서버(14433포트)가 되는거고 root가 이제 클라이언트가 된다.
+//따라서 학생이가 집에 와서 14433포트로 연결을 시도하면 자동으로 root@bt네 쉘이 떨어진다.
+
+@ubuntu:~# netstat -naop | grep "192.168.1.112"
+@ubuntu:22가 @bt:53674에 ESTABLISHED 상태가 됨.
+
+root@ubuntu:~# ssh -p 14433 student@localhost
+student@bt:~$ 쉘이 떨어지네??? @bt에도 원래 student 계정이 있는거겠지????
+student@bt:~$ netstat -nao | grep "192.168.1.111(@ubuntu)"
+@bt:53674가 @ubuntu:22 에 ESTABLISHED 상태.
