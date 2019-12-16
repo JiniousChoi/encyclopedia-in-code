@@ -1,0 +1,54 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: python-sample
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: python-sample-app
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: python-sample-app
+    spec:
+      containers:
+      - name: python-sample
+        image: pywsgi-flask:latest
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 500m
+            memory: 200Mi
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-sample-svc
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: python-sample-app
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: python-sample-ingress
+  namespace: default
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: python-sample-svc
+          servicePort: 80
