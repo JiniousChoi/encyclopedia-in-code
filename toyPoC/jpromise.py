@@ -3,10 +3,8 @@
 from time import sleep
 
 '''
-javascript-like toy implementation for the Promise Design Pattern
-'''
+toy implementation for the javascript-like Promise Design Pattern
 
-'''
 TODO
 - introduce lock machanism in case of a promise being executed on a worker thread
 - implement worker thread
