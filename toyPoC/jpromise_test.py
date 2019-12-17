@@ -64,6 +64,15 @@ class PromiseTest(unittest.TestCase):
             self.assertEqual(10, v)
         p = Promise(f).then(g).then(lambda v: v+8)
         p.then(assert_callback)
+
+    def test_promise_uses_then_in_a_sec(self):
+        def f(resolve, reject):
+            resolve(3)
+        def assert_callback(v):
+            self.assertEqual(v, 6)
+        p = Promise(f)
+        sleep(1)
+        p.then(lambda x: x*2).then(assert_callback)
         
 
 def setTimeout(f, t):
