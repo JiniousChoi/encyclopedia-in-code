@@ -9,7 +9,7 @@ class Promise:
 
     def then(self, f):
         ''' @f is a function that returns
-            a Promise object or any object ```
+            a Promise object or any object '''
         pass
 
     def catch(self, xxx):
