@@ -2,40 +2,60 @@
 
 from time import sleep
 
+'''
+javascript-like toy implementation for the Promise Design Pattern
+'''
+
+'''
+TODO
+- introduce lock machanism in case of a promise being executed on a worker thread
+- implement worker thread
+- allow more-than-one chains on a promise
+-- as-is: throws an AssertionError
+'''
+
 class Promise:
-    def __init__(self, f, x=None):
+    def __init__(self, f, auto=True):
         self.f = f
+        self.v = None
+        self.next = None
         self.state = 'pending'
+        if auto:
+            self.start()
 
-    def then(self, f):
-        ''' @f is a function that returns
-            a Promise object or any object '''
+    def start(self):
+        if self.state == 'pending':
+            self.f(self.resolve, self.reject)
+        
+    def then(self, t):
+        ''' @f is a function that returns a Promise object '''
+        def p(resolve, reject):
+            res = t(self.v)
+            if isinstance(res, Promise):
+                def f(res2):
+                    resolve(res2)
+                res.then(f)
+            else:
+                resolve(res)
+        # to keep it simple as PoC
+        assert self.next == None
+        self.next = Promise(p, auto=False)
+        if self.state == 'done':
+            self.try_next()
+        return self.next
+
+    def catch(self, err):
         pass
 
-    def catch(self, xxx):
+    def resolve(self, v):
+        self.v = v
+        self.state = 'done'
+        self.try_next()
+
+    def try_next(self):
+        if self.next != None:
+            self.next.start()
+
+    def reject(self, e):
         pass
 
-
-def fetch_promise():
-    def f(resolve, reject):
-        # delay as in network
-        sleep(2) 
-        resolve(10)
-    return Promise(f)
-
-def double_promise(res):
-    def f(resolve, reject):
-        resolve(2*res)
-    return Promise(f)
-
-def print_promise(res):
-    def f(resolve, reject):
-        print(res)
-        resolve(res)
-    return Promise(f)
-
-def main():
-    produce_promise().then(double_promise).then(print_promise)
-    
-
-main()
