@@ -1,0 +1,28 @@
+a list:
+- 1
+- 42
+- 3.141
+- 1337
+- help
+- €
+a string: bla
+another dict:
+  foo: bar
+  key: value
+  the answer: 42
+
+yet another dict:
+  level1:
+    foo: bar
+    key: val
+  level2:
+    name: jin
+    key: none
+
+b list:
+  c list:
+    - a
+    - b
+  d list:
+    - e
+    - f
