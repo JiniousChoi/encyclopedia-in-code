@@ -1,0 +1,67 @@
+{
+  "_id" : "_design/db"
+  ,"views" : {
+    "stats" : {
+      "map" : "function(doc){
+        if( typeof(doc.name) === 'string'
+         && typeof(doc.score) === 'number' ) {
+          emit(doc.name, doc.score);
+        };
+      }"
+      ,"reduce" : "function(keys,values,rereduce){
+        if( rereduce ) {
+          var result = {
+            topScore: values[0].topScore
+            ,bottomScore: values[0].bottomScore
+            ,sum: values[0].sum
+            ,count: values[0].count
+          };
+          
+          for(var i=1,e=values.length; i<e; ++i) {
+            result.sum = result.sum + values[i].sum;
+            result.count = result.count + values[i].count;
+      
+            if( result.topScore < values[i].topScore ) {
+              result.topScore = values[i].topScore;
+            };
+            if( result.bottomScore > values[i].bottomScore ) {
+              result.bottomScore = values[i].bottomScore;
+            };
+          };
+          
+          result.mean = (result.sum / result.count);
+        
+          log('rereduce keys:'+toJSON(keys)+' values:'+toJSON(values)+' result:'+toJSON(result));
+        
+          return result;
+        };
+        
+        // Non-rereduce case
+        var result = {
+          topScore: values[0]
+          ,bottomScore: values[0]
+          ,sum: values[0]
+          ,count: 1
+        };
+        
+        for(var i=1,e=keys.length; i<e; ++i) {
+          result.sum = result.sum + values[i];
+          result.count = result.count + 1;
+          
+          if( result.topScore < values[i] ) {
+            result.topScore = values[i];
+          };
+          if( result.bottomScore > values[i] ) {
+            result.bottomScore = values[i];
+          };
+        };
+        
+        result.mean = (result.sum / result.count);
+        
+        log('reduce keys:'+toJSON(keys)+' values:'+toJSON(values)+' result:'+toJSON(result));
+        
+        return result;
+      }"
+    }
+  }
+}
