@@ -1,0 +1,53 @@
+<html>
+
+<style>
+.copy {
+    height:100px;
+    width:200px;
+}
+</style>
+
+<textarea id='talk' rows='10' cols='100'></textarea>
+
+<div>
+  <button class="copy">COPY</button>
+  <button id="send" class="copy">SEND</button>
+</div>
+
+<div>
+  <span>글자수: </span>
+  <span class="result">0</span>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const tarea = document.querySelector('#talk')
+  const res = document.querySelector('.result')
+  const btn = document.querySelector('.copy')
+  
+  tarea.addEventListener('input', (event) => {
+    const len = tarea.value.replace(/ /g, '').replace(/\n/g, '').length;
+    // console.log(tarea.value, len);
+    res.textContent = len
+  });
+
+  btn.addEventListener('click', (event) => {
+    tarea.select(); //내용 전체 선택
+    document.execCommand("copy"); // 복사
+    tarea.setSelectionRange(0, 0); // 선택영역 초기화
+  });
+
+  const socket = io();
+  socket.on('connect', socket => {
+	console.log('User Connected');
+  });
+
+  var s = document.querySelector('#send');
+  s.addEventListener('click', (event) => {
+    // event.preventDefault();
+    socket.emit('msg', tarea.value);
+    return false;
+  });
+</script>
+
+</html>
