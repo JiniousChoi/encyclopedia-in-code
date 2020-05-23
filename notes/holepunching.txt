@@ -1,0 +1,40 @@
+# tcptunnel (틀린 키워드)
+그냥 ssh (reverse/forward/socks) proxy 수준임
+
+# pwnat
+STUN/TURN 서버없는 NAT-behind 머신간 홀펀칭기술
+없는 주소 1.2.3.4 등에 패킷을 날려 서로 p2p 연결을 맺는 해킹법
+지금은 안됨 (설명: https://stackoverflow.com/questions/22985793/is-pwnat-still-an-applicable-solution)
+
+# ICE
+- STUN:(위키피셜) 큰 carrier 회사는 대칭 NAT가 안된다고..? (소리바다는?) TURN이 있나? 이상한데..
+- TURN
+
+# SIP: VoIP 등의 SIP 게이트웨이를 의미
+
+# 토렌트, p2p는 내가 이루고자 하는 것의 열쇠인가?
+
+# STUNtman
+- http://www.stunprotocol.org/
+- https://github.com/jselbie/stunserver
+- open source impl. of the STUN protocol
+- 
+
+공공 STUN 서버 목록: https://gist.github.com/zziuni/3741933
+- stun.l.google.com:19302
+- stunserver.org
+- stun.softjoys.com
+...
+
+
+Q. javascript-based app 개발이 가능한가?
+A. 확실한건 syn, ack 조정이 필요하므로 root 권한 및 tcp/ip 스택에 대한 시스템라이브러리 활용이 필요. 따라서 javascript-based webapp 끼리의 p2p는 불가능.
+
+Q. (클라서버 둘다 NAT-behind) 안드로이드/우분투(서버역할) 와 javascript-based webapp 간 p2p는 가능한가?
+A. (부정확하나) stun 서버 개입시에도 불가능하지 않나 싶음. 어쨌거나 여기선 양측 모두 자신의 NAT에게 자신이 클라인척 속여야 하는 입장. 그러기 위해 서로에서 상대가 서버인척 SYN을 날리지만 동시에 클라로서 ACK도 날려야 하는 상황. 따라서 패킷단위 조정이 불가한 브라우져단의 webapp으론 p2p 컨넥션을 맺는것은 불가. 결국 앱이 필요 (웹이 하나라도 낀다면 불가능하나 아래 질문의 따라 TURN서버류(브라우져웹클라1 <--> 중계서버 <--> 브라우져웹클라2)로 가능하며 이건 vpn서버 운용에 준하는 비용이 들기에 유료부가서비스 형태가 될듯
+
+Q. js-based webapp 이 public ip와 firewall이 없을 시엔 리스닝모드가 가능한가?
+A. 2020년 현재로선 불가능함.
+
+Q 토렌트 공유는 공유기 뒤에서 가능한가?
+A 해보니 하나라도 공유기 뒤로 숨으면 불가능했음. 홈랜 공인ip를 단 pc와 모바일네트워크 핫스팟을 단 노트북 간에는 공유가 가능했음. 이걸로 미루어보아 "토렌트는 p2p간 모든 최신 기술을 반영하려는 기술적 준비와 의지가 있다"는 그럴듯한 가설로 미루어보건대 홀펀칭으로 클라간 파일전송앱은 기술적 한계가 너무나 명확하다고 판단. 한국 기준으로 공유기가 달려있지 않은 집은 손에 꼽을 것임.
